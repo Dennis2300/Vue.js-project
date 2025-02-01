@@ -1,5 +1,27 @@
+@import url("https://cdn.jsdelivr.net/npm/@league-spartan/webfont@latest/league-spartan.css");
+
+/*Global Colours*/
+:root {
+  --background: #232946;
+  --headline: #fffffe;
+  --paragraph: #b8c1ec;
+  --button: #eebbc3;
+  --button-text: #232946;
+  --stroke: #121629;
+  --main: #b8c1ec;
+  --highlight: #eebbc3;
+  --secondary: #fffffe;
+  --tertiary: #eebbc3;
+}
+
 * {
-    background-color: wheat;
-    padding: 0%;
-    margin: 0%;
+  background-color: var(--background);
+  padding: 0%;
+  margin: 0%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
