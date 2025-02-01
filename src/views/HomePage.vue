@@ -8,5 +8,7 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import "./../css/HomePage.css";
+</script>
 
