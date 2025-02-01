@@ -1,0 +1,52 @@
+.navbar, .navbar-text, .navbar-text a {
+    all: unset;
+  }
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--headline);
+}
+
+.navbar-text {
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar-text:hover {
+    color: var(--highlight);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.site-title {
+    flex: 1;
+}
+
+.site-title a {
+    color: var(--headline);
+    font-size: 2.5em;
+    font-weight: bold;
+    text-decoration: none;
+    font-family:'League Spartan', sans-serif;
+  }
+
