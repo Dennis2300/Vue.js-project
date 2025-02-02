@@ -33,9 +33,12 @@
         or ideas, I'd love to hear them! Let's explore Teyvat together! 🌿✨
       </div>
     </div>
-    <div class="home-page-image">
-      <div class="home-page-image-1">
-        <img src="./../assets/images/HappyArlecchino.webp" alt="Happy Arlecchino" />
+    <div class="home-page-image-container">
+      <div class="home-page-image-item">
+        <img
+          src="./../assets/images/HappyArlecchino.webp"
+          alt="Happy Arlecchino"
+        />
       </div>
     </div>
   </div>

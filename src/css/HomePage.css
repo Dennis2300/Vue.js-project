@@ -4,7 +4,7 @@
 }
 
 .home-page-header {
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: bold;
   text-align: center;
   margin-top: 5vh;
@@ -42,7 +42,7 @@
   left: 0;
 }
 
-.home-page-image {
+.home-page-image-container {
   width: 100vw;
   margin-top: 5vh;
   display: flex;
