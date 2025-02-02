@@ -14,14 +14,28 @@
         </p>
       </div>
       <div class="home-page-paragraph">
-          <ul class="custom-list">
-            <li>Character Builds – Recommended weapons, artifacts, and talent priorities.</li>
-            <li>Team Ideas – Synergies that can help in different parts of the game.</li>
-            <li>A Learning Journey – Just like you, I’m always experimenting and improving!</li>
-          </ul>
+        <ul class="custom-list">
+          <li>
+            Character Builds – Recommended weapons, artifacts, and talent
+            priorities.
+          </li>
+          <li>
+            Team Ideas – Synergies that can help in different parts of the game.
+          </li>
+          <li>
+            A Learning Journey – Just like you, I’m always experimenting and
+            improving!
+          </li>
+        </ul>
       </div>
       <div class="home-page-paragraph">
-        I hope you find something useful here, and if you have any cool builds or ideas, I'd love to hear them! Let's explore Teyvat together! 🌿✨
+        I hope you find something useful here, and if you have any cool builds
+        or ideas, I'd love to hear them! Let's explore Teyvat together! 🌿✨
+      </div>
+    </div>
+    <div class="home-page-image">
+      <div class="home-page-image-1">
+        <img src="./../assets/images/HappyArlecchino.webp" alt="Happy Arlecchino" />
       </div>
     </div>
   </div>

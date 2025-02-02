@@ -11,7 +11,7 @@
 }
 
 .home-page-paragraph {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
 
 .home-page-paragraph p {
   margin-top: 1vh;
-  width: 66%;
+  width: 66vw;
   text-align: center;
 }
 
@@ -40,4 +40,13 @@
   content: "🔹";
   position: absolute;
   left: 0;
+}
+
+.home-page-image {
+  width: 100vw;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
 }
