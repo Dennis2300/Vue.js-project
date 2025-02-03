@@ -1,0 +1,22 @@
+.character-page-header {
+    text-align: center;
+    margin-top: 5vh;
+}
+.character-display-container {
+  margin-top: 5vh;
+}
+
+.character-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap:2rem;
+}
+
+.character-grid-item {
+  text-align: center;
+  font-size: 2em;
+  width: 200px;
+  height: 200px;
+  background-color: wheat;
+}
