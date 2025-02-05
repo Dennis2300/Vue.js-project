@@ -1,6 +1,17 @@
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.loading-spinner {
+  transform: scale(3);
+}
+
 .character-page-header {
-    text-align: center;
-    margin-top: 5vh;
+  text-align: center;
+  margin-top: 5vh;
 }
 .character-display-container {
   margin-top: 5vh;
@@ -10,7 +21,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap:2rem;
+  grid-gap: 2rem;
 }
 
 .character-grid-item {

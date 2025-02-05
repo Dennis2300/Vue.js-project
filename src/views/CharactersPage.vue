@@ -1,10 +1,20 @@
 <template>
-  <div class="p-4">
+  <div>
     <h1 class="character-page-header">Genshin Impact Characters</h1>
 
-    <p class="text-gray-500">Loading...</p>
+    <div v-if="loading" class="loading-spinner-container">
+      <l-trefoil
+        class="loading-spinner"
+        size="40"
+        stroke="4"
+        stroke-length="0.15"
+        bg-opacity="0.1"
+        speed="1.4"
+        color="white"
+      ></l-trefoil>
+    </div>
+
     <p v-if="error" class="text-red-500">{{ error }}</p>
-    <!-- 
   <div class="character-display-container">
     <div v-if="!loading && !error && characters?.length" class="character-grid">
       <div v-for="character in characters" :key="character.id " class="character-grid-item">
@@ -12,7 +22,6 @@
       </div>
     </div>
   </div>
--->
 
     <!-- Ensure characters is defined before looping 
         <ul v-if="!loading && !error && characters?.length" class="space-y-2">
@@ -47,6 +56,7 @@
 import { ref, onMounted } from "vue";
 import { getCharacters } from "@/api/api.js";
 import "./../css/CharactersPage.css";
+import "ldrs/trefoil";
 
 const characters = ref([]);
 const loading = ref(true);
