@@ -2,16 +2,17 @@
   <div class="p-4">
     <h1 class="character-page-header">Genshin Impact Characters</h1>
 
-    <p v-if="loading" class="text-gray-500">Loading...</p>
+    <p class="text-gray-500">Loading...</p>
     <p v-if="error" class="text-red-500">{{ error }}</p>
-
-    <div class="character-display-container">
-        <div v-if="!loading && !error && characters?.length" class="character-grid">
-            <div v-for="character in characters" :key="character.id " class="character-grid-item">
-                <span>{{ character.name }}</span>
-            </div>
-        </div>
+    <!-- 
+  <div class="character-display-container">
+    <div v-if="!loading && !error && characters?.length" class="character-grid">
+      <div v-for="character in characters" :key="character.id " class="character-grid-item">
+        <span>{{ character.name }}</span>
+      </div>
     </div>
+  </div>
+-->
 
     <!-- Ensure characters is defined before looping 
         <ul v-if="!loading && !error && characters?.length" class="space-y-2">
