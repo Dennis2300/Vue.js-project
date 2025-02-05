@@ -15,13 +15,20 @@
     </div>
 
     <p v-if="error" class="text-red-500">{{ error }}</p>
-  <div class="character-display-container">
-    <div v-if="!loading && !error && characters?.length" class="character-grid">
-      <div v-for="character in characters" :key="character.id " class="character-grid-item">
-        <span>{{ character.name }}</span>
+    <div class="character-display-container">
+      <div
+        v-if="!loading && !error && characters?.length"
+        class="character-grid"
+      >
+        <div
+          v-for="character in characters"
+          :key="character.id"
+          class="character-grid-item"
+        >
+          <span>{{ character.name }}</span>
+        </div>
       </div>
     </div>
-  </div>
 
     <!-- Ensure characters is defined before looping 
         <ul v-if="!loading && !error && characters?.length" class="space-y-2">
@@ -63,9 +70,13 @@ const loading = ref(true);
 const error = ref(null);
 
 const fetchCharacters = async () => {
+  // Add a delay to simulate loading
+  loading.value = true;
   try {
-    const response = await getCharacters();
+    // Simulate a delay of 2 seconds
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
+    const response = await getCharacters();
     // This is to ensure that the characters array is always defined
     characters.value = response.results || [];
   } catch (error) {
