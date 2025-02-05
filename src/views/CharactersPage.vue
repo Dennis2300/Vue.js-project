@@ -2,6 +2,7 @@
   <div>
     <h1 class="character-page-header">Genshin Impact Characters</h1>
 
+    <!-- Show loading spinner if loading -->
     <div v-if="loading" class="loading-spinner-container">
       <l-trefoil
         class="loading-spinner"
@@ -14,7 +15,10 @@
       ></l-trefoil>
     </div>
 
+    <!-- Show error message if there is an error -->
     <p v-if="error" class="text-red-500">{{ error }}</p>
+
+    <!-- Show characters if they are available -->
     <div class="character-display-container">
       <div
         v-if="!loading && !error && characters?.length"
@@ -25,33 +29,13 @@
           :key="character.id"
           class="character-grid-item"
         >
-          <span>{{ character.name }}</span>
+          <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/04/22/35428890/672e65470bfd14b664596c2a7f7eaaf8_7046130387894981792.png?x-oss-process=image%2Fformat%2Cwebp" alt="" />
+          <h3 class="character-name">{{ character.name }}</h3>
+          <button>Details...</button>
         </div>
       </div>
     </div>
 
-    <!-- Ensure characters is defined before looping 
-        <ul v-if="!loading && !error && characters?.length" class="space-y-2">
-            <li
-            v-for="character in characters"
-            :key="character.id"
-            class="border p-2 rounded-lg shadow-md"
-            >
-            <strong class="text-lg">{{ character.name }}</strong> -
-            <span class="text-gray-500">({{ character.vision }})</span> -
-            <span class="font-medium">{{ character.weapon }}</span> -
-            <span class="text-yellow-500">{{
-                character.rarity?.replace("_", " ") || "Unknown"
-            }}</span>
-            <a
-            :href="character.wiki_url"
-            target="_blank"
-            class="text-blue-500 hover:underline"
-            >Wiki</a
-            >
-        </li>
-    </ul>
--->
     <!-- Show message if no characters are found -->
     <p v-if="!loading && !error && !characters?.length" class="text-gray-500">
       No characters available.
