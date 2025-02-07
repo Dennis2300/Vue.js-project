@@ -45,7 +45,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { getCharacters } from "@/api/api.js";
+import { supabase } from "@/supaBaseClient";
 import "./../css/CharactersPage.css";
 import "ldrs/trefoil";
 
@@ -60,12 +60,17 @@ const fetchCharacters = async () => {
     // Simulate a delay of 2 seconds
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    const response = await getCharacters();
-    // This is to ensure that the characters array is always defined
-    characters.value = response.results || [];
-  } catch (error) {
-    error.value = "Failed to load characters.";
-    console.error(error);
+    //fetch characters from the Supabase API
+    const {data, error: fetchError} = await supabase
+    .from("characters")
+    .select("*");
+
+    if (fetchError) throw fetchError;
+
+    characters.value = data || [];
+} catch (error) {
+  error.value = "An error occurred while fetching characters.";
+  console.error(error);
   } finally {
     loading.value = false;
   }
