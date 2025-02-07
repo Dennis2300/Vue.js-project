@@ -45,7 +45,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { supabase } from "@/supabaseClient";
+//import { supabase } from "@/supabaseClient";
 import "./../css/CharactersPage.css";
 import "ldrs/trefoil";
 
@@ -53,6 +53,8 @@ const characters = ref([]);
 const loading = ref(true);
 const error = ref(null);
 
+
+/*
 const fetchCharacters = async () => {
   // Add a delay to simulate loading
   loading.value = true;
@@ -62,7 +64,7 @@ const fetchCharacters = async () => {
 
     //fetch characters from the Supabase API
     const {data, error: fetchError} = await supabase
-    .from("characters")
+    .from("charactersTemp")
     .select("*");
 
     if (fetchError) throw fetchError;
@@ -77,4 +79,5 @@ const fetchCharacters = async () => {
 };
 
 onMounted(fetchCharacters);
+*/
 </script>
