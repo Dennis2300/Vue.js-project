@@ -45,7 +45,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { supabase } from "@/supaBaseClient";
+import { supabase } from "@/supabaseClient";
 import "./../css/CharactersPage.css";
 import "ldrs/trefoil";
 
