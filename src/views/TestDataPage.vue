@@ -1,54 +1,88 @@
-<template>
-  <div class="container">
-    <h1>Genshin Regions</h1>
-
-    <div v-if="loading">Loading...</div>
-    <div v-else>
-      <ul>
-        <li v-for="region in regions" :key="region.id">
-          <strong>{{ region.name }}</strong>
-          <img :src="region.image_url" alt="Region Image" class="region-img" />
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<script>
+<script setup>
 import { ref, onMounted } from "vue";
-import { supabase } from "@/supabaseClient";
-export default {
-  setup() {
-    const regions = ref([]);
-    const loading = ref(true);
+import { supabase } from "./../supabaseClient.js"; // Adjust the path if needed
 
-    const fetchRegions = async () => {
-      loading.value = true;
-      const { data, error } = await supabase.rpc("genshin.regions");
+const regions = ref([]);
+const characters = ref([]);
+const visions = ref([]);
+const loading = ref(true);
+const error = ref(null);
 
-      if (error) console.error("Error fetching regions:", error);
-      else regions.value = data;
-
-      loading.value = false;
-    };
-
-    onMounted(fetchRegions);
-
-    return { regions, loading };
-  },
+const fetchRegion = async () => {
+  try {
+    let { data, error: fetchError } = await supabase.from("region").select("*");
+    console.log(data);
+    if (fetchError) throw fetchError;
+    regions.value = data;
+  } catch (err) {
+    error.value = err.message;
+  }
 };
+
+const fetchCharacter = async () => {
+  try {
+    let { data, error: fetchError } = await supabase
+      .from("character")
+      .select("*");
+    console.log(data);
+    if (fetchError) throw fetchError;
+    characters.value = data;
+  } catch (err) {
+    error.value = err.message;
+  }
+};
+
+const fetchVision = async () => {
+  try {
+    let { data, error: fetchError } = await supabase.from("vision").select("*");
+    console.log(data);
+
+    if (fetchError) throw fetchError;
+    visions.value = data;
+  } catch (err) {
+    error.value = err.message;
+  }
+};
+
+onMounted(async () => {
+  loading.value = true;
+  await fetchRegion();
+  await fetchCharacter();
+  await fetchVision();
+  loading.value = false;
+});
 </script>
 
-<style>
-.container {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-.region-img {
-  width: 150px;
-  height: auto;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-</style>
+<template>
+  <div v-if="loading">Loading...</div>
+  <div v-else-if="error">Error: {{ error }}</div>
+
+  <div v-else>
+    <h2>Regions</h2>
+    <ul>
+      <li v-for="region in regions" :key="region.id">
+        {{ region.name }}
+      </li>
+    </ul>
+
+    <h2>Characters</h2>
+    <ul>
+      <li v-for="character in characters" :key="character.id">
+        <p>
+          {{ character.name }}
+        </p>
+        <img :src="character.image_url" alt="Vision Image" class="vision-img" />
+      </li>
+    </ul>
+
+    <h2>Visions</h2>
+    <ul>
+      <li v-for="vision in visions" :key="vision.id">
+        <p>
+          {{ vision.name }}
+        </p>
+        <img :src="vision.image_url" alt="Vision Image" class="vision-img" />
+      </li>
+    </ul>
+  </div>
+</template>
