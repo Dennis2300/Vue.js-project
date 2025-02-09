@@ -41,6 +41,14 @@
         />
       </div>
     </div>
+    <footer class="home-page-footer">
+      <h3>Disclaimer</h3>
+      This website is a fan-made project and is not affiliated with,
+      endorsed by, or sponsored by HoYoverse or miHoYo. All character images,
+      names, and assets used on this site are the property of HoYoverse. This
+      project is created purely for informational and entertainment purposes to
+      help players explore Genshin Impact characters and builds.
+    </footer>
   </div>
 </template>
 

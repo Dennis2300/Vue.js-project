@@ -50,3 +50,10 @@
   align-items: center;
   gap: 5vw;
 }
+
+.home-page-footer {
+  margin-top: 5vh;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 25px;
+}
