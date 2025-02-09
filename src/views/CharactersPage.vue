@@ -30,11 +30,9 @@
             'rarity-4': character.rarity === 4,
           }"
         >
-          <img :src="character.image_url" :alt="character.name" />
+          <img class="character-avatar" :src="character.image_url" :alt="character.name" />
           <h3>{{ character.name }}</h3>
-          <p>{{ character.vision?.image_url }}</p>
           <p class="rarity-text" :data-stars="character.rarity"></p>
-          <button>Details</button>
         </div>
       </div>
     </div>
@@ -62,7 +60,7 @@ async function GetAllCharacters() {
   try {
     let { data, error: fetchError } = await supabase
       .from("character")
-      .select("*, vision:vision_id(name)");
+      .select("*, vision:vision_id(name, image_url)");
     if (fetchError) throw fetchError;
     characters.value = data;
     console.log(data);

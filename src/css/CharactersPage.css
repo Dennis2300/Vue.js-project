@@ -32,7 +32,7 @@
   height: 375px;
   padding-top: 30px;
   border-radius: 25px;
-  background-color: var(--main);
+  background-color: var(--stroke);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -40,7 +40,7 @@
   transform: scale(1.1);
 }
 
-.character-grid-item img {
+.character-avatar {
   width: 200px;
   height: 200px;
   border-radius: 12.5px;
@@ -49,13 +49,13 @@
   overflow: hidden;
 }
 
-.rarity-5 img {
+.rarity-5 .character-avatar {
   background: linear-gradient(145deg, #e7944a, #b56a2b);
   box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
     0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
-.rarity-4 img {
+.rarity-4 .character-avatar {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
     0px 0px 30px rgba(155, 114, 213, 0.5);
@@ -66,7 +66,7 @@
   font-family: Arial, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--background);
+  color: var(--headline);
 }
 
 .rarity-text[data-stars="5"]::before {
@@ -78,7 +78,7 @@
 
 .character-grid-item h3 {
   background-color: inherit;
-  color: var(--background);
+  color: var(--headline);
   text-transform: uppercase;
   cursor: default;
   margin-top: 25px;
@@ -86,16 +86,7 @@
 
 .character-grid-item p {
   background-color: inherit;
-  color: var(--background);
+  color: var(--headline);
   cursor: default;
 }
 
-.character-grid-item button {
-  background-color: var(--button);
-  color: var(--button-text);
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 10px;
-}
