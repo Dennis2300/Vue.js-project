@@ -33,6 +33,11 @@
   padding-top: 30px;
   border-radius: 25px;
   background-color: var(--main);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.character-grid-item:hover {
+  transform: scale(1.1);
 }
 
 .character-grid-item img {
@@ -46,16 +51,29 @@
 
 .rarity-5 img {
   background: linear-gradient(145deg, #e7944a, #b56a2b);
-  box-shadow: 0px 4px 10px rgba(231, 148, 74, 0.6),
-    0px 0px 20px rgba(231, 148, 74, 0.9);
-  border: 2px solid #d1873c;
+  box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
+    0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
 .rarity-4 img {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
-  box-shadow: 0px 4px 10px rgba(155, 114, 213, 0.6),
-    0px 0px 20px rgba(155, 114, 213, 0.9);
-  border: 2px solid #835abf;
+  box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
+    0px 0px 30px rgba(155, 114, 213, 0.5);
+}
+
+.rarity-text::before {
+  content: attr(data-stars);
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--background);
+}
+
+.rarity-text[data-stars="5"]::before {
+  content: "★★★★★";
+}
+.rarity-text[data-stars="4"]::before {
+  content: "★★★★";
 }
 
 .character-grid-item h3 {

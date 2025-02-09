@@ -32,8 +32,8 @@
         >
           <img :src="character.image_url" :alt="character.name" />
           <h3>{{ character.name }}</h3>
-          <p>{{ character.vision?.name }}</p>
-          <p>{{ character.rarity }}</p>
+          <p>{{ character.vision?.image_url }}</p>
+          <p class="rarity-text" :data-stars="character.rarity"></p>
           <button>Details</button>
         </div>
       </div>
@@ -65,6 +65,8 @@ async function GetAllCharacters() {
       .select("*, vision:vision_id(name)");
     if (fetchError) throw fetchError;
     characters.value = data;
+    console.log(data);
+    
   } catch (err) {
     error.value = err.message;
   }
