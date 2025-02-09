@@ -30,7 +30,18 @@
             'rarity-4': character.rarity === 4,
           }"
         >
-          <img class="character-avatar" :src="character.image_url" :alt="character.name" />
+          <!-- Vision Icon (Top Right Corner) -->
+          <img
+            v-if="character.vision?.image_url"
+            :src="character.vision.image_url"
+            :alt="character.vision.name"
+            class="vision-icon"
+          />
+          <img
+            class="character-avatar"
+            :src="character.image_url"
+            :alt="character.name"
+          />
           <h3>{{ character.name }}</h3>
           <p class="rarity-text" :data-stars="character.rarity"></p>
         </div>
@@ -64,7 +75,6 @@ async function GetAllCharacters() {
     if (fetchError) throw fetchError;
     characters.value = data;
     console.log(data);
-    
   } catch (err) {
     error.value = err.message;
   }
@@ -73,7 +83,9 @@ async function GetAllCharacters() {
 // Fetch characters on page load
 onMounted(async () => {
   loading.value = true;
-  await GetAllCharacters();
-  loading.value = false;
+  setTimeout(async () => {
+    await GetAllCharacters();
+    loading.value = false;
+  }, 2000);
 });
 </script>
