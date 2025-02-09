@@ -16,16 +16,26 @@
     </div>
 
     <!-- Show characters -->
-    <div v-if="!loading && !error && characters?.length">
+    <div class="character-display-container">
       <div
-        v-for="character in characters"
-        :key="character.id"
+        v-if="!loading && !error && characters?.length"
+        class="character-grid"
       >
-        <img
-          :src="character.image_url"
-          :alt="character.name"
-        />
-        <h2>{{ character.name }}</h2>
+        <div
+          v-for="character in characters"
+          :key="character.id"
+          class="character-grid-item"
+          :class="{
+            'rarity-5': character.rarity === 5,
+            'rarity-4': character.rarity === 4,
+          }"
+        >
+          <img :src="character.image_url" :alt="character.name" />
+          <h3>{{ character.name }}</h3>
+          <p>{{ character.vision?.name }}</p>
+          <p>{{ character.rarity }}</p>
+          <button>Details</button>
+        </div>
       </div>
     </div>
 
@@ -35,10 +45,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { supabase } from "./../supabaseClient.js";
-import "./../css/CharactersPage.css";
-import "ldrs/trefoil";
+import { ref, onMounted } from "vue"; // Import the Vue composition API
+import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
+import "./../css/CharactersPage.css"; // Import the component's CSS
+import "ldrs/trefoil"; // Import the loading spinner component
 
 // Loading and error states
 const loading = ref(true);
@@ -47,11 +57,12 @@ const error = ref(null);
 // Data states
 const characters = ref([]);
 
+// Fetch all characters from the database
 async function GetAllCharacters() {
   try {
     let { data, error: fetchError } = await supabase
       .from("character")
-      .select("*");
+      .select("*, vision:vision_id(name)");
     if (fetchError) throw fetchError;
     characters.value = data;
   } catch (err) {
@@ -59,6 +70,7 @@ async function GetAllCharacters() {
   }
 }
 
+// Fetch characters on page load
 onMounted(async () => {
   loading.value = true;
   await GetAllCharacters();
