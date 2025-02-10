@@ -21,6 +21,11 @@
   font-family:'League Spartan', sans-serif;
 }
 
+#app {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
 .content {
   display: flex;
   justify-content: center;
