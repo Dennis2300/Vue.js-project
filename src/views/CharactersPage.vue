@@ -74,7 +74,6 @@ async function GetAllCharacters() {
       .select("*, vision:vision_id(name, image_url)");
     if (fetchError) throw fetchError;
     characters.value = data;
-    console.log(data);
   } catch (err) {
     error.value = err.message;
   }
