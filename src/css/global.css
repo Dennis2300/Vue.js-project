@@ -14,13 +14,11 @@
   --tertiary: #eebbc3;
 }
 
-html, body {
+* {
   background-color: var(--background);
   padding: 0%;
   margin: 0%;
   font-family:'League Spartan', sans-serif;
-  overflow-x: hidden;
-  width: 100vw;
 }
 
 .content {
