@@ -11,7 +11,13 @@
             alt=""
           />
         </div>
-        <div class="note">Welcome To Teyvat Bulletin</div>
+        <div class="note">
+          Hey there, Traveler! Teyvat Bulletin is a simple, fan-made space where
+          I share character builds, team compositions, and tips for Genshin
+          Impact. This isn't a pro level guide, just a fun project where I
+          explore different playstyles and showcase builds that have worked for
+          me.
+        </div>
         <div class="note">Patch Notes</div>
         <div class="note">Community Posts</div>
         <div class="note">
