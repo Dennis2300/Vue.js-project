@@ -8,74 +8,7 @@
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  margin-top: 5vh;
 }
-
-.board-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5vh;
-}
-
-.board {
-  width: 80%;
-  max-width: 1000px;
-  background: var(--stroke);
-  border-radius: 12px;
-  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  position: relative;
-}
-
-.note {
-  width: 220px;
-  height: 160px;
-  background: var(--tertiary);
-  color: var(--button-text);
-  padding: 15px;
-  font-size: 18px;
-  font-family: 'Arial', sans-serif;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
-  position: relative;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.note:hover {
-  transform: translateY(-5px);
-  box-shadow: 4px 4px 15px rgba(184, 193, 236, 0.4);
-}
-
-.note::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  background: var(--highlight);
-  border-radius: 50%;
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.note:nth-child(odd) {
-  transform: rotate(-3deg);
-}
-
-.note:nth-child(even) {
-  transform: rotate(3deg);
-}
-
 
 .home-page-footer-container {
   display: flex;
