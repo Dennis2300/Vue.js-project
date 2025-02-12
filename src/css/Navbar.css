@@ -1,6 +1,10 @@
-.navbar, .navbar-text, .navbar-text a {
-    all: unset;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+.navbar,
+.navbar-text,
+.navbar-text a {
+  all: unset;
+}
 
 .navbar-container {
   display: flex;
@@ -16,37 +20,36 @@
 }
 
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    gap: 30px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--headline);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  gap: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--headline);
 }
 
 .navbar-text {
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .navbar-text:hover {
-    color: var(--highlight);
-    transform: scale(1.1);
-    cursor: pointer;
+  color: var(--highlight);
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .site-title {
-    flex: 1;
+  flex: 1;
 }
 
 .site-title a {
-    color: var(--headline);
-    font-size: 2.5em;
-    font-weight: bold;
-    text-decoration: none;
-    font-family:'League Spartan', sans-serif;
-  }
-
+  color: var(--headline);
+  font-size: 2.5em;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Permanent Marker", serif;
+}
