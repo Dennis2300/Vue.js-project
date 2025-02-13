@@ -18,8 +18,17 @@
           explore different playstyles and showcase builds that have worked for
           me.
         </div>
-        <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero eaque totam facilis beatae labore incidunt blanditiis consequuntur, voluptas magnam velit nulla illo quas sint ut amet omnis rem, autem voluptates!</div>
-        <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus qui minus consectetur necessitatibus molestias odit nostrum facilis at cupiditate vel, repellat distinctio similique maiores voluptatibus, eos esse pariatur commodi. Iusto!</div>
+        <div class="note">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero eaque
+          totam facilis beatae labore incidunt blanditiis consequuntur, voluptas
+          magnam velit nulla illo quas sint ut amet omnis rem, autem voluptates!
+        </div>
+        <div class="note">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus qui
+          minus consectetur necessitatibus molestias odit nostrum facilis at
+          cupiditate vel, repellat distinctio similique maiores voluptatibus,
+          eos esse pariatur commodi. Iusto!
+        </div>
         <div class="note">
           <img
             src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/05/20/35428890/fe8fbea8637da1774e3063fc53b2428a_2056914089388248431.png?x-oss-process=image%2Fformat%2Cwebp"
