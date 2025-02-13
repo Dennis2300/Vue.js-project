@@ -22,7 +22,17 @@
     </section>
 
     <!--Disclaimer section-->
-    <section ref="disclaimerSection" class="section">
+    <section
+      ref="disclaimerSection"
+      class="section"
+      :style="{
+        backgroundImage:
+          'url(https://upload-static.hoyoverse.com/hoyolab-wiki/2023/06/07/77454259/e8e62faed6c1847f2a12e06c58eee360_5937330070045544436.png?x-oss-process=image%2Fformat%2Cwebp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }"
+    >
       <h1>Disclaimer!</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -33,7 +43,17 @@
     </section>
 
     <!--Credits section-->
-    <section ref="creditsSection" class="section">
+    <section
+      ref="creditsSection"
+      class="section"
+      :style="{
+        backgroundImage:
+          'url(https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/27/77454259/3006f4065aa4ff41c2df2d0e3a992786_2541007239407650706.png?x-oss-process=image%2Fformat%2Cwebp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }"
+    >
       <h1>Credits</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -44,7 +64,17 @@
     </section>
 
     <!--Techstack Used section-->
-    <section ref="techstackSection" class="section">
+    <section
+      ref="techstackSection"
+      class="section"
+      :style="{
+        backgroundImage:
+          'url(https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/09/03/237301566/02653b8c16262f58fb0cfce50bc449a6_869064883331269636.png?x-oss-process=image%2Fformat%2Cwebp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }"
+    >
       <h1>Techstack Used</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis eum
