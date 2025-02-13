@@ -7,7 +7,7 @@
       <div class="board">
         <div class="note">
           <img
-            src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/09/15/35428890/4c69147dbf57b2f43e4ae3de6d555b88_8673991642896185661.png?x-oss-process=image%2Fformat%2Cwebp"
+            :src="images.arlecchino"
             alt=""
           />
         </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="note">
           <img
-            src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/05/20/35428890/fe8fbea8637da1774e3063fc53b2428a_2056914089388248431.png?x-oss-process=image%2Fformat%2Cwebp"
+            :src="images.kinich"
             alt=""
           />
         </div>
@@ -66,4 +66,5 @@
 <script setup>
 import "./../css/HomePage.css";
 import "./../css/BulletinBoard.css";
+import images from "./../assets/images.json"
 </script>
