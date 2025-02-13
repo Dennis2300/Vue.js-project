@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="character-page-container">
     <h1 class="character-page-header">Genshin Impact Characters</h1>
 
     <!-- Show loading spinner if loading -->
