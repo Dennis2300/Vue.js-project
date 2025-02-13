@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap');
 
 .navbar,
 .navbar-text,
@@ -33,6 +33,9 @@
 .navbar-text {
   text-decoration: none;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-transform: uppercase;
+  font-family: "Bangers", serif;
+  letter-spacing: 3px;
 }
 
 .navbar-text:hover {
