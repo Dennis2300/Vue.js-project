@@ -46,7 +46,69 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
+import { onMounted, nextTick } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+function scrollEffect() {
+  const sections = gsap.utils.toArray(".section");
+
+  sections.forEach((section, index) => {
+    gsap.fromTo(
+      section,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 95%",
+          end: "top 75%",
+          scrub: 1,
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    if (index > 0) {
+      gsap.fromTo(
+        sections[index - 1],
+        { opacity: 1 },
+        {
+          opacity: 0,
+          duration: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            end: "top 60%",
+            scrub: 1,
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+
+    ScrollTrigger.create({
+      trigger: section,
+      pin: true,
+      pinSpacing: true,
+      start: "top top",
+      end: "+=50%",
+      scrub: 1,
+    });
+  });
+
+  ScrollTrigger.refresh();
+}
+
+onMounted(() => {
+  scrollEffect();
+});
 </script>
