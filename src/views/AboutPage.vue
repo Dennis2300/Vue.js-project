@@ -6,13 +6,15 @@
       <p>
         I started <strong class="text-highlight">Teyvat Bulletin</strong> as a
         way to learn and improve my programming skills, particularly in Vue.js,
-        since it's the framework <strong class="text-highlight">HoYoverse</strong> uses for their own
-        web applications. I wanted to get hands-on experience with Vue while
-        also experimenting with web effects and interactive UI elements to make
-        the site visually engaging.
+        since it's the framework
+        <strong class="text-highlight">HoYoverse</strong> uses for their own web
+        applications. I wanted to get hands-on experience with Vue while also
+        experimenting with web effects and interactive UI elements to make the
+        site visually engaging.
       </p>
       <p>
-        At the same time, I’ve always enjoyed <strong class="text-highlight">Genshin Impact</strong>, and I wanted to
+        At the same time, I’ve always enjoyed
+        <strong class="text-highlight">Genshin Impact</strong>, and I wanted to
         create a space where players can easily find character materials, weapon
         recommendations, and team compositions without having to search through
         multiple sources. My goal was to make a clean, organized, and
@@ -64,11 +66,40 @@
 <script setup>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const purposeSection = ref(null);
+
+function scrollParagraph(container) {
+  if (!container) return;
+
+  const paragraphs = container.querySelectorAll("p");
+
+  paragraphs.forEach((p, index) => {
+    gsap.fromTo(
+      p,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: p,
+          start: "top 90%",
+          end: "top 70%",
+          scrub: 1,
+          toggleActions: "play none none reverse",
+        },
+        delay: index * 0.2,
+      }
+    );
+  });
+}
 
 function scrollSection() {
   const sections = gsap.utils.toArray(".section");
@@ -125,5 +156,6 @@ function scrollSection() {
 
 onMounted(() => {
   scrollSection();
+  scrollParagraph(purposeSection.value);
 });
 </script>
