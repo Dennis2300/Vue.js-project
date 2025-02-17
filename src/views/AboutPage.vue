@@ -4,10 +4,24 @@
     <section ref="purposeSection" class="section">
       <h1>About this project</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, culpa
-        reiciendis tempore corporis exercitationem delectus est voluptas eveniet
-        quod? Ratione soluta ex aliquam aspernatur sint fugit explicabo
-        voluptatibus quis facilis.
+        I started Teyvat Bulletin as a way to learn and improve my programming
+        skills, particularly in Vue.js, since it's the framework HoYoverse uses
+        for their own web applications. I wanted to get hands-on experience with
+        Vue while also experimenting with web effects and interactive UI
+        elements to make the site visually engaging.
+      </p>
+      <p>
+        At the same time, I’ve always enjoyed Genshin Impact, and I wanted to
+        create a space where players can easily find character materials, weapon
+        recommendations, and team compositions without having to search through
+        multiple sources. My goal was to make a clean, organized, and
+        user-friendly resource that helps both new and experienced players
+        quickly see what they need to level up their favorite characters.
+      </p>
+      <p>
+        This project is a combination of my interest in programming, web design,
+        and Genshin Impact, and it continues to evolve as I learn more about
+        Vue, front-end development, and interactive web experiences.
       </p>
     </section>
 
