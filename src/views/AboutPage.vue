@@ -4,14 +4,15 @@
     <section ref="purposeSection" class="section">
       <h1>About this project</h1>
       <p>
-        I started Teyvat Bulletin as a way to learn and improve my programming
-        skills, particularly in Vue.js, since it's the framework HoYoverse uses
-        for their own web applications. I wanted to get hands-on experience with
-        Vue while also experimenting with web effects and interactive UI
-        elements to make the site visually engaging.
+        I started <strong class="text-highlight">Teyvat Bulletin</strong> as a
+        way to learn and improve my programming skills, particularly in Vue.js,
+        since it's the framework <strong class="text-highlight">HoYoverse</strong> uses for their own
+        web applications. I wanted to get hands-on experience with Vue while
+        also experimenting with web effects and interactive UI elements to make
+        the site visually engaging.
       </p>
       <p>
-        At the same time, I’ve always enjoyed Genshin Impact, and I wanted to
+        At the same time, I’ve always enjoyed <strong class="text-highlight">Genshin Impact</strong>, and I wanted to
         create a space where players can easily find character materials, weapon
         recommendations, and team compositions without having to search through
         multiple sources. My goal was to make a clean, organized, and
@@ -121,8 +122,6 @@ function scrollSection() {
 
   ScrollTrigger.refresh();
 }
-
-
 
 onMounted(() => {
   scrollSection();
