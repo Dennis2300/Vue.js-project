@@ -12,12 +12,12 @@
     align-items: center;
     padding-left: 30%;
     padding-right: 30%;
-    opacity: 0%;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
 }
 
 .section h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
 }
 
 .section p {

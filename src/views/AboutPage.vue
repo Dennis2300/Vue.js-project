@@ -63,13 +63,13 @@
 <script setup>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
-import { onMounted, nextTick } from "vue";
+import { onMounted } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function scrollEffect() {
+function scrollSection() {
   const sections = gsap.utils.toArray(".section");
 
   sections.forEach((section, index) => {
@@ -122,7 +122,9 @@ function scrollEffect() {
   ScrollTrigger.refresh();
 }
 
+
+
 onMounted(() => {
-  scrollEffect();
+  scrollSection();
 });
 </script>
