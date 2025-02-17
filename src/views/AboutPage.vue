@@ -49,5 +49,4 @@
 <script>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
-import "./../assets/images.json";
 </script>
