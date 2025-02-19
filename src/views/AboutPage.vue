@@ -31,7 +31,7 @@
     <!--Animation container-->
     <div class="animation-container">
       <!--Disclaimer section-->
-      <section class="panel slide">
+      <section class="panel">
         <h1>Disclaimer!</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -111,7 +111,7 @@ function animatePanels() {
   let slides = gsap.utils.toArray(".slide");
   const tl = gsap.timeline();
 
-  slides.forEach((slide, i) => {
+  slides.forEach((slide) => {
     tl.from(slide, { xPercent: 100 });
   });
 
