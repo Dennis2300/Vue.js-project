@@ -42,7 +42,7 @@
       </section>
 
       <!--Credits section-->
-      <section class="panel slide">
+      <section class="panel left">
         <h1>Credits</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -53,7 +53,7 @@
       </section>
 
       <!--Techstack Used section-->
-      <section class="panel slide">
+      <section class="panel right">
         <h1>Techstack Used</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
@@ -108,12 +108,9 @@ function animateParagraph() {
 }
 
 function animatePanels() {
-  let slides = gsap.utils.toArray(".slide");
   const tl = gsap.timeline();
 
-  slides.forEach((slide) => {
-    tl.from(slide, { xPercent: 100 });
-  });
+  tl.from(".left", { xPercent: 100 }).from(".right", { xPercent: -100 });
 
   ScrollTrigger.create({
     animation: tl,
