@@ -31,7 +31,7 @@
     <!--Animation container-->
     <div class="animation-container">
       <!--Disclaimer section-->
-      <section>
+      <section class="panel slide">
         <h1>Disclaimer!</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -42,7 +42,7 @@
       </section>
 
       <!--Credits section-->
-      <section>
+      <section class="panel slide">
         <h1>Credits</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -53,7 +53,7 @@
       </section>
 
       <!--Techstack Used section-->
-      <section>
+      <section class="panel slide">
         <h1>Techstack Used</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
@@ -107,8 +107,29 @@ function animateParagraph() {
   );
 }
 
+function animatePanels() {
+  let slides = gsap.utils.toArray(".slide");
+  const tl = gsap.timeline();
+
+  slides.forEach((slide, i) => {
+    tl.from(slide, { xPercent: 100 });
+  });
+
+  ScrollTrigger.create({
+    animation: tl,
+    trigger: ".animation-container",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+}
+
 onMounted(() => {
   animateTitle();
   animateParagraph();
+  animatePanels();
 });
 </script>
