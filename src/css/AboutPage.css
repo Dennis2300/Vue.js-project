@@ -4,25 +4,25 @@
     overflow: hidden;
 }
 
-.section {
+section {
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 30%;
-    padding-right: 30%;
     letter-spacing: 1.5px;
     line-height: 1.6;
 }
 
-.section h1 {
-    font-size: 3rem;
+section h1 {
+    font-size: 5rem;
 }
 
-.section p {
+section p {
     font-size: 18px;
     margin-top: 25px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .text-highlight {
