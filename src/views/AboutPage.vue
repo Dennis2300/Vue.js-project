@@ -110,6 +110,7 @@
           praesentium saepe modi eius dolore, perferendis omnis error magnam
           amet laboriosam quis?
         </p>
+        <img src="./../assets/images/vue-js.png" alt="">
       </section>
     </div>
   </div>
