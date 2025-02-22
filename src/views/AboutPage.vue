@@ -34,10 +34,52 @@
       <section class="panel">
         <h1>Disclaimer!</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-          incidunt iste explicabo itaque dicta iure cumque, tenetur suscipit!
-          Numquam quae eligendi voluptate rem voluptatibus ullam, in totam
-          repudiandae doloremque expedita!
+          This website is a
+          <strong class="text-highlight">fan-made</strong> project and is not
+          affiliated with, endorsed by, or sponsored by
+          <strong class="text-highlight">HoYoverse</strong> or
+          <strong class="text-highlight">miHoYo</strong>. It is created by and
+          for fans of <strong class="text-highlight">Genshin Impact</strong> to
+          provide a centralized resource for character information, materials,
+          builds, and team recommendations.
+        </p>
+        <p>
+          All characters, images, names, logos, and other in-game assets used on
+          this site are the intellectual property of
+          <strong class="text-highlight">HoYoverse</strong>. These materials are
+          used under fair use principles for informational and educational
+          purposes only. We do not claim ownership of any
+          <strong class="text-highlight">Genshin Impact-related</strong>
+          content, and all rights belong to
+          <strong class="text-highlight">HoYoverse</strong>.
+        </p>
+        <p>
+          The information provided on this website is based on community
+          knowledge, gameplay experience, and available data. While we strive to
+          ensure accuracy, we cannot guarantee that all information is
+          up-to-date or error-free. For the most accurate and official
+          information about
+          <strong class="text-highlight">Genshin Impact</strong> , please visit
+          the official website
+          <a
+            href="https://genshin.hoyoverse.com/en/"
+            target="_blank"
+            rel="noopener"
+            class="text-highlight link"
+          >
+            here</a>.
+        </p>
+        <p>
+          If you are the owner of any content used on this website and believe
+          it violates your rights, or if you have any concerns, please feel free
+          to contact me via email at
+          <strong class="text-highlight">email@example.com</strong>. I am more
+          than willing to address any concerns and will respond promptly.
+        </p>
+        <p>
+          <strong>
+            Thank you for visiting, and we hope you find this resource helpful!
+          </strong>
         </p>
       </section>
 
@@ -69,6 +111,7 @@
 <script setup>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
+import images from "./../assets/images.json";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
