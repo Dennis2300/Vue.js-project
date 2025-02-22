@@ -111,7 +111,6 @@
 <script setup>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
-import images from "./../assets/images.json";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
