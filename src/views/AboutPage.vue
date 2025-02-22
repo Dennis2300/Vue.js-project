@@ -1,5 +1,11 @@
 <template>
   <div class="about-page-container">
+    <!--Stickers-->
+    <img class="sticker sticker-1" :src="images.furina" alt="">
+    <img class="sticker sticker-2" :src="images.kinich" alt="">
+    <img class="sticker sticker-3" :src="images.ajaw" alt="">
+
+    <!--About this project section-->
     <div class="about-page-intro">
       <!--About this project section-->
       <h1 class="title">About this project</h1>
@@ -67,7 +73,8 @@
             rel="noopener"
             class="text-highlight link"
           >
-            here</a>.
+            here</a
+          >.
         </p>
         <p>
           If you are the owner of any content used on this website and believe
@@ -111,6 +118,7 @@
 <script setup>
 import "./../css/Tailwind.css";
 import "./../css/AboutPage.css";
+import images from "./../assets/images.json";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

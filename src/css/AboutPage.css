@@ -67,3 +67,39 @@
   text-decoration: underline;
   color: var(--highlight);
 }
+
+.sticker {
+  position: absolute;
+  z-index: 999;
+  pointer-events: none;
+  width: 150px;
+  height: auto;
+  background-color: transparent;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.sticker-1 {
+  top: 15%;
+  left: 8%;
+}
+
+.sticker-2 {
+  top: 3%;
+  right: 10%;
+}
+
+.sticker-3 {
+  top: 26%;
+  right: 35%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
