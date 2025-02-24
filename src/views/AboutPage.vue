@@ -1,9 +1,9 @@
 <template>
   <div class="about-page-container">
     <!--Stickers-->
-    <img class="sticker sticker-1" :src="images.furina" alt="">
-    <img class="sticker sticker-2" :src="images.kinich" alt="">
-    <img class="sticker sticker-3" :src="images.ajaw" alt="">
+    <img class="sticker sticker-1" :src="images.furina" alt="" />
+    <img class="sticker sticker-2" :src="images.kinich" alt="" />
+    <img class="sticker sticker-3" :src="images.ajaw" alt="" />
 
     <!--About this project section-->
     <div class="about-page-intro">
@@ -105,12 +105,39 @@
       <section class="panel right">
         <h1>Techstack Used</h1>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-          eum quisquam vitae! Eos sapiente accusamus minima nulla aliquam,
-          praesentium saepe modi eius dolore, perferendis omnis error magnam
-          amet laboriosam quis?
+          Building Teyvat Bulletin has been an exciting journey, and I’ve
+          leveraged a powerful combination of modern tools and frameworks to
+          bring this project to life. From crafting dynamic user interfaces with
+          <strong class="text-highlight">Vue.js</strong> to managing real-time data seamlessly with <strong class="text-highlight">Supabase</strong>, each
+          technology has played a crucial role in shaping the site’s
+          functionality and design. I’ve also used <strong class="text-highlight">GSAP</strong> for smooth, interactive
+          animations, <strong class="text-highlight">Tailwind CSS</strong> for rapid and responsive styling, and ldrs
+          for sleek, customizable loading animations. Together, these tools have
+          allowed me to create a fast, visually appealing, and user-friendly
+          experience for Genshin Impact fans.
         </p>
-        <img src="./../assets/images/vue-js.png" alt="">
+        <p>
+          Notable mentions: <strong class="text-highlight">Uiball</strong> for their ldrs(Loading/Spinenr) library
+        </p>
+        <div
+          class="techstack-container bg-gradient-to-r from-[#FF0080] via-[#FF8C00] via-[#FFD700] to-[#00FFEA]"
+        >
+          <img
+            src="./../assets//images/icons/vue.svg"
+            alt="vue.js"
+            class="logo"
+          />
+          <img
+            src="./../assets//images/icons/supabase.svg"
+            alt="supabase"
+            class="logo"
+          />
+          <img
+            src="./../assets//images/icons/tailwindcss.svg"
+            alt="tailwindcss"
+            class="logo"
+          />
+        </div>
       </section>
     </div>
   </div>

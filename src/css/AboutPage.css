@@ -51,11 +51,11 @@
 }
 
 .panel p {
-    margin-bottom: 25px;
-    padding-left: 20%;
-    padding-right: 20%;
-    letter-spacing: 1.5px;
-    line-height: 1.6;
+  margin-bottom: 25px;
+  padding-left: 20%;
+  padding-right: 20%;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
 }
 
 .link {
@@ -95,7 +95,6 @@
   right: 35%;
 }
 
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -103,4 +102,30 @@
   100% {
     opacity: 1;
   }
+}
+
+.techstack-container {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  border-radius: 25px;
+  background-size: 400%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0%,
+  100% {
+    background-position: 0% 100%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+.logo {
+  width: 350px;
+  height: auto;
+  background-color: transparent;
 }
