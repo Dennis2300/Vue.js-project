@@ -90,34 +90,27 @@
         </p>
       </section>
 
-      <!--Credits section-->
-      <section class="panel left">
-        <h1>Credits</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-          incidunt iste explicabo itaque dicta iure cumque, tenetur suscipit!
-          Numquam quae eligendi voluptate rem voluptatibus ullam, in totam
-          repudiandae doloremque expedita!
-        </p>
-      </section>
-
       <!--Techstack Used section-->
-      <section class="panel right">
+      <section class="panel left">
         <h1>Techstack Used</h1>
         <p>
           Building Teyvat Bulletin has been an exciting journey, and I’ve
           leveraged a powerful combination of modern tools and frameworks to
           bring this project to life. From crafting dynamic user interfaces with
-          <strong class="text-highlight">Vue.js</strong> to managing real-time data seamlessly with <strong class="text-highlight">Supabase</strong>, each
-          technology has played a crucial role in shaping the site’s
-          functionality and design. I’ve also used <strong class="text-highlight">GSAP</strong> for smooth, interactive
-          animations, <strong class="text-highlight">Tailwind CSS</strong> for rapid and responsive styling, and ldrs
-          for sleek, customizable loading animations. Together, these tools have
-          allowed me to create a fast, visually appealing, and user-friendly
-          experience for Genshin Impact fans.
+          <strong class="text-highlight">Vue.js</strong> to managing real-time
+          data seamlessly with <strong class="text-highlight">Supabase</strong>,
+          each technology has played a crucial role in shaping the site’s
+          functionality and design. I’ve also used
+          <strong class="text-highlight">GSAP</strong> for smooth, interactive
+          animations, <strong class="text-highlight">Tailwind CSS</strong> for
+          rapid and responsive styling, and ldrs for sleek, customizable loading
+          animations. Together, these tools have allowed me to create a fast,
+          visually appealing, and user-friendly experience for Genshin Impact
+          fans.
         </p>
         <p>
-          Notable mentions: <strong class="text-highlight">Uiball</strong> for their ldrs(Loading/Spinenr) library
+          Notable mentions: <strong class="text-highlight">Uiball</strong> for
+          their ldrs (Loading/Spinner) library
         </p>
         <div
           class="techstack-container bg-gradient-to-r from-[#FF0080] via-[#FF8C00] via-[#FFD700] to-[#00FFEA]"
@@ -137,6 +130,40 @@
             alt="tailwindcss"
             class="logo"
           />
+        </div>
+      </section>
+
+      <!--Credits section-->
+      <section class="panel right">
+        <h1>Credits</h1>
+        <p>
+          This website was made possible by utilizing valuable resources and
+          information from various online sources. Below, we acknowledge the
+          platforms and communities that contributed to the creation of this
+          project. Special thanks to the following websites for their
+          comprehensive guides, databases, and insights on Genshin Impact and
+          related content.
+        </p>
+        <div class="credits-list-container">
+          <ul class="credits-list">
+            <li>
+              <a href="https://wiki.hoyolab.com/pc/genshin/home" target="_blank"
+                >Genshin HoyoLAB Wiki (Official)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://genshin-impact.fandom.com/wiki/HoYoLAB"
+                target="_blank"
+                >Genshin Impact Wiki</a
+              >
+            </li>
+            <li>
+              <a href="https://game8.co/games/Genshin-Impact" target="_blank"
+                >Game8 - Build & Guides</a
+              >
+            </li>
+          </ul>
         </div>
       </section>
     </div>
