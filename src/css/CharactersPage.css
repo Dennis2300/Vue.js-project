@@ -40,6 +40,7 @@
   border-radius: 25px;
   background-color: var(--stroke);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .character-grid-item:hover {
@@ -108,4 +109,3 @@
   color: var(--headline);
   cursor: default;
 }
-
