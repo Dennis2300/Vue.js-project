@@ -18,17 +18,18 @@
   flex-direction: column;
   letter-spacing: 1.5px;
   line-height: 1.6;
-  pointer-events: none;
 }
 
 .about-page-intro h1 {
   font-size: 9em;
+  cursor: default;
 }
 
 .about-page-intro p {
   margin-bottom: 25px;
   padding-left: 20%;
   padding-right: 20%;
+  cursor: default;
 }
 
 .animation-container {
@@ -51,7 +52,7 @@
 .panel h1 {
   font-size: 9em;
   margin-bottom: 25px;
-  pointer-events: none;
+  cursor: default;
 }
 
 .panel p {
@@ -60,7 +61,6 @@
   padding-right: 20%;
   letter-spacing: 1.5px;
   line-height: 1.6;
-  pointer-events: none;
 }
 
 .link {
@@ -76,7 +76,7 @@
 .sticker {
   position: absolute;
   z-index: 999;
-  pointer-events: none;
+  cursor: default;
   width: 150px;
   height: auto;
   background-color: transparent;
@@ -92,12 +92,12 @@
 
 .sticker-2 {
   top: 3%;
-  right: 10%;
+  right: 5%;
 }
 
 .sticker-3 {
-  top: 26%;
-  right: 35%;
+  top: 20%;
+  right: 10%;
 }
 
 @keyframes fadeIn {
