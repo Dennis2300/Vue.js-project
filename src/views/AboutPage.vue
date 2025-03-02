@@ -37,8 +37,8 @@
         enjoyed using <strong>Teyvat Bulletin</strong> and found it helpful,
         consider supporting me on <strong>Ko-fi</strong>! Your support goes a
         long way in helping me cover ongoing costs like database fees, hosting,
-        and other expenses that keep this site running smoothly. You can support
-        me on <a href="https://ko-fi.com/" target="_blank">Ko-Fi</a> <br />
+        and other expenses that keep this site running smoothly. You can find my
+        Ko-Fi <a href="https://ko-fi.com/" target="_blank" class="text-highlight link">here</a>. <br />
         Every contribution, no matter how small, allows me to continue improving
         and maintaining this resource for the Genshin Impact community. Thank
         you for being a part of this journey—your support means the world to me!
