@@ -24,7 +24,6 @@ import "ldrs/trefoil";
 import "./../css/CharacterDetailPage.css";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 
-
 const route = useRoute();
 const character = ref(null);
 const loading = ref(true);

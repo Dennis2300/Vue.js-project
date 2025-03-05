@@ -4,5 +4,11 @@
 }
 
 .character-detail {
-    text-align: center;
+    font-size: 2em;
+}
+
+.character-detail h1 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
 }
