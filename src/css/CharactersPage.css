@@ -19,6 +19,22 @@
   margin-top: 5vh;
   font-size: 2em;
   color: var(--headline);
+  line-height: 2em;
+}
+
+.error-message-sticker {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 250px;
+  width: 250px;
+  margin-top: 25px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--highlight);
+  letter-spacing: 1px;
 }
 
 .character-page-header {

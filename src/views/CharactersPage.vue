@@ -49,11 +49,14 @@
     </div>
 
     <!-- Show error message if there is an error -->
-    <div v-if="error" >
+    <div v-if="error">
       <p class="error-message">
-        Couldn'nt fetch characters due to a network error
+        Failed to get characters due to a connection issue. <br> Please try again later.
       </p>
-      <img :src="images.tighnari" alt="Tighnari Flop">
+      <img class="error-message-sticker" :src="images.tighnari" alt="Tighnari Flop" />
+      <p class="error-message">
+        or check my socials for updates: <a href="https://x.com/SindZhou" target="_blank" class="link">Twitter/X</a>
+      </p>
     </div>
   </div>
 </template>
@@ -63,11 +66,11 @@ import { ref, onMounted } from "vue"; // Import the Vue composition API
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
-import images from "./../assets/images.json"
+import images from "./../assets/images.json";
 
 // Loading and error states
 const loading = ref(true);
-const error = ref(true);
+const error = ref(null);
 
 // Data states
 const characters = ref([]);
