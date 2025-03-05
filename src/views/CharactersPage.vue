@@ -49,7 +49,12 @@
     </div>
 
     <!-- Show error message if there is an error -->
-    <p v-if="error">{{ error }}</p>
+    <div v-if="error" >
+      <p class="error-message">
+        Couldn'nt fetch characters due to a network error
+      </p>
+      <img :src="images.tighnari" alt="Tighnari Flop">
+    </div>
   </div>
 </template>
 
@@ -58,10 +63,11 @@ import { ref, onMounted } from "vue"; // Import the Vue composition API
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
+import images from "./../assets/images.json"
 
 // Loading and error states
 const loading = ref(true);
-const error = ref(null);
+const error = ref(true);
 
 // Data states
 const characters = ref([]);

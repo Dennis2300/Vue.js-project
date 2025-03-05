@@ -14,6 +14,13 @@
   transform: scale(3);
 }
 
+.error-message {
+  text-align: center;
+  margin-top: 5vh;
+  font-size: 2em;
+  color: var(--headline);
+}
+
 .character-page-header {
   text-align: center;
   margin-top: 5vh;
