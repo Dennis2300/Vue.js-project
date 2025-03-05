@@ -4,7 +4,7 @@
     <LoadingSpinner v-if="loading" />
 
     <!-- Character Detail Page -->
-    <div v-else-if="character">
+    <div v-else-if="character" class="character-detail">
       <h1>{{ character.name }}</h1>
     </div>
 
