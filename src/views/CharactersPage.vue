@@ -21,9 +21,10 @@
         v-if="!loading && !error && characters?.length"
         class="character-grid"
       >
-        <div
+        <router-link
           v-for="character in characters"
           :key="character.id"
+          :to="`/characters/${character.id}`"
           class="character-grid-item"
           :class="{
             'rarity-5': character.rarity === 5,
@@ -44,18 +45,26 @@
           />
           <h3>{{ character.name }}</h3>
           <p class="rarity-text" :data-stars="character.rarity"></p>
-        </div>
+        </router-link>
       </div>
     </div>
 
     <!-- Show error message if there is an error -->
     <div v-if="error">
       <p class="error-message">
-        Failed to get characters due to a connection issue. <br> Please try again later.
+        Failed to get characters due to a connection issue. <br />
+        Please try again later.
       </p>
-      <img class="error-message-sticker" :src="images.tighnari" alt="Tighnari Flop" />
+      <img
+        class="error-message-sticker"
+        :src="images.tighnari"
+        alt="Tighnari Flop"
+      />
       <p class="error-message">
-        or check my socials for updates: <a href="https://x.com/SindZhou" target="_blank" class="link">Twitter/X</a>
+        or check my socials for updates:
+        <a href="https://x.com/SindZhou" target="_blank" class="link"
+          >Twitter/X</a
+        >
       </p>
     </div>
   </div>
