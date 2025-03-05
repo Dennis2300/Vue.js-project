@@ -3,17 +3,7 @@
     <h1 class="character-page-header">Genshin Impact Characters</h1>
 
     <!-- Show loading spinner if loading -->
-    <div v-if="loading" class="loading-spinner-container">
-      <l-trefoil
-        class="loading-spinner"
-        size="40"
-        stroke="4"
-        stroke-length="0.15"
-        bg-opacity="0.1"
-        speed="1.4"
-        color="white"
-      ></l-trefoil>
-    </div>
+    <LoadingSpinner v-if="loading" />
 
     <!-- Show characters -->
     <div class="character-display-container">
@@ -76,6 +66,7 @@ import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
 import images from "./../assets/images.json";
+import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 
 // Loading and error states
 const loading = ref(true);

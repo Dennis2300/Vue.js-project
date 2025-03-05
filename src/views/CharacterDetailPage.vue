@@ -1,28 +1,16 @@
 <template>
   <div class="character-detail-container">
-    <h1>Character detail page</h1>
     <!-- Loading Spinner -->
-    <div v-if="loading">
-      <l-trefoil
-        v-if="loading"
-        class="loading-spinner"
-        size="40"
-        stroke="4"
-        stroke-length="0.15"
-        bg-opacity="0.1"
-        speed="1.4"
-        color="white"
-      ></l-trefoil>
-    </div>
+    <LoadingSpinner v-if="loading" />
 
     <!-- Character Detail Page -->
     <div v-else-if="character">
-        <h1>{{ character.name }}</h1>
+      <h1>{{ character.name }}</h1>
     </div>
 
     <!-- Error Message-->
     <div v-else>
-        <p>Character not found.</p>
+      <p>Character not found.</p>
     </div>
   </div>
 </template>
@@ -34,6 +22,8 @@ import { supabase } from "./../supabaseClient.js";
 
 import "ldrs/trefoil";
 import "./../css/CharacterDetailPage.css";
+import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+
 
 const route = useRoute();
 const character = ref(null);
