@@ -92,10 +92,7 @@ async function GetAllCharacters() {
 
 // Fetch characters on page load
 onMounted(async () => {
-  loading.value = true;
-  setTimeout(async () => {
-    await GetAllCharacters();
-    loading.value = false;
-  }, 1000);
+  await GetAllCharacters();
+  loading.value = false;
 });
 </script>
