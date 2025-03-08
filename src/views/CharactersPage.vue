@@ -57,6 +57,7 @@
         >
       </p>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -67,6 +68,7 @@ import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
 import images from "./../assets/images.json";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import Footer from "@/components/Footer.vue";
 
 // Loading and error states
 const loading = ref(true);
