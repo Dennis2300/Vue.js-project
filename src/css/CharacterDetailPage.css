@@ -4,11 +4,39 @@
 }
 
 .character-detail {
-    font-size: 2em;
+  font-size: 2em;
 }
 
-.character-detail h1 {
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
+.character-detail-header-container {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 0 0;
+  padding: 0;
+}
+
+.character-detail-header {
+  font-size: 3em;
+  margin-left: 50px;
+  text-transform: uppercase;
+}
+
+.character-detail-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.rarity-5 .character-detail-avatar {
+  background: linear-gradient(145deg, #e7944a, #b56a2b);
+}
+
+.rarity-4 .character-detail-avatar {
+  background: linear-gradient(145deg, #9b72d5, #7149a3);
 }

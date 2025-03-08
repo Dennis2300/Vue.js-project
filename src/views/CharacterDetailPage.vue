@@ -4,8 +4,22 @@
     <LoadingSpinner v-if="loading" />
 
     <!-- Character Detail Page -->
-    <div v-else-if="character" class="character-detail">
-      <h1>{{ character.name }}</h1>
+    <div
+      v-else-if="character"
+      class="character-detail"
+      :class="{
+        'rarity-5': character.rarity === 5,
+        'rarity-4': character.rarity === 4,
+      }"
+    >
+      <div class="character-detail-header-container">
+        <img
+          :src="character.image_url"
+          alt="Vision"
+          class="character-detail-avatar"
+        />
+        <h1 class="character-detail-header">{{ character.name }}</h1>
+      </div>
     </div>
 
     <!-- Error Message-->
