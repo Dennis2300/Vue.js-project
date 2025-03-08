@@ -40,3 +40,7 @@
 .rarity-4 .character-detail-avatar {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
 }
+
+.rarity-text {
+  font-size: 1.5em;
+}
