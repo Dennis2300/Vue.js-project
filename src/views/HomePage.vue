@@ -46,20 +46,7 @@
     </div>
 
     <!-- Footer Section -->
-    <div class="home-page-footer-container">
-      <footer class="home-page-footer">
-        <h3>Disclaimer!</h3>
-        <p>
-          This website is a fan-made project and is not affiliated with,
-          endorsed by, or sponsored by HoYoverse or miHoYo. <br />
-          Character, images, names, and assets used on this site are the
-          property of HoYoverse.
-        </p>
-        <div class="home-page-footer-link">
-          Find more info <a href="/about">here</a>
-        </div>
-      </footer>
-    </div>
+    <Footer />
   </div>
 </template>
 
@@ -67,4 +54,5 @@
 import "./../css/HomePage.css";
 import "./../css/BulletinBoard.css";
 import images from "./../assets/images.json"
+import Footer from "./../components/Footer.vue";
 </script>
