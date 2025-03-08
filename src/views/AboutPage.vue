@@ -38,7 +38,10 @@
         consider supporting me on <strong>Ko-fi</strong>! Your support goes a
         long way in helping me cover ongoing costs like database fees, hosting,
         and other expenses that keep this site running smoothly. You can find my
-        Ko-Fi <a href="https://ko-fi.com/" target="_blank" class="text-highlight link">here</a>. <br />
+        Ko-Fi
+        <a href="https://ko-fi.com/" target="_blank" class="text-highlight link"
+          >here</a
+        >. <br />
         Every contribution, no matter how small, allows me to continue improving
         and maintaining this resource for the Genshin Impact community. Thank
         you for being a part of this journey—your support means the world to me!
@@ -156,25 +159,17 @@
           related content.
         </p>
         <div class="credits-list-container">
-          <ul class="credits-list">
-            <li>
-              <a href="https://wiki.hoyolab.com/pc/genshin/home" target="_blank"
-                >Genshin HoyoLAB Wiki (Official)</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://genshin-impact.fandom.com/wiki/HoYoLAB"
-                target="_blank"
-                >Genshin Impact Wiki</a
-              >
-            </li>
-            <li>
-              <a href="https://game8.co/games/Genshin-Impact" target="_blank"
-                >Game8 - Build & Guides</a
-              >
-            </li>
-          </ul>
+          <a href="https://wiki.hoyolab.com/pc/genshin/home" target="_blank"
+            >Genshin HoyoLAB Wiki (Official)</a
+          > |
+          <a
+            href="https://genshin-impact.fandom.com/wiki/HoYoLAB"
+            target="_blank"
+            >Genshin Impact Wiki</a
+          > |
+          <a href="https://game8.co/games/Genshin-Impact" target="_blank"
+            >Game8 - Build & Guides</a
+          >
         </div>
       </section>
     </div>

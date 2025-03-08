@@ -136,29 +136,21 @@
 }
 
 .credits-list-container {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
   padding: 15px;
   border-radius: 8px;
+  font-size: 1.5em;
 }
 
-.credits-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.credits-list li {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-.credits-list li a {
+.credits-list-container a {
   text-decoration: none;
-  color: var(--button);
-  transition: color 0.3s ease;
-  font-size: 2em;
+  color: var(--highlight);
 }
 
-.credits-list li a:hover {
-  color: var(--main); 
+.credits-list-container a:hover {
+  transition: ease-in-out 0.2s;
   text-decoration: underline;
+  color: var(--highlight);
 }
