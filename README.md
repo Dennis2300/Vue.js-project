@@ -14,7 +14,7 @@
 
 ## Introduction
 
-Welcome to the **Genshin Impact Fan-Made Website**! This project is brought to you by my passion, created as a way to combine the love of the world of Teyvat with my journey into web development. As a fan of Genshin Impact, I wanted to build something that so players can easily find builds, character mats and team compositions.
+Welcome to the **Teyvat Bulletin** Repo! This project is brought to you by my passion, created as a way to combine the love of the world of Teyvat with my journey into web development. As a fan of Genshin Impact, I wanted to build something that so players can easily find builds, character mats and team compositions.
 
 This website is **not affiliated with miHoYo** or the official Genshin Impact team. Instead, it's a **fan-made project** designed for learning purposes and as a fun hobby. I hope this project brings you as much joy as it has brought me while building it.
 
