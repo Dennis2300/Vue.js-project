@@ -28,8 +28,7 @@ Feel free to explore, contribute, or provide feedback—this is a community-driv
 The diagram shows the relationships between characters, weapons, and other entities in the Genshin Impact universe. 
 <br>
 **This will change in the future when Im adding more to the Database**
-<iframe frameborder="0" style="width:100%;height:200px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Teyvat%20Bulletin.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HEwfE2gX_MKPQ8343GJew_mfGIX4UlEy%26export%3Ddownload">
-</iframe>
+<iframe frameborder="0" style="width:100%;height:200px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Teyvat%20Bulletin.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HEwfE2gX_MKPQ8343GJew_mfGIX4UlEy%26export%3Ddownload"></iframe>
 
 ## Contributing
 Currently, this project is not set up for collaboration as I'm still exploring the best ways to manage contributions and implement a proper DevOps setup. However, if you're interested in contributing and have experience with DevOps, CI/CD pipelines, or project collaboration tools, I'd love to hear from you!
