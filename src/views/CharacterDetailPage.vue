@@ -25,22 +25,12 @@
       <!-- Character Detail Layout -->
       <div class="character-detail-layout">
         <section class="main-section">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem et
-          porro consequuntur nulla. Repellendus, ipsam autem doloremque animi
-          quidem cupiditate dolore vero quam amet excepturi commodi quis esse
-          laudantium consequuntur.
+
         </section>
         <section class="right-section">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          atque nemo libero dolore. Sint, possimus repellat? Rerum sint, esse
-          atque perferendis impedit neque laudantium, repellendus culpa nesciunt
-          fugit, quisquam alias?
+
         </section>
         <section class="bottom-section">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto qui
-          doloribus obcaecati dicta, et quos hic esse deserunt facilis placeat
-          quam alias quibusdam corporis iste rem voluptatibus, vero suscipit
-          consequuntur?
         </section>
       </div>
     </div>
