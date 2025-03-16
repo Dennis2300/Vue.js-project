@@ -36,7 +36,7 @@
           atque perferendis impedit neque laudantium, repellendus culpa nesciunt
           fugit, quisquam alias?
         </section>
-        <section class="buttom-section">
+        <section class="bottom-section">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto qui
           doloribus obcaecati dicta, et quos hic esse deserunt facilis placeat
           quam alias quibusdam corporis iste rem voluptatibus, vero suscipit
@@ -53,12 +53,17 @@
 </template>
 
 <script setup>
+// Import the necessary functions and components
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { supabase } from "./../supabaseClient.js";
 
-import "ldrs/trefoil";
+// Import the necessary styles
 import "./../css/CharacterDetailPage.css";
+import "./../css/CharacterDetailGrid.css";
+
+// Import the loading spinner component
+import "ldrs/trefoil";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 
 const route = useRoute();
