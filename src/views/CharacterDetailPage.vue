@@ -25,13 +25,30 @@
       <!-- Character Detail Layout -->
       <div class="character-detail-layout">
         <section class="main-section">
-
+          <div>
+            {{ character.vision.name }}
+          </div>
+          <div>
+            {{ character.birthday }}
+          </div>
+          <div>
+            {{ character.constellation }}
+          </div>
+          <div>
+            <ul class="styled-list">
+              <li
+                v-for="(affiliation, index) in character.affiliation"
+                :key="index"
+              >
+                {{ affiliation }}
+              </li>
+            </ul>
+          </div>
         </section>
         <section class="right-section">
-
+          <div>Best Weapon:</div>
         </section>
-        <section class="bottom-section">
-        </section>
+        <section class="bottom-section">kasdhkasjhdkas</section>
       </div>
     </div>
 
