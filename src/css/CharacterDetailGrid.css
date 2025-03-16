@@ -1,0 +1,38 @@
+.character-detail-layout {
+  max-width: 1500px;
+  display: grid;
+  grid-template-areas:
+    "hero hero hero right ritght"
+    "hero hero hero right ritght"
+    "bottom bottom bottom bottom bottom";
+  margin: 0 auto;
+  margin-bottom: 2em;
+  color: var(--stroke);
+  font-size: 18px;
+}
+
+.main-section {
+  grid-area: hero;
+  background-color: var(--highlight);
+  height: 500px;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+.right-section {
+  grid-area: right;
+  background-color: var(--highlight);
+  height: 500px;
+  margin-left: 25px;
+  padding: 25px;
+  border-radius: 25px
+}
+
+.bottom-section {
+  grid-area: bottom;
+  background-color: var(--highlight);
+  height: 250px;
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 25px
+}
