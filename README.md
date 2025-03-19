@@ -27,6 +27,7 @@ Feel free to explore, contribute, or provide feedback—this is a community-driv
 - **Weapon**: Information about all Weapons
 - **Materials**: Information about character & weapon materials
 - **Team Composition**: A list of fun and meta team compositions
+- **Mobile Support**: Make it useable for mobile viewer in the future
 
 ## ER Diagram
 
