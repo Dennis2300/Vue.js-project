@@ -24,40 +24,7 @@
 
       <!-- Character Detail Layout -->
       <div class="character-detail-layout">
-        <section class="main-section grid">
-          <div class="grid-item-name">
-            {{ character.vision.name }}
-          </div>
-          <div class="grid-item-birthday">
-            {{ character.birthday }}
-          </div>
-          <div class="grid-item-constellation">
-            {{ character.constellation }}
-          </div>
-          <div>
-            {{ character.favourite_dish }}
-          </div>
-          <div>
-            {{ character.release_date }}
-          </div>
-          <div class="grid-item-affiliation">
-            <ul class="styled-list">
-              <li
-                v-for="(affiliation, index) in character.affiliation"
-                :key="index"
-              >
-                {{ affiliation }}
-              </li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <div v-for="(actor, language) in character.va" :key="language">
-                {{ language }} Voice Actor: <strong>{{ actor }}</strong>
-              </div>
-            </ul>
-          </div>
-        </section>
+        <CharacterDetailsMainSection :character="character" />
         <section class="right-section">
           <div>Best Weapon:</div>
         </section>
@@ -89,6 +56,9 @@ import "./../css/CharacterDetailGrid.css";
 // Import the loading spinner component
 import "ldrs/trefoil";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+
+// Import the character details main section component
+import CharacterDetailsMainSection from "../components/CharacterDetailsMainSection.vue"; // Import the character details main section component
 
 const route = useRoute();
 const character = ref(null);
