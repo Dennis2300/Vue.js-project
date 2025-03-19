@@ -1,5 +1,6 @@
 <template>
   <section class="main-section grid">
+    <img class="vision-image" :src="character.vision.image_url" :alt="character.vision.name" />
     <!-- Name -->
     <div class="grid-item-name">
       {{ character.vision.name }}
@@ -35,8 +36,8 @@
     </div>
 
     <!-- Voice Actors -->
-    <div>
-      <ul>
+    <div class="grid-item-voice-actors">
+      <ul class="styled-list">
         <div v-for="(actor, language) in character.va" :key="language">
           {{ language }} VA: {{ languageEmojis[language] || "🌐" }}
           <strong>{{ actor }}</strong>
@@ -54,6 +55,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+// Define the language emojis
 const languageEmojis = {
   English: "🇺🇸",
   Japanese: "🇯🇵",
