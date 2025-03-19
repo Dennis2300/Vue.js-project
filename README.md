@@ -8,7 +8,8 @@
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [ER Diagram](#er-diagram)
-4. [Contributing](#contributing)
+3. [Preview](#preview)
+5. [Contributing](#contributing)
 5. [License](#license)
 6. [Acknowledgements](#acknowledgements)
 
@@ -35,6 +36,15 @@ The diagram shows the relationships between characters, weapons, and other entit
 [View the ER Diagram on draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Teyvat%20Bulletin.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HEwfE2gX_MKPQ8343GJew_mfGIX4UlEy%26export%3Ddownload)
 
 **This will change in the future when Im adding more to the Database**
+
+## Preview
+Everything is subject to change, so don't take it as the final product!
+### The Home Page
+![HomePage](public/pics/Homepage.png)
+### All Character Page
+![AllCharacterPage](public/pics/Character.png)
+### Detailed Character Page
+![DetailCharacterPage](public/pics/CharacterDetail.png)
 
 ## Contributing
 
