@@ -38,7 +38,8 @@
     <div>
       <ul>
         <div v-for="(actor, language) in character.va" :key="language">
-          {{ language }} Voice Actor: <strong>{{ actor }}</strong>
+          {{ language }} VA: {{ languageEmojis[language] || "🌐" }}
+          <strong>{{ actor }}</strong>
         </div>
       </ul>
     </div>
@@ -53,4 +54,10 @@ const props = defineProps({
     required: true,
   },
 });
+const languageEmojis = {
+  English: "🇺🇸",
+  Japanese: "🇯🇵",
+  Korean: "🇰🇷",
+  Chinese: "🇨🇳",
+};
 </script>
