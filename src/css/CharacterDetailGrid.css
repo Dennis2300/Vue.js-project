@@ -1,4 +1,4 @@
-div, ul, li, strong, img {
+div, ul, li, strong, img, h3 {
   background-color: inherit;
 }
 
@@ -16,16 +16,6 @@ div, ul, li, strong, img {
   color: var(--stroke);
 }
 
-.vision-image {
-  position: absolute;
-  right: 3%;
-  top: 5%;
-  height: 100px;
-  width: 100px;
-  background-color: var(--background);
-  border-radius: 100px;
-}
-
 .main-section {
   grid-area: hero;
   background-color: var(--highlight);
@@ -33,11 +23,10 @@ div, ul, li, strong, img {
   padding: 25px;
   border-radius: 25px;
   position: relative;
-}
+  display: flex;
+  justify-content: left;
+  align-items: center;
 
-.grid {
-  display: grid;
-  gap: 25px;
 }
 
 .right-section {
