@@ -4,7 +4,7 @@
     <div class="grid-item-name">
       {{ character.vision.name }}
     </div>
-    
+
     <!-- Birthday -->
     <div class="grid-item-birthday">
       {{ character.birthday }}
@@ -34,7 +34,7 @@
       </ul>
     </div>
 
-    <!-- Vision -->
+    <!-- Voice Actors -->
     <div>
       <ul>
         <div v-for="(actor, language) in character.va" :key="language">
