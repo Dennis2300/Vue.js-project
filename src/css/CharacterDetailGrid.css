@@ -1,3 +1,7 @@
+div, ul, li, strong {
+  background-color: inherit;
+}
+
 .character-detail-layout {
   max-width: 1500px;
   display: grid;
@@ -20,9 +24,9 @@
   border-radius: 25px;
 }
 
-.main-section div,
-li {
-  background-color: inherit;
+.grid {
+  display: grid;
+  gap: 25px;
 }
 
 .right-section {

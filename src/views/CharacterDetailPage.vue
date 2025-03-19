@@ -24,17 +24,23 @@
 
       <!-- Character Detail Layout -->
       <div class="character-detail-layout">
-        <section class="main-section">
-          <div>
+        <section class="main-section grid">
+          <div class="grid-item-name">
             {{ character.vision.name }}
           </div>
-          <div>
+          <div class="grid-item-birthday">
             {{ character.birthday }}
           </div>
-          <div>
+          <div class="grid-item-constellation">
             {{ character.constellation }}
           </div>
           <div>
+            {{ character.favourite_dish }}
+          </div>
+          <div>
+            {{ character.release_date }}
+          </div>
+          <div class="grid-item-affiliation">
             <ul class="styled-list">
               <li
                 v-for="(affiliation, index) in character.affiliation"
@@ -44,11 +50,22 @@
               </li>
             </ul>
           </div>
+          <div>
+            <ul>
+              <div v-for="(actor, language) in character.va" :key="language">
+                {{ language }} Voice Actor: <strong>{{ actor }}</strong>
+              </div>
+            </ul>
+          </div>
         </section>
         <section class="right-section">
           <div>Best Weapon:</div>
         </section>
-        <section class="bottom-section">kasdhkasjhdkas</section>
+        <section class="bottom-section">
+          <div>
+            <a :href="character.wiki_url || '#'" target="_blank">Source</a>
+          </div>
+        </section>
       </div>
     </div>
 
