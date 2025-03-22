@@ -113,6 +113,7 @@ async function fetchCharacterDetails(characterId) {
 
     if (error) throw error;
 
+    // set the character data in the cache
     setCachedData(cacheKey, data);
     return data;
   } catch (err) {
