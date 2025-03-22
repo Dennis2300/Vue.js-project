@@ -28,10 +28,10 @@
         <CharacterDetailsMainSection :character="character" />
 
         <!-- Side Sections -->
-        <section class="right-section">
+        <section class="right-section flex flex-col gap-6">
           <!-- Affiliation -->
-          <div class="grid-item-affiliation">
-            <h3 class="list-title">Affiliations</h3>
+          <div class="grid-item-affiliation mt-2">
+            <h3 class="list-title mb-3">Affiliations</h3>
             <ul class="styled-list">
               <li
                 v-for="(affiliation, index) in character.affiliation"
