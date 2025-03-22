@@ -1,4 +1,10 @@
-div, ul, li, strong, img, h3 {
+div,
+ul,
+li,
+strong,
+img,
+h3,
+p {
   background-color: inherit;
 }
 
@@ -11,7 +17,7 @@ div, ul, li, strong, img, h3 {
     "bottom bottom bottom bottom bottom";
   margin: 0 auto;
   margin-bottom: 2em;
-  font-size: 18px;
+  font-size: 24px;
   grid-template-columns: repeat(4, 1fr);
   color: var(--stroke);
 }
@@ -26,7 +32,6 @@ div, ul, li, strong, img, h3 {
   display: flex;
   justify-content: left;
   align-items: center;
-
 }
 
 .right-section {

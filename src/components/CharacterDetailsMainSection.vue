@@ -1,38 +1,56 @@
 <template>
   <section class="main-section grid">
+    <!-- Vision Image -->
     <img
       class="vision-image"
       :src="character.vision.image_url"
       :alt="character.vision.name"
     />
+
     <!-- Rarity -->
     <div class="grid-item-rarity">
-      <strong>Rarity: </strong>{{ character.rarity }} Star
+      Rarity
+      <p class="rarity-text" :data-stars="character.rarity"></p>
     </div>
 
     <!-- Vision Name -->
     <div class="grid-item-vision-name">
-      <strong>Vision:</strong> {{ character.vision.name }}
+      Vision |
+      <strong>
+        {{ character.vision.name }}
+      </strong>
     </div>
 
     <!-- Birthday -->
     <div class="grid-item-birthday">
-      <strong>Birthday:</strong> {{ character.birthday }}
+      Birthday |
+      <strong>
+        {{ character.birthday }}
+      </strong>
     </div>
 
     <!-- Constellation -->
     <div class="grid-item-constellation">
-      <strong>Constellation:</strong> {{ character.constellation }}
+      Constellation |
+      <strong>
+        {{ character.constellation }}
+      </strong>
     </div>
 
     <!-- Favourite Dish -->
     <div class="grid-item-favourite-dish">
-      <strong>Special Dish:</strong> {{ character.favourite_dish }}
+      Special Dish |
+      <strong>
+        {{ character.favourite_dish }}
+      </strong>
     </div>
 
     <!-- Release Date -->
     <div class="grid-item-release-date">
-      <strong> Release Date: </strong> {{ character.release_date }}
+      Release Date |
+      <strong>
+        {{ character.release_date }}
+      </strong>
     </div>
 
     <!-- Affiliation -->
@@ -50,7 +68,7 @@
       <h3 class="list-title">Voice Actors</h3>
       <ul class="styled-list">
         <div v-for="(actor, language) in character.va" :key="language">
-          {{ language }} VA: {{ languageEmojis[language] || "🌐" }}
+          {{ language }} {{ languageEmojis[language] || "🌐" }}
           <strong>{{ actor }}</strong>
         </div>
       </ul>

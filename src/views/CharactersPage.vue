@@ -34,7 +34,7 @@
             :alt="character.name"
           />
           <h3>{{ character.name }}</h3>
-          <p class="rarity-text" :data-stars="character.rarity"></p>
+          <p class="rarity-text text-white" :data-stars="character.rarity"></p>
         </router-link>
       </div>
     </div>

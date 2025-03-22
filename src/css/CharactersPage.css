@@ -100,7 +100,6 @@
   font-family: Arial, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--headline);
 }
 
 .rarity-text[data-stars="5"]::before {

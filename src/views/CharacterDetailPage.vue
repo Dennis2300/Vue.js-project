@@ -18,7 +18,7 @@
           alt="Vision"
           class="character-detail-avatar"
         />
-        <p class="rarity-text" :data-stars="character.rarity"></p>
+        <p class="rarity-text text-white" :data-stars="character.rarity"></p>
         <h1 class="character-detail-header">{{ character.name }}</h1>
       </div>
 
