@@ -1,6 +1,6 @@
 <template>
   <div class="character-page-container">
-    <h1 class="character-page-header">Genshin Impact Characters</h1>
+    <h1 class="character-page-header">Character Archive</h1>
 
     <!-- Show loading spinner if loading -->
     <LoadingSpinner v-if="loading" />
