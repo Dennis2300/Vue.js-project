@@ -64,8 +64,47 @@ const route = useRoute();
 const character = ref(null);
 const loading = ref(true);
 
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
+
+// Function to get cached data from session storage
+function getCachedData(key) {
+  const cachedData = sessionStorage.getItem(key);
+  if (!cachedData) return null;
+
+  const { timestamp, data } = JSON.parse(cachedData);
+  const now = new Date().getTime();
+
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  } else {
+    sessionStorage.removeItem(key);
+    return null;
+  }
+}
+
+// Function to set cached data in session storage if it doesn't already exist
+function setCachedData(key, data) {
+  const cache = {
+    timestamp: new Date().getTime(),
+    data,
+  };
+  sessionStorage.setItem(key, JSON.stringify(cache));
+}
+
+// Function to fetch character details from the database
 async function fetchCharacterDetails(characterId) {
+  // Cache key for the character
+  const cacheKey = `character-${characterId}`;
+
+  // Check if the character is already cached
+  const cachedCharacter = getCachedData(cacheKey);
+  if (cachedCharacter) {
+    return cachedCharacter;
+  }
+
+  // Fetch the character details from the database if not cached
   try {
+    // Fetch the character details from the database
     const { data, error } = await supabase
       .from("character")
       .select("*, vision:vision_id(name, image_url)")
@@ -73,10 +112,12 @@ async function fetchCharacterDetails(characterId) {
       .single();
 
     if (error) throw error;
-    return data; // Return the fetched character data
+
+    setCachedData(cacheKey, data);
+    return data;
   } catch (err) {
     console.error("Error fetching character:", err);
-    return null; // Return null if there's an error
+    return null;
   }
 }
 
