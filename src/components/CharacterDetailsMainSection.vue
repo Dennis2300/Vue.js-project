@@ -9,8 +9,8 @@
 
     <!-- Rarity -->
     <div class="grid-item-rarity">
-      Rarity
-      <p class="rarity-text" :data-stars="character.rarity"></p>
+      Rarity |
+      <strong> {{ character.rarity }} Star </strong>
     </div>
 
     <!-- Vision Name -->
@@ -53,25 +53,42 @@
       </strong>
     </div>
 
-    <!-- Affiliation -->
-    <div class="grid-item-affiliation">
-      <h3 class="list-title">Affiliations</h3>
-      <ul class="styled-list">
-        <li v-for="(affiliation, index) in character.affiliation" :key="index">
-          {{ affiliation }}
-        </li>
-      </ul>
+    <!-- Best Artifact Sets -->
+    <div class="grid-item-artifact">
+      <h3>Best Artifacts</h3>
+      <div class="flex space-x-12 text-center mt-4">
+        <div>
+          <img src="https://placehold.co/100x100" alt="" />
+          <h5>Placeholder</h5>
+        </div>
+        <div>
+          <img src="https://placehold.co/100x100" alt="" />
+          <h5>Placeholder</h5>
+        </div>
+        <div>
+          <img src="https://placehold.co/100x100" alt="" />
+          <h5>Placeholder</h5>
+        </div>
+      </div>
     </div>
 
-    <!-- Voice Actors -->
-    <div class="grid-item-voice-actors">
-      <h3 class="list-title">Voice Actors</h3>
-      <ul class="styled-list">
-        <div v-for="(actor, language) in character.va" :key="language">
-          {{ language }} {{ languageEmojis[language] || "🌐" }}
-          <strong>{{ actor }}</strong>
+    <!-- Best Weapons -->
+    <div class="grid-item-weapons">
+      <h3>Best Weapons</h3>
+      <div class="flex space-x-12 text-center mt-4">
+        <div>
+          <img src="https://placehold.co/100x100" alt="" />
+          <h5>Placeholder</h5>
         </div>
-      </ul>
+        <div>
+          <img src="https://placehold.co/100x100" alt="" />
+          <h5>Placeholder</h5>
+        </div>
+        <div>
+          <img src="https://placehold.co/100x100" alt="" />
+          <h5>Placeholder</h5>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -84,14 +101,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-// Define the language emojis
-const languageEmojis = {
-  English: "🇺🇸",
-  Japanese: "🇯🇵",
-  Korean: "🇰🇷",
-  Chinese: "🇨🇳",
-};
 </script>
 
 <style scoped>

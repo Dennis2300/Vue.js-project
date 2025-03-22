@@ -24,10 +24,37 @@
 
       <!-- Character Detail Layout -->
       <div class="character-detail-layout">
+        <!-- Main Section -->
         <CharacterDetailsMainSection :character="character" />
+
+        <!-- Side Sections -->
         <section class="right-section">
-          <div>Best Weapon:</div>
+          <!-- Affiliation -->
+          <div class="grid-item-affiliation">
+            <h3 class="list-title">Affiliations</h3>
+            <ul class="styled-list">
+              <li
+                v-for="(affiliation, index) in character.affiliation"
+                :key="index"
+              >
+                {{ affiliation }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Voice Actors -->
+          <div class="grid-item-voice-actors">
+            <h3 class="list-title">Voice Actors</h3>
+            <ul class="styled-list">
+              <div v-for="(actor, language) in character.va" :key="language">
+                {{ language }} {{ languageEmojis[language] || "🌐" }}
+                <strong>{{ actor }}</strong>
+              </div>
+            </ul>
+          </div>
         </section>
+
+        <!-- Bottom Section -->
         <section class="bottom-section">
           <div>
             <a :href="character.wiki_url || '#'" target="_blank">Source</a>
@@ -121,6 +148,14 @@ async function fetchCharacterDetails(characterId) {
     return null;
   }
 }
+
+// Define the language emojis
+const languageEmojis = {
+  English: "🇺🇸",
+  Japanese: "🇯🇵",
+  Korean: "🇰🇷",
+  Chinese: "🇨🇳",
+};
 
 onMounted(async () => {
   const characterId = route.params.id;

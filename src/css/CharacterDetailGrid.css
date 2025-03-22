@@ -4,6 +4,7 @@ li,
 strong,
 img,
 h3,
+h5,
 p {
   background-color: inherit;
 }
@@ -30,7 +31,6 @@ p {
   border-radius: 25px;
   position: relative;
   display: flex;
-  justify-content: left;
   align-items: center;
 }
 
