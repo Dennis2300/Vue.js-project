@@ -9,48 +9,37 @@
 
     <!-- Rarity -->
     <div class="grid-item-rarity">
-      Rarity |
-      <strong> {{ character.rarity }} Star </strong>
+      <strong>Rarity</strong> | {{ character.rarity }} Star
     </div>
 
     <!-- Vision Name -->
     <div class="grid-item-vision-name">
-      Vision |
-      <strong>
-        {{ character.vision.name }}
-      </strong>
+      <strong>Vision</strong> |
+      {{ character.vision.name }}
     </div>
 
     <!-- Birthday -->
     <div class="grid-item-birthday">
-      Birthday |
-      <strong>
-        {{ character.birthday }}
-      </strong>
+      <strong>Birthday</strong> |
+      {{ character.birthday }}
     </div>
 
     <!-- Constellation -->
     <div class="grid-item-constellation">
-      Constellation |
-      <strong>
-        {{ character.constellation }}
-      </strong>
+      <strong>Constellation</strong> |
+      {{ character.constellation }}
     </div>
 
     <!-- Favourite Dish -->
     <div class="grid-item-favourite-dish">
-      Special Dish |
-      <strong>
-        {{ character.favourite_dish }}
-      </strong>
+      <strong>Special Dish</strong> |
+      {{ character.favourite_dish }}
     </div>
 
     <!-- Release Date -->
     <div class="grid-item-release-date">
-      Release Date |
-      <strong>
-        {{ character.release_date }}
-      </strong>
+      <strong>Release Date</strong> |
+      {{ character.release_date }}
     </div>
 
     <!-- Best Artifact Sets -->
@@ -104,13 +93,17 @@ const props = defineProps({
 </script>
 
 <style scoped>
+strong {
+  color: var(--quaternary);
+}
+
 .vision-image {
   position: absolute;
   right: 3%;
   top: 5%;
   height: 100px;
   width: 100px;
-  background-color: var(--background);
+  background-color: var(--primary);
   border-radius: 100px;
 }
 
