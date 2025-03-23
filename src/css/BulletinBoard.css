@@ -13,7 +13,7 @@
     padding-bottom: 40px;
     padding-left: 50px;
     padding-right: 50px;
-    background: var(--stroke);
+    background: var(--quaternary);
     border-radius: 12px;
     box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -28,8 +28,8 @@
     height: 250px;
     padding: 15px;
     font-size: 16px;
-    background-color: var(--tertiary);
-    color: var(--stroke);
+    background-color: var(--secondary);
+    color: white;
     font-family: 'Arial', sans-serif;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -63,20 +63,20 @@
   
   .note:hover {
     transform: translateY(-5px);
-    box-shadow: 4px 4px 15px rgba(184, 193, 236, 0.7);
+    box-shadow: 4px 4px 15px black;
   }
   
   .note::before {
     content: '';
     width: 12px;
     height: 12px;
-    background: var(--tertiary);
+    background: #ba181b;
     border-radius: 50%;
     position: absolute;
     top: -6px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px black;
   }
   
   .note:nth-child(odd) {
@@ -88,7 +88,6 @@
   }
   
   .note-picture {
-    background: var(--tertiary);
     width: 220px;
     height: 160px;
     position: relative;
@@ -97,7 +96,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 10px black;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s;
   }
 
@@ -106,7 +105,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    background-color: inherit;
     transition: filter 0.3s ease-in-out, transform 0.2s ease-in-out;
   }
 
