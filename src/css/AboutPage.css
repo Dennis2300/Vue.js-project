@@ -1,8 +1,6 @@
 .text-highlight {
-  color: #f7f7f7;
+  color: var(--quaternary);
 }
-
-
 
 .about-page-container {
   position: relative;
@@ -70,7 +68,7 @@
 .link:hover {
   transition: ease-in-out 0.2s;
   text-decoration: underline;
-  color: var(--highlight);
+  color: var(--secondary);
 }
 
 .sticker {

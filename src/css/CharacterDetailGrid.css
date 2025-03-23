@@ -19,12 +19,12 @@ p {
   margin: 0 auto;
   margin-bottom: 2em;
   grid-template-columns: repeat(4, 1fr);
-  color: var(--stroke);
+  color: white;
 }
 
 .main-section {
   grid-area: hero;
-  background-color: var(--highlight);
+  background-color: var(--secondary);
   height: 500px;
   padding: 25px;
   border-radius: 25px;
@@ -36,7 +36,7 @@ p {
 
 .right-section {
   grid-area: right;
-  background-color: var(--highlight);
+  background-color: var(--secondary);
   height: 500px;
   margin-left: 25px;
   padding: 25px;
@@ -50,7 +50,7 @@ p {
 
 .bottom-section {
   grid-area: bottom;
-  background-color: var(--highlight);
+  background-color: var(--secondary);
   height: 250px;
   margin-top: 25px;
   padding: 25px;
