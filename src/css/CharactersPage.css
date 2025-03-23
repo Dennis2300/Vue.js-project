@@ -33,6 +33,7 @@
 }
 .character-display-container {
   margin-top: 5vh;
+  min-height: 100vh;
 }
 
 .character-grid {
