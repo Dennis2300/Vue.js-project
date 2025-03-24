@@ -39,7 +39,13 @@
     <!-- Release Date -->
     <div class="grid-item-release-date">
       <strong>Release Date</strong> |
-      {{ character.release_date }}
+      {{
+        new Date(character.release_date).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })
+      }}
     </div>
 
     <!-- Best Artifact Sets -->
