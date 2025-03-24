@@ -68,38 +68,18 @@
     </div>
 
     <!-- Best Weapons -->
-    <div class="grid-item-weapons">
-      <h3>Best Weapons</h3>
-      <div class="flex space-x-12 text-center mt-4">
-        <div>
-          <img src="https://placehold.co/100x100" alt="" />
-          <h5>Placeholder</h5>
-        </div>
-        <div>
-          <img src="https://placehold.co/100x100" alt="" />
-          <h5>Placeholder</h5>
-        </div>
-        <div>
-          <img src="https://placehold.co/100x100" alt="" />
-          <h5>Placeholder</h5>
-        </div>
-      </div>
-    </div>
-
     <div v-if="character.weapons.length" class="grid-item-weapons">
       <h3>Best Weapons</h3>
       <div class="flex space-x-12 text-center mt-4">
         <div
           v-for="weapon in character.weapons"
           :key="weapon.id"
-          class="weapon-item"
         >
-          <img :src="weapon.image_url" alt="" />
-          <h5>{{ weapon.name }}</h5>
+          <img :src="weapon.image_url" alt="" class="weapon-img" />
+          <h5 class="text-xs">{{ weapon.name }}</h5>
         </div>
       </div>
     </div>
-    -
   </section>
 </template>
 
@@ -126,6 +106,12 @@ strong {
   width: 100px;
   background-color: var(--primary);
   border-radius: 100px;
+}
+
+.weapon-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
 }
 
 .list-title {
