@@ -70,13 +70,21 @@
     <!-- Best Weapons -->
     <div v-if="character.weapons.length" class="grid-item-weapons">
       <h3>Best Weapons</h3>
-      <div class="flex space-x-12 text-center mt-4">
+      <div class="flex space-x-16 text-center mt-4">
         <div
           v-for="weapon in character.weapons"
           :key="weapon.id"
+          class="max-w-[100px]"
         >
-          <img :src="weapon.image_url" alt="" class="weapon-img" />
-          <h5 class="text-xs">{{ weapon.name }}</h5>
+          <img
+            :src="weapon.image_url"
+            :alt="weapon.name"
+            :title="weapon.name"
+            class="weapon-img hover:whitespace-normal"
+          />
+          <h5 class="text-sm truncate">
+            {{ weapon.name }}
+          </h5>
         </div>
       </div>
     </div>
@@ -111,7 +119,8 @@ strong {
 .weapon-img {
   height: 100px;
   width: 100px;
-  border-radius: 10px;
+  border-radius: 25px;
+  background-color: var(--tertiary);
 }
 
 .list-title {
