@@ -54,7 +54,7 @@
           </div>
 
           <!-- Regions -->
-          <div class="regions-section" v-if="character.regions.length">
+          <div class="grid-item-regions" v-if="character.regions.length">
             <h3>Associated Regions</h3>
             <div class="regions-list">
               <div
@@ -73,7 +73,8 @@
           <div>
             <a :href="character.wiki_url || '#'" target="_blank">Source</a>
           </div>
-        </section>
+
+      </section>
       </div>
     </div>
 
@@ -157,10 +158,19 @@ async function fetchCharacterDetails(characterId) {
 
     if (regionsError) throw regionsError;
 
+    // Then fetch weapons
+    const { data: weaponsData, error: weaponsError } = await supabase
+      .from("weapon_character")
+      .select("weapon:weapon_id(id, name, image_url)")
+      .eq("character_id", characterId);
+
+    if (weaponsError) throw weaponsError;
+
     // Combine the data
     const characterWithRegions = {
-      ...characterData,
-      regions: regionsData.map((item) => item.region),
+      ...characterData, // copy character data to new object
+      regions: regionsData.map((item) => item.region), // add regions to new object
+      weapons: weaponsData.map((item) => item.weapon), // add weapons to new object
     };
 
     setCachedData(cacheKey, characterWithRegions);

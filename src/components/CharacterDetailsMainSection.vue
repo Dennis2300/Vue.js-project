@@ -85,6 +85,21 @@
         </div>
       </div>
     </div>
+
+    <div v-if="character.weapons.length" class="grid-item-weapons">
+      <h3>Best Weapons</h3>
+      <div class="flex space-x-12 text-center mt-4">
+        <div
+          v-for="weapon in character.weapons"
+          :key="weapon.id"
+          class="weapon-item"
+        >
+          <img :src="weapon.image_url" alt="" />
+          <h5>{{ weapon.name }}</h5>
+        </div>
+      </div>
+    </div>
+    -
   </section>
 </template>
 
