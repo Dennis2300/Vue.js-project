@@ -81,10 +81,8 @@ const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
 function getCachedData(key) {
   const cachedData = sessionStorage.getItem(key);
-  console.log("Retrieving data from sessionStorage for key:", key, cachedData);
 
   if (!cachedData) {
-    console.log("No cached data found for key:", key);
     return null;
   }
 
@@ -92,10 +90,8 @@ function getCachedData(key) {
   const now = new Date().getTime();
 
   if (now - timestamp < CACHE_DURATION) {
-    console.log("Using cached data for key:", key);
     return data;
   } else {
-    console.log("Cache expired for key:", key);
     sessionStorage.removeItem(key);
     return null;
   }
@@ -107,7 +103,6 @@ function setCachedData(key, data) {
     data,
   };
   sessionStorage.setItem(key, JSON.stringify(cache));
-  console.log("Data saved to sessionStorage:", key, cache);
 }
 
 // Fetch all characters from the database
@@ -121,7 +116,6 @@ async function GetAllCharacters() {
     return;
   }
 
-  console.log("Fetching characters from the database...");
   try {
     let { data, error: fetchError } = await supabase
       .from("character")
