@@ -77,8 +77,10 @@ const error = ref(null);
 // Data states
 const characters = ref([]);
 
+// If the data is older than CACHE_DURATION, it will be removed
 const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
+// getCachedData function to retrieve data from sessionStorage
 function getCachedData(key) {
   const cachedData = sessionStorage.getItem(key);
 
@@ -97,6 +99,7 @@ function getCachedData(key) {
   }
 }
 
+// setCachedData function to store data in sessionStorage
 function setCachedData(key, data) {
   const cache = {
     timestamp: new Date().getTime(),
@@ -112,6 +115,7 @@ async function GetAllCharacters() {
   const cachedCharacters = getCachedData(cacheKey);
   if (cachedCharacters) {
     characters.value = cachedCharacters;
+    sortCharactersByName();
     loading.value = false;
     return;
   }
@@ -124,11 +128,17 @@ async function GetAllCharacters() {
 
     characters.value = data;
     setCachedData(cacheKey, data);
+    sortCharactersByName();
   } catch (err) {
     error.value = err.message;
   } finally {
     loading.value = false;
   }
+}
+
+// Sort characters by name function
+function sortCharactersByName() {
+  characters.value.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // Fetch characters on page load
