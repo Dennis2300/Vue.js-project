@@ -5,6 +5,11 @@
     <!-- Show loading spinner if loading -->
     <LoadingSpinner v-if="loading" />
 
+    <!-- Filter by Vision -->
+    <div>
+      <VisionList />
+    </div>
+
     <!-- Show characters -->
     <div class="character-display-container">
       <div
@@ -64,8 +69,11 @@
 <script setup>
 import { ref, onMounted } from "vue"; // Import the Vue composition API
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
+// ----------------------------------------------------------
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
+import VisionList from "./../components/VisionList.vue";
+// ----------------------------------------------------------
 import images from "./../assets/images.json";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 import Footer from "@/components/Footer.vue";
