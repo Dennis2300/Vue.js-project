@@ -20,6 +20,19 @@
             class="vision-filter-icon"
           />
         </div>
+        <!------------------------------------------------------------>
+        <div class="divider-line"></div>
+        <!-- Clear Button (matches vision style) -->
+        <div class="vision-filter-item clear-button">
+          <svg class="clear-icon" viewBox="0 0 24 24">
+            <path
+              d="M18 6L6 18M6 6l12 12"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <!------------------------------------------------------------>
       </div>
     </div>
     <!------------------------------------------------------------>
@@ -142,5 +155,33 @@ onMounted(async () => {
   width: 40px;
   padding: 10px;
   border-radius: 100px;
+}
+
+.clear-button {
+  background: var(--secondary) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.clear-button:hover {
+  background: var(--secondary); /* Tomato red hover */
+  border-color: rgba(255, 99, 71, 0.6);
+}
+
+.clear-icon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  color: white;
+  opacity: 0.8;
+  background-color: inherit;  
+  border-radius: 100px;
+}
+
+.divider-line {
+  height: 100%;
+  width: 3px;
+  border-radius: 25px;
+  background: var(--secondary);
+  margin-right: 12px; 
 }
 </style>
