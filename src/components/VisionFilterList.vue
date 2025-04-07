@@ -11,7 +11,8 @@
           v-for="vision in visions"
           :key="vision.id"
           class="vision-filter-item"
-          @click="logVision(vision)"
+          :class="{ selected: selectedVisionId === vision.id }"
+          @click="selectVision(vision)"
         >
           <img
             :src="vision.image_url"
@@ -37,6 +38,8 @@ const CACHE_DURATION = 1000 * 60 * 60; // 1 hour in milliseconds
 
 // This will hold the list of visions fetched from the database
 const visions = ref([]);
+
+const selectedVisionId = ref(null);
 
 // cache functions will be made as modules later
 function getCachedData(key) {
@@ -90,8 +93,9 @@ async function getAllVisions() {
   }
 }
 
-function logVision(vision) {
-  console.log("Selected vision:", vision.name);
+function selectVision(vision) {
+  selectedVisionId.value = vision.id;
+  console.log(`Selected Vision ID: ${selectedVisionId.value} (${vision.name})`);
 }
 
 onMounted(async () => {
@@ -120,5 +124,6 @@ onMounted(async () => {
   background-color: var(--secondary);
   border-radius: 100px;
   padding: 10px;
+  cursor: pointer;
 }
 </style>
