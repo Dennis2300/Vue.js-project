@@ -118,12 +118,29 @@ onMounted(async () => {
   letter-spacing: 1px;
 }
 
+.vision-filter-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: var(--secondary);
+  border-radius: 100px;
+}
+
+.vision-filter-item:hover {
+  transform: scale(1.1);
+  border-radius: 100px;
+}
+
+.vision-filter-item.selected {
+  outline: 2px solid gold;
+}
+
 .vision-filter-icon {
   height: 40px;
   width: 40px;
-  background-color: var(--secondary);
-  border-radius: 100px;
   padding: 10px;
-  cursor: pointer;
+  border-radius: 100px;
 }
 </style>
