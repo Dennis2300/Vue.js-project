@@ -23,7 +23,7 @@
         <!------------------------------------------------------------>
         <div class="divider-line"></div>
         <!-- Clear Button (matches vision style) -->
-        <div class="vision-filter-item clear-button">
+        <div class="vision-filter-item clear-button" @click="clearSelection">
           <svg class="clear-icon" viewBox="0 0 24 24">
             <path
               d="M18 6L6 18M6 6l12 12"
@@ -109,6 +109,11 @@ async function getAllVisions() {
 function selectVision(vision) {
   selectedVisionId.value = vision.id;
   console.log(`Selected Vision ID: ${selectedVisionId.value} (${vision.name})`);
+}
+
+function clearSelection() {
+  selectedVisionId.value = null;
+  console.log("Selection cleared");
 }
 
 onMounted(async () => {
