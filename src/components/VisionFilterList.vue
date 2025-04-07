@@ -28,18 +28,60 @@
 import { ref, onMounted } from "vue";
 import { supabase } from "../supabaseClient.js";
 
-const visions = ref([]);
+// Loading and error states
 const loading = ref(true);
 const error = ref(null);
 
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hour in milliseconds
+
+// This will hold the list of visions fetched from the database
+const visions = ref([]);
+
+// cache functions will be made as modules later
+function getCachedData(key) {
+  const cachedData = sessionStorage.getItem(key);
+
+  if (!cachedData) {
+    return null;
+  }
+
+  const { data, timestamp } = JSON.parse(cachedData);
+  const now = new Date().getTime();
+
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  } else {
+    sessionStorage.removeItem(key);
+    return null;
+  }
+}
+
+function setCachedData(key, data) {
+  const cache = {
+    timestamp: new Date().getTime(),
+    data,
+  };
+  sessionStorage.setItem(key, JSON.stringify(cache));
+}
+
 async function getAllVisions() {
+  const cacheKey = "visions";
+
+  const cachedVisions = getCachedData(cacheKey);
+  if (cachedVisions) {
+    visions.value = cachedVisions;
+    loading.value = false;
+    return;
+  }
+
   try {
     let { data, error: fetchError } = await supabase
       .from("vision")
       .select("*, name, image_url");
-
     if (fetchError) throw fetchError;
+
     visions.value = data;
+    setCachedData(cacheKey, data);
   } catch (err) {
     error.value = err.message;
   } finally {

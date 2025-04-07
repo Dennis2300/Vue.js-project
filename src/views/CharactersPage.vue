@@ -86,6 +86,7 @@ const characters = ref([]);
 // If the data is older than CACHE_DURATION, it will be removed
 const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
+// cache functions will be made as modules later
 // getCachedData function to retrieve data from sessionStorage
 function getCachedData(key) {
   const cachedData = sessionStorage.getItem(key);
