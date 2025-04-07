@@ -11,6 +11,7 @@
           v-for="vision in visions"
           :key="vision.id"
           class="vision-filter-item"
+          @click="logVision(vision)"
         >
           <img
             :src="vision.image_url"
@@ -87,6 +88,10 @@ async function getAllVisions() {
   } finally {
     loading.value = false;
   }
+}
+
+function logVision(vision) {
+  console.log("Selected vision:", vision.name);
 }
 
 onMounted(async () => {
