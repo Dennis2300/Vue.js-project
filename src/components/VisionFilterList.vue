@@ -43,7 +43,7 @@
 import { ref, onMounted, defineEmits } from "vue";
 import { supabase } from "../supabaseClient.js";
 
-const emits = defineEmits(["filtered-characters"]);
+const emits = defineEmits(["filtered-characters", "clear-filter"]);
 
 // Loading and error states
 const loading = ref(true);
@@ -132,8 +132,8 @@ function filterCharactersByVision(visionId) {
 
     // filter the characters by vision id
     const filtered = visionId
-    // creates a new character array
-      ? characters.filter((char) => char.vision_id === visionId) // with a filter where the selected vision MUST match the character's vision id
+      ? // creates a new character array
+        characters.filter((char) => char.vision_id === visionId) // with a filter where the selected vision MUST match the character's vision id
       : characters; // if no vision is selected, return all characters
 
     // Emit the filtered results to parent so it can be used in the parent component
@@ -147,6 +147,8 @@ function filterCharactersByVision(visionId) {
 function clearSelection() {
   selectedVisionId.value = null;
   filterCharactersByVision(null);
+  emits("clear-filter");
+  console.log("Selection cleared");
 }
 
 onMounted(async () => {

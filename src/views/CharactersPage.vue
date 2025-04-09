@@ -6,7 +6,10 @@
     <LoadingSpinner v-if="loading" />
 
     <!-- Filter by Vision -->
-    <VisionFilterList @filtered-characters="displayFilteredCharacters" />
+    <VisionFilterList
+      @filtered-characters="displayFilteredCharacters"
+      @clear-filter="handleClearFilter"
+    />
 
     <!-- Show characters -->
     <div class="character-display-container">
@@ -150,6 +153,12 @@ function sortCharactersByName() {
 
 function displayFilteredCharacters(filtered) {
   characters.value = filtered;
+  sortCharactersByName();
+}
+
+function handleClearFilter() {
+  characters.value = [...characters.value];
+  sortCharactersByName();
 }
 
 // Fetch characters on page load
