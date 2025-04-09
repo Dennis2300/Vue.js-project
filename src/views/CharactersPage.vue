@@ -6,7 +6,7 @@
     <LoadingSpinner v-if="loading" />
 
     <!-- Filter by Vision -->
-    <VisionFilterList />
+    <VisionFilterList @filtered-characters="displayFilteredCharacters" />
 
     <!-- Show characters -->
     <div class="character-display-container">
@@ -146,6 +146,10 @@ async function GetAllCharacters() {
 // Sort characters by name function
 function sortCharactersByName() {
   characters.value.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function displayFilteredCharacters(filtered) {
+  characters.value = filtered;
 }
 
 // Fetch characters on page load

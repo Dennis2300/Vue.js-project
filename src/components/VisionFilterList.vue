@@ -40,8 +40,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineEmits } from "vue";
 import { supabase } from "../supabaseClient.js";
+
+const emits = defineEmits(["filtered-characters"]);
 
 // Loading and error states
 const loading = ref(true);
@@ -109,18 +111,42 @@ async function getAllVisions() {
 
 function selectVision(vision) {
   selectedVisionId.value = vision.id;
-  console.log(`Selected Vision ID: ${selectedVisionId.value} (${vision.name})`);
   // Call the function to filter characters by vision
   filterCharactersByVision(vision.id);
 }
 
 function filterCharactersByVision(visionId) {
-  console.log(`Filtering characters by Vision ID: ${visionId}`);
+
+  // get characters from the session storage
+  const cachedCharacters = sessionStorage.getItem("characters");
+
+  // if there is no cached characters
+  if (!cachedCharacters) {
+    emits("filtered-characters", []);
+    return;
+  }
+
+  try {
+    // parse the cached characters
+    const { data: characters } = JSON.parse(cachedCharacters);
+
+    // filter the characters by vision id
+    const filtered = visionId
+      ? characters.filter((char) => char.vision_id === visionId)
+      : characters;
+
+    // Emit the filtered results to parent
+    emits("filtered-characters", filtered);
+    
+  } catch (error) {
+    console.error("Error parsing character data:", error);
+    emits("filtered-characters", []);
+  }
 }
 
 function clearSelection() {
   selectedVisionId.value = null;
-  console.log("Selection cleared");
+  filterCharactersByVision(null);
 }
 
 onMounted(async () => {
@@ -185,7 +211,7 @@ onMounted(async () => {
   padding: 10px;
   color: white;
   opacity: 0.8;
-  background-color: inherit;  
+  background-color: inherit;
   border-radius: 100px;
 }
 
@@ -194,6 +220,6 @@ onMounted(async () => {
   width: 3px;
   border-radius: 25px;
   background: var(--secondary);
-  margin-right: 12px; 
+  margin-right: 12px;
 }
 </style>
