@@ -116,13 +116,13 @@ function selectVision(vision) {
 }
 
 function filterCharactersByVision(visionId) {
-
   // get characters from the session storage
   const cachedCharacters = sessionStorage.getItem("characters");
 
   // if there is no cached characters
   if (!cachedCharacters) {
     emits("filtered-characters", []);
+    console.warn("No cached characters found.");
     return;
   }
 
@@ -132,12 +132,12 @@ function filterCharactersByVision(visionId) {
 
     // filter the characters by vision id
     const filtered = visionId
-      ? characters.filter((char) => char.vision_id === visionId)
-      : characters;
+    // creates a new character array
+      ? characters.filter((char) => char.vision_id === visionId) // with a filter where the selected vision MUST match the character's vision id
+      : characters; // if no vision is selected, return all characters
 
-    // Emit the filtered results to parent
+    // Emit the filtered results to parent so it can be used in the parent component
     emits("filtered-characters", filtered);
-    
   } catch (error) {
     console.error("Error parsing character data:", error);
     emits("filtered-characters", []);
