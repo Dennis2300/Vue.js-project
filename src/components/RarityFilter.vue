@@ -104,11 +104,16 @@
   border-radius: 10px;
 }
 
+.rarity-star-container:hover {
+  background-color: var(--tertiary);
+  transition: all 0.3s ease;
+}
+
 .rarity-star {
   color: #f5c518;
   fill: #f5c518;
   width: 16px;
   height: 16px;
-  background-color: inherit;
+  background-color: transparent;
 }
 </style>
