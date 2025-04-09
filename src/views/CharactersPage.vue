@@ -73,7 +73,7 @@ import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 // ----------------------------------------------------------
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
-import VisionFilterList from "../components/VisionFilterList.vue";
+import VisionFilterList from "../components/VisionFilter.vue";
 // ----------------------------------------------------------
 import images from "./../assets/images.json";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
