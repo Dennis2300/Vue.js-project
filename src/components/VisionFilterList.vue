@@ -52,6 +52,7 @@ const CACHE_DURATION = 1000 * 60 * 60; // 1 hour in milliseconds
 // This will hold the list of visions fetched from the database
 const visions = ref([]);
 
+// This will hold the ID of the selected vision
 const selectedVisionId = ref(null);
 
 // cache functions will be made as modules later
@@ -109,6 +110,12 @@ async function getAllVisions() {
 function selectVision(vision) {
   selectedVisionId.value = vision.id;
   console.log(`Selected Vision ID: ${selectedVisionId.value} (${vision.name})`);
+  // Call the function to filter characters by vision
+  filterCharactersByVision(vision.id);
+}
+
+function filterCharactersByVision(visionId) {
+  console.log(`Filtering characters by Vision ID: ${visionId}`);
 }
 
 function clearSelection() {
