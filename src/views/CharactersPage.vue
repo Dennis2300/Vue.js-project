@@ -11,6 +11,9 @@
       @clear-filter="handleClearFilter"
     />
 
+    <!-- Filter by Rarity -->
+    <RarityFilter />
+
     <!-- Show characters -->
     <div class="character-display-container">
       <div
@@ -74,6 +77,7 @@ import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
 import VisionFilterList from "../components/VisionFilter.vue";
+import RarityFilter from "../components/RarityFilter.vue"; // Import the RarityFilter component
 // ----------------------------------------------------------
 import images from "./../assets/images.json";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
