@@ -92,7 +92,8 @@
   padding: 10px;
   gap: 25px;
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding: 0%;
 }
 
 .rarity-star-container {
