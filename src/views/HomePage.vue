@@ -1,16 +1,9 @@
 <template>
   <div class="home-page-container">
-    <div class="home-page-header">
-      <h1>Welcome to Teyvat Bulletin</h1>
-    </div>
-    <div></div>
     <div class="board-container">
       <div class="board board-background">
         <div class="note">
-          <img
-            :src="images.arlecchino"
-            alt=""
-          />
+          <img :src="images.arlecchino" alt="" />
         </div>
         <div class="note">
           <strong>Hey there, Traveler!</strong>
@@ -38,10 +31,7 @@
           </p>
         </div>
         <div class="note">
-          <img
-            :src="images.kinich"
-            alt=""
-          />
+          <img :src="images.kinich" alt="" />
         </div>
       </div>
     </div>
@@ -54,6 +44,6 @@
 <script setup>
 import "./../css/HomePage.css";
 import "./../css/BulletinBoard.css";
-import images from "./../assets/images.json"
+import images from "./../assets/images.json";
 import Footer from "./../components/Footer.vue";
 </script>

@@ -2,7 +2,7 @@
   <div class="footer-container">
     <footer class="footer">
       <h3>Disclaimer!</h3>
-      <p>
+      <p class="footer-text">
         This website is a fan-made project and is not affiliated with, endorsed
         by, or sponsored by HoYoverse or miHoYo. <br />
         Character, images, names, and assets used on this site are the property
@@ -25,7 +25,11 @@
   width: 75vw;
   font-size: 1.2em;
   line-height: 1.4;
-  margin: 50px 0px 50px 0px;
+  margin: 20px 0px 50px 0px;
+}
+
+.footer-text {
+  margin-top: 15px;
 }
 
 .footer-link {
