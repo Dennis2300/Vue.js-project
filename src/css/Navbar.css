@@ -16,13 +16,14 @@
   left: 0%;
   right: 0%;
   z-index: 1000;
+  background-color: var(--secondary);
 }
 
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 1.5em;
   gap: 30px;
   position: absolute;
   left: 50%;
@@ -50,8 +51,9 @@
 
 .site-title a {
   color: white;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: bold;
   text-decoration: none;
   font-family: "Permanent Marker", serif;
+  background-color: inherit;
 }
