@@ -3,13 +3,10 @@
     <h1 class="character-page-header">Character Archive</h1>
 
     <!-- Filter by Vision -->
-    <VisionFilterList
+    <CharacterFilter
       @filtered-characters="displayFilteredCharacters"
       @clear-filter="handleClearFilter"
     />
-
-    <!-- Filter by Rarity -->
-    <RarityFilter />
 
     <!-- Show loading spinner if loading -->
     <LoadingSpinner v-if="loading" />
@@ -76,8 +73,7 @@ import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 // ----------------------------------------------------------
 import "./../css/CharactersPage.css"; // Import the component's CSS
 import "ldrs/trefoil"; // Import the loading spinner component
-import VisionFilterList from "../components/VisionFilter.vue";
-import RarityFilter from "../components/RarityFilter.vue"; // Import the RarityFilter component
+import CharacterFilter from "./../components/CharacterFilter.vue";
 // ----------------------------------------------------------
 import images from "./../assets/images.json";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component

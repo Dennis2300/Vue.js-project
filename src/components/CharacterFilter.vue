@@ -4,7 +4,7 @@
     <!------------------------------------------------------------>
     <div v-else-if="error" class="error">{{ error }}</div>
     <!------------------------------------------------------------>
-    <div v-else class="vision-filter-container">
+    <div v-else class="character-filter-container">
       <h4 class="vision-filter-header">Filter by Vision</h4>
       <div class="vision-filter-list">
         <div
@@ -34,8 +34,95 @@
         </div>
         <!------------------------------------------------------------>
       </div>
+      <!----------------------------------------------------------->
+      <div class="rarity-filter-container">
+        <div
+          class="rarity-star-container"
+          :class="{ selected: selectedRarity === 5 }"
+          @click="selectRarity(5)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+        </div>
+        <!------------------------------------------------------------>
+        <div
+          class="rarity-star-container"
+          :class="{ selected: selectedRarity === 4 }"
+          @click="selectRarity(4)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="bi bi-star-fill rarity-star"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
-    <!------------------------------------------------------------>
   </div>
 </template>
 
@@ -56,6 +143,7 @@ const visions = ref([]);
 
 // This will hold the ID of the selected vision
 const selectedVisionId = ref(null);
+const selectedRarity = ref(null);
 
 // cache functions will be made as modules later
 function getCachedData(key) {
@@ -113,6 +201,16 @@ function selectVision(vision) {
   selectedVisionId.value = vision.id;
   // Call the function to filter characters by vision
   filterCharactersByVision(vision.id);
+}
+
+function selectRarity(stars) {
+  if (selectedRarity.value === stars) {
+    selectedRarity.value = null;
+    console.log("Selected rarity cleared");
+  } else {
+    selectedRarity.value = stars;
+    console.log("Selected rarity:", stars);
+  }
 }
 
 function filterCharactersByVision(visionId) {
@@ -223,5 +321,41 @@ onMounted(async () => {
   border-radius: 25px;
   background: var(--secondary);
   margin-right: 12px;
+}
+
+.rarity-filter-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+  gap: 25px;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 0%;
+}
+
+.rarity-star-container {
+  display: flex;
+  gap: 5px;
+  background-color: var(--filter-color);
+  padding: 7px 14px 7px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rarity-star-container:hover {
+  background-color: var(--filter-color-hover);
+}
+
+.rarity-star-container.selected {
+  outline: 1px solid gold;
+}
+
+.rarity-star {
+  color: #f5c518;
+  fill: #f5c518;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
 }
 </style>
