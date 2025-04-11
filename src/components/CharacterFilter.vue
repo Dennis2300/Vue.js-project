@@ -1,9 +1,8 @@
 <template>
   <div class="filter-container">
     <div v-if="loading">Loading visions...</div>
-    <!------------------------------------------------------------>
     <div v-else-if="error" class="error">{{ error }}</div>
-    <!------------------------------------------------------------>
+
     <div v-else class="character-filter-container">
       <h4 class="vision-filter-header">Filter by Vision</h4>
       <div class="vision-filter-list">
@@ -20,9 +19,7 @@
             class="vision-filter-icon"
           />
         </div>
-        <!------------------------------------------------------------>
         <div class="divider-line"></div>
-        <!-- Clear Button (matches vision style) -->
         <div class="vision-filter-item clear-button" @click="clearSelection">
           <svg class="clear-icon" viewBox="0 0 24 24">
             <path
@@ -32,9 +29,7 @@
             />
           </svg>
         </div>
-        <!------------------------------------------------------------>
       </div>
-      <!----------------------------------------------------------->
       <div class="rarity-filter-container">
         <div
           class="rarity-star-container"
@@ -82,7 +77,6 @@
             />
           </svg>
         </div>
-        <!------------------------------------------------------------>
         <div
           class="rarity-star-container"
           :class="{ selected: selectedRarity === 4 }"
@@ -127,21 +121,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineEmits } from "vue";
+import { ref, onMounted, defineEmits, computed, watch } from "vue";
 import { supabase } from "../supabaseClient.js";
 
 const emits = defineEmits(["filtered-characters", "clear-filter"]);
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hour in milliseconds
 
 // Loading and error states
 const loading = ref(true);
 const error = ref(null);
-
-const CACHE_DURATION = 1000 * 60 * 60; // 1 hour in milliseconds
-
-// This will hold the list of visions fetched from the database
+// Data states
 const visions = ref([]);
-
-// This will hold the ID of the selected vision
 const selectedVisionId = ref(null);
 const selectedRarity = ref(null);
 
@@ -172,6 +162,7 @@ function setCachedData(key, data) {
   sessionStorage.setItem(key, JSON.stringify(cache));
 }
 
+// Fetch all vision from database
 async function getAllVisions() {
   const cacheKey = "visions";
 
@@ -197,57 +188,60 @@ async function getAllVisions() {
   }
 }
 
+// Changes the vision state to the selected vision
 function selectVision(vision) {
   selectedVisionId.value = vision.id;
-  // Call the function to filter characters by vision
-  filterCharactersByVision(vision.id);
 }
 
+// changes the selected vision to the selected vision
 function selectRarity(stars) {
-  if (selectedRarity.value === stars) {
-    selectedRarity.value = null;
-    console.log("Selected rarity cleared");
-  } else {
-    selectedRarity.value = stars;
-    console.log("Selected rarity:", stars);
-  }
+  selectedRarity.value = selectedRarity.value === stars ? null : stars;
 }
 
-function filterCharactersByVision(visionId) {
-  // get characters from the session storage
-  const cachedCharacters = sessionStorage.getItem("characters");
+// Creates a reactive computed property
+const filteredCharacters = computed(
+  // Computed is a Vue Composition API function that creates reactive derived data
+  // Vue automatically tracks which reactive values are used inside and re-runs the function when they change
+  // Arrow function for filtering characters
+  () => {
+    // Get the cached characters from sessionStorage
+    const cachedCharacters = sessionStorage.getItem("characters");
+    if (!cachedCharacters) return []; // Return empty array if no characters are cached
 
-  // if there is no cached characters
-  if (!cachedCharacters) {
-    emits("filtered-characters", []);
-    console.warn("No cached characters found.");
-    return;
+    try {
+      // Parse the cached characters
+      const { data: characters } = JSON.parse(cachedCharacters);
+
+      // Filter characters based on selected vision and rarity
+      return characters.filter((char) => {
+        const visionMatch =
+          !selectedVisionId.value || char.vision_id === selectedVisionId.value;
+        const rarityMatch =
+          !selectedRarity.value || char.rarity === selectedRarity.value;
+        return visionMatch && rarityMatch;
+      });
+    } catch (err) {
+      console.error("Error filtering characters:", err);
+      return []; // Return empty array in case of error
+    }
   }
+);
 
-  try {
-    // parse the cached characters
-    const { data: characters } = JSON.parse(cachedCharacters);
-
-    // filter the characters by vision id
-    const filtered = visionId
-      ? // creates a new character array
-        characters.filter((char) => char.vision_id === visionId) // with a filter where the selected vision MUST match the character's vision id
-      : characters; // if no vision is selected, return all characters
-
-    // Emit the filtered results to parent so it can be used in the parent component
-    emits("filtered-characters", filtered);
-  } catch (error) {
-    console.error("Error parsing character data:", error);
-    emits("filtered-characters", []);
-  }
-}
-
+// Function to clear filter
 function clearSelection() {
   selectedVisionId.value = null;
-  filterCharactersByVision(null);
+  selectedRarity.value = null;
   emits("clear-filter");
-  console.log("Selection cleared");
 }
+
+// Watch statement to update the filtered characters if the selected vision or rarity changes
+watch(
+  filteredCharacters,
+  (newVal) => {
+    emits("filtered-characters", newVal);
+  },
+  { immediate: true }
+);
 
 onMounted(async () => {
   await getAllVisions();
