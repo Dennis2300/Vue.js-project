@@ -98,8 +98,11 @@ const selectedRarity = ref(null);
 function selectRarity(stars) {
   if (selectedRarity.value === stars) {
     selectedRarity.value = null;
+    console.log("Selected rarity cleared");
+    
   } else {
     selectedRarity.value = stars;
+    console.log("Selected rarity:", stars);
   }
 }
 </script>
