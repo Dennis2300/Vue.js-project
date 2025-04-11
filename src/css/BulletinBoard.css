@@ -13,7 +13,6 @@
     padding-bottom: 40px;
     padding-left: 50px;
     padding-right: 50px;
-    background: var(--quaternary);
     border-radius: 12px;
     box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -21,6 +20,13 @@
     gap: 50px;
     justify-content: center;
     position: relative;
+  }
+
+  .board-background {
+    background-image: url('https://images3.alphacoders.com/134/thumb-1920-1341103.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .note {

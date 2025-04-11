@@ -3,8 +3,9 @@
     <div class="home-page-header">
       <h1>Welcome to Teyvat Bulletin</h1>
     </div>
+    <div></div>
     <div class="board-container">
-      <div class="board">
+      <div class="board board-background">
         <div class="note">
           <img
             :src="images.arlecchino"
