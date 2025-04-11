@@ -177,12 +177,12 @@ onMounted(async () => {
   align-items: center;
   margin-right: 10px;
   cursor: pointer;
-  background-color: var(--secondary);
+  background-color: var(--filter-color);
   border-radius: 100px;
 }
 
 .vision-filter-item:hover {
-  transform: scale(1.1);
+  background-color: var(--filter-color-hover);
   border-radius: 100px;
 }
 

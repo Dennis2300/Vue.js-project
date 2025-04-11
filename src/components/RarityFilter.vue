@@ -1,7 +1,11 @@
 <template>
   <div class="rarity-filter-container">
     <!---------------------------------------------------------->
-    <div class="rarity-star-container">
+    <div
+      class="rarity-star-container"
+      :class="{ selected: selectedRarity === 5 }"
+      @click="selectRarity(5)"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="bi bi-star-fill rarity-star"
@@ -44,7 +48,11 @@
       </svg>
     </div>
     <!------------------------------------------------------------>
-    <div class="rarity-star-container">
+    <div
+      class="rarity-star-container"
+      :class="{ selected: selectedRarity === 4 }"
+      @click="selectRarity(4)"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="bi bi-star-fill rarity-star"
@@ -82,7 +90,19 @@
   <!------------------------------------------------------------>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const selectedRarity = ref(null);
+
+function selectRarity(stars) {
+  if (selectedRarity.value === stars) {
+    selectedRarity.value = null;
+  } else {
+    selectedRarity.value = stars;
+  }
+}
+</script>
 
 <style>
 .rarity-filter-container {
@@ -99,14 +119,18 @@
 .rarity-star-container {
   display: flex;
   gap: 5px;
-  background-color: var(--secondary);
-  padding: 5px 10px 5px 10px;
+  background-color: var(--filter-color);
+  padding: 7px 14px 7px 14px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .rarity-star-container:hover {
-  background-color: var(--tertiary);
-  transition: all 0.3s ease;
+  background-color: var(--filter-color-hover);
+}
+
+.rarity-star-container.selected {
+  outline: 1px solid gold;
 }
 
 .rarity-star {
