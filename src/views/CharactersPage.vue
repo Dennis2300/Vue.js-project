@@ -2,9 +2,6 @@
   <div class="character-page-container">
     <h1 class="character-page-header">Character Archive</h1>
 
-    <!-- Show loading spinner if loading -->
-    <LoadingSpinner v-if="loading" />
-
     <!-- Filter by Vision -->
     <VisionFilterList
       @filtered-characters="displayFilteredCharacters"
@@ -13,6 +10,9 @@
 
     <!-- Filter by Rarity -->
     <RarityFilter />
+
+    <!-- Show loading spinner if loading -->
+    <LoadingSpinner v-if="loading" />
 
     <!-- Show characters -->
     <div class="character-display-container">
@@ -123,6 +123,7 @@ function setCachedData(key, data) {
 }
 
 // Fetch all characters from the database
+
 async function GetAllCharacters() {
   const cacheKey = "characters";
 
