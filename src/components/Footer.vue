@@ -25,11 +25,11 @@
   width: 75vw;
   font-size: 1.2em;
   line-height: 1.4;
-  margin: 20px 0px 50px 0px;
+  margin: 20px 0px 20px 0px;
 }
 
 .footer-text {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .footer-link {

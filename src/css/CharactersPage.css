@@ -53,7 +53,7 @@
   height: 320px;
   padding-top: 30px;
   border-radius: 25px;
-  background-color: var(--quaternary);
+  background-color: var(--secondary);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -112,7 +112,7 @@
 
 .character-grid-item h3 {
   background-color: inherit;
-  color: var(--primary);
+  color: var(--quaternary);
   text-transform: uppercase;
   cursor: default;
   margin-top: 25px;
@@ -120,6 +120,6 @@
 
 .character-grid-item p {
   background-color: inherit;
-  color: var(--primary);
+  color: var(--quaternary);
   cursor: default;
 }

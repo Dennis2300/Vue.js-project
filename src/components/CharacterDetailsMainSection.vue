@@ -120,7 +120,7 @@ strong {
   height: 100px;
   width: 100px;
   border-radius: 25px;
-  background-color: var(--tertiary);
+  background-color: var(--primary);
 }
 
 .list-title {
