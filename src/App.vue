@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container fixed m-0 p-2">
     <div class="site-title pl-5">
-      <router-link to="/">Teyvat Bulletin</router-link>
+      <router-link to="/"><p class="shining-text">Teyvat Bulletin</p></router-link>
     </div>
     <nav class="navbar">
       <router-link to="/" class="navbar-text">Home</router-link> |

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap');
-
 .navbar,
 .navbar-text,
 .navbar-text a {
@@ -34,13 +32,12 @@
 .navbar-text {
   text-decoration: none;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-  text-transform: uppercase;
-  font-family: "Bangers", serif;
-  letter-spacing: 3px;
+  font-family: var(--font-sans);
+  letter-spacing: 1px;
 }
 
 .navbar-text:hover {
-  color: var(--quaternary);
+  color: var(--tertiary);
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -50,10 +47,15 @@
 }
 
 .site-title a {
-  color: white;
-  font-size: 2em;
-  font-weight: bold;
   text-decoration: none;
-  font-family: "Permanent Marker", serif;
   background-color: inherit;
+}
+
+.site-title p {
+  font-size: 2.5em;
+  font-family: var(--font-fascinate);
+  text-align: left;
+  margin: 0;
+  letter-spacing: 1px;
+  color: var(--quaternary);
 }
