@@ -1,16 +1,14 @@
 <template>
-  <div class="footer-container">
-    <footer class="footer">
-      <h3>Disclaimer!</h3>
-      <p class="footer-text">
-        This website is a fan-made project and is not affiliated with, endorsed
-        by, or sponsored by HoYoverse or miHoYo. <br />
-        Character, images, names, and assets used on this site are the property
-        of HoYoverse.
-      </p>
-      <div class="footer-link">Find more info <a href="/about">here</a></div>
-    </footer>
-  </div>
+  <footer class="footer">
+    <h3>Disclaimer!</h3>
+    <p class="footer-text">
+      This website is a fan-made project and is not affiliated with, endorsed
+      by, or sponsored by HoYoverse or miHoYo. <br />
+      Character, images, names, and assets used on this site are the property of
+      HoYoverse.
+    </p>
+    <div class="footer-link">Find more info <a href="/about">here</a></div>
+  </footer>
 </template>
 
 <style scoped>
