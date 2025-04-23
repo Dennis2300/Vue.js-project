@@ -27,10 +27,7 @@
 }
 
 .character-page-header {
-  text-align: center;
-  margin-top: 5vh;
-  cursor: default;
-  font-size: 64px;
+  font-family: var(--font-heading);
 }
 .character-display-container {
   min-height: 100vh;
@@ -51,7 +48,7 @@
   font-size: 1.5em;
   width: 300px;
   height: 300px;
-  margin-top: 1.2rem;
+  margin-top: 1.3rem;
   padding-top: 30px;
   border-radius: 25px;
   background-color: var(--secondary);
@@ -114,8 +111,9 @@
 .character-grid-item h3 {
   background-color: inherit;
   color: var(--quaternary);
-  text-transform: uppercase;
   margin-top: 10px;
+  font-family: var(--font-fugaz);
+  letter-spacing: 1px;
 }
 
 .character-grid-item p {
