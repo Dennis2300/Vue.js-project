@@ -1,15 +1,22 @@
 <template>
   <div class="character-page-container">
-    <h1 class="character-page-header">Character Archive</h1>
+    <!-- Show loading spinner if loading -->
+    <LoadingSpinner v-if="loading" />
 
     <!-- Filter by Vision -->
     <CharacterFilter
+      v-if="!loading && !error && characters?.length"
       @filtered-characters="displayFilteredCharacters"
       @clear-filter="handleClearFilter"
+      class="mt-5"
     />
 
-    <!-- Show loading spinner if loading -->
-    <LoadingSpinner v-if="loading" />
+    <div
+      v-if="!loading && !error && characters?.length"
+      class="divider text-3xl"
+    >
+    <h2 class="character-page-header">Character Archive</h2>
+    </div>
 
     <!-- Show characters -->
     <div class="character-display-container">
