@@ -253,11 +253,14 @@ onMounted(async () => {
 <style scoped>
 .filter-container {
   width: 500px;
+  font-family: var(--font-heading);
+
 }
 
 .vision-filter-list {
   display: grid;
   grid-auto-flow: column;
+  
 }
 
 .vision-filter-header {
@@ -266,9 +269,10 @@ onMounted(async () => {
 }
 
 .rarity-filter-header {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 10px;
   letter-spacing: 1px;
+
 }
 
 .vision-filter-item {
@@ -330,6 +334,7 @@ onMounted(async () => {
   justify-content: left;
   align-items: center;
   padding: 10px;
+  margin-bottom: 1rem;
   gap: 25px;
   border-radius: 8px;
   padding: 0%;

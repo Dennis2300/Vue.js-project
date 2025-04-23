@@ -27,6 +27,8 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
+  font-family: "Roboto", sans-serif;
+
 }
 
 .navbar-text {
