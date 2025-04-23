@@ -4,7 +4,7 @@
     <div v-else-if="error" class="error">{{ error }}</div>
 
     <div v-else class="character-filter-container">
-      <h4 class="vision-filter-header">Filter by Vision</h4>
+      <h4 class="vision-filter-header">Visions</h4>
       <div class="vision-filter-list">
         <div
           v-for="vision in visions"
@@ -30,6 +30,8 @@
           </svg>
         </div>
       </div>
+      <h4 class="rarity-filter-header">Rarity</h4>
+
       <div class="rarity-filter-container">
         <div
           class="rarity-star-container"
@@ -263,6 +265,12 @@ onMounted(async () => {
   letter-spacing: 1px;
 }
 
+.rarity-filter-header {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
 .vision-filter-item {
   display: flex;
   justify-content: center;
@@ -324,7 +332,6 @@ onMounted(async () => {
   padding: 10px;
   gap: 25px;
   border-radius: 8px;
-  margin-top: 20px;
   padding: 0%;
 }
 
