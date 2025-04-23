@@ -1,6 +1,7 @@
 <template>
   <div class="character-page-container">
     <!-- Show loading spinner if loading -->
+    <!-- Has some bugs, need fixing-->
     <LoadingSpinner v-if="loading" />
 
     <!-- Filter by Vision -->
