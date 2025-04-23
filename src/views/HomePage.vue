@@ -1,4 +1,5 @@
 <template>
+  <!-- Hero Section -->
   <div class="home-page-container">
     <div class="board-container">
       <div class="board board-background">
@@ -37,7 +38,9 @@
     </div>
 
     <!-- Footer Section -->
-    <Footer />
+    <div class="footer-container">
+      <Footer />
+    </div>
   </div>
 </template>
 
