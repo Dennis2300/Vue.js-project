@@ -47,9 +47,13 @@
             :src="character.image_url"
             :alt="character.name"
           />
+
+          <div v-if="isNewCharacter(character)" class="ribbon ribbon-top-right">
+            <span>New</span>
+          </div>
+
           <h3>{{ character.name }}</h3>
           <p class="rarity-text text-white" :data-stars="character.rarity"></p>
-          <span v-if="isNewCharacter(character)" class="new-badge">NEW</span>
         </router-link>
       </div>
     </div>
@@ -186,3 +190,59 @@ onMounted(async () => {
   isNewCharacter();
 });
 </script>
+
+<style scoped>
+.ribbon {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: left;
+  background-color: transparent;
+}
+
+.ribbon span {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(-45deg);
+  width: 100px;
+  display: block;
+  background: #E74646;
+  background: linear-gradient(#E74646 0%, #E74646 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px;
+  left: -21px;
+  font-family: var(--font-alkatra);
+  letter-spacing: 1px;
+}
+
+.ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #cc0000;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #cc0000;
+}
+
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #cc0000;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #cc0000;
+}
+</style>
