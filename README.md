@@ -43,9 +43,9 @@ Everything is subject to change, so don't take it as the final product!
 ### The Home Page
 ![HomePage](public/pics/Homepage.png)
 ### All Character Page
-![AllCharacterPage](public/pics/Character.png)
+![AllCharacterPage](public/pics/CharacterPage.png)
 ### Detailed Character Page
-![DetailCharacterPage](public/pics/CharacterDetail.png)
+![DetailCharacterPage](public/pics/CharacterDetailPage.png)
 
 ## Contributing
 
