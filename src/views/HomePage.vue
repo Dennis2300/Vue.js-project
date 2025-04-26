@@ -9,26 +9,26 @@
         <div class="note">
           <strong>Hey there, Traveler!</strong>
           <p>
-            Teyvat Bulletin is a simple, fan-made space where I share character
-            builds, team compositions, and tips for Genshin Impact. <br />This
-            isn't a pro-level guide, just a fun project where I explore
-            different playstyles and showcase builds that have worked for me.
+            Teyvat Bulletin is a simple, fan-made space where you can find
+            character builds, materials, and team compositions for Genshin
+            Impact.
           </p>
         </div>
 
         <div class="note">
           <strong>What to expect?</strong>
           <p>
-            Here you will find character build, character materials guide, and
-            team compositions
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
+            neque est possimus. Sapiente hic consequatur tenetur aperiam
+            tempora, fuga voluptatum molestiae perspiciatis possimus nobis nam
+            impedit tempore quos optio aut.
           </p>
         </div>
         <div class="note">
+          <strong>Not pro level!</strong>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus qui
-            minus consectetur necessitatibus molestias odit nostrum facilis at
-            cupiditate vel, repellat distinctio similique maiores voluptatibus,
-            eos esse pariatur commodi. Iusto!
+            This isn't a pro-level guide, just a fun project where I explore
+            different playstyles and showcase builds that have worked for me.
           </p>
         </div>
         <div class="note">
