@@ -253,7 +253,7 @@ onMounted(async () => {
 <style scoped>
 .filter-container {
   width: 500px;
-  font-family: var(--font-heading);
+  font-family: var(--font-acme);
 
 }
 

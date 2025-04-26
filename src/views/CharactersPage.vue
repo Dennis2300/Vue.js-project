@@ -14,7 +14,7 @@
 
     <div
       v-if="!loading && !error && characters?.length"
-      class="divider text-3xl"
+      class="divider text-2xl mt-5"
     >
       <h2 class="character-page-header">Character Archive</h2>
     </div>
