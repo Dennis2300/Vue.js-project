@@ -16,7 +16,7 @@
       v-if="!loading && !error && characters?.length"
       class="divider text-3xl"
     >
-    <h2 class="character-page-header">Character Archive</h2>
+      <h2 class="character-page-header">Character Archive</h2>
     </div>
 
     <!-- Show characters -->
@@ -49,6 +49,7 @@
           />
           <h3>{{ character.name }}</h3>
           <p class="rarity-text text-white" :data-stars="character.rarity"></p>
+          <span v-if="isNewCharacter(character)" class="new-badge">NEW</span>
         </router-link>
       </div>
     </div>
@@ -134,7 +135,7 @@ async function GetAllCharacters() {
   const cachedCharacters = getCachedData(cacheKey);
   if (cachedCharacters) {
     characters.value = cachedCharacters;
-    sortCharactersByName();
+    sortCharactersByReleaseDate();
     loading.value = false;
     return;
   }
@@ -147,7 +148,7 @@ async function GetAllCharacters() {
 
     characters.value = data;
     setCachedData(cacheKey, data);
-    sortCharactersByName();
+    sortCharactersByReleaseDate();
   } catch (err) {
     error.value = err.message;
   } finally {
@@ -155,23 +156,33 @@ async function GetAllCharacters() {
   }
 }
 
-// Sort characters by name function
-function sortCharactersByName() {
-  characters.value.sort((a, b) => a.name.localeCompare(b.name));
+// Sort characters by release date
+function sortCharactersByReleaseDate() {
+  characters.value.sort((a, b) => {
+    return new Date(b.release_date) - new Date(a.release_date);
+  });
+}
+
+function isNewCharacter(character) {
+  if (character && typeof character.new_character !== "undefined") {
+    return Boolean(character.new_character);
+  }
+  return false;
 }
 
 function displayFilteredCharacters(filtered) {
   characters.value = filtered;
-  sortCharactersByName();
+  sortCharactersByReleaseDate();
 }
 
 function handleClearFilter() {
   characters.value = [...characters.value];
-  sortCharactersByName();
+  sortCharactersByReleaseDate();
 }
 
 // Fetch characters on page load
 onMounted(async () => {
   await GetAllCharacters();
+  isNewCharacter();
 });
 </script>

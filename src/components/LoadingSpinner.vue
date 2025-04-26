@@ -1,7 +1,7 @@
 <template>
-  <div class="loading-spinner-container">
+  <div class="trefoil-spinner-container">
     <l-trefoil
-      class="loading-spinner"
+      class="trefoil-spinner"
       :size="size"
       :stroke="stroke"
       :stroke-length="strokeLength"
@@ -20,11 +20,11 @@ trefoil.register(); // Register the component
 defineProps({
   size: {
     type: Number,
-    default: 40,
+    default: 80,
   },
   stroke: {
     type: Number,
-    default: 4,
+    default: 7,
   },
   strokeLength: {
     type: Number,
@@ -36,7 +36,7 @@ defineProps({
   },
   speed: {
     type: Number,
-    default: 1.4,
+    default: 2,
   },
   color: {
     type: String,
@@ -46,14 +46,14 @@ defineProps({
 </script>
 
 <style scoped>
-.loading-spinner-container {
+.trefoil-spinner-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
 }
 
-.loading-spinner {
+.trefoil-spinner {
   transform: scale(3);
 }
 </style>
