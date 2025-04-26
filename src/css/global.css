@@ -1,9 +1,5 @@
-@import url("https://fonts.bunny.net/css?family=Roboto:wght@400;500;700&display=swap");
-@import url("https://fonts.bunny.net/css?family=Open+Sans:wght@400;600;700&display=swap");
-@import url("https://fonts.bunny.net/css?family=Exo+2:wght@400;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+@import url(https://fonts.bunny.net/css?family=acme:400|aladin:400|alfa-slab-one:400|alkatra:400);
 
 /*Global Colours*/
 :root {
@@ -14,12 +10,10 @@
   --quaternary: #eeeeee;
   --filter-color: #2d3748;
   --filter-color-hover: #4a5568;
-  --font-sans: "Roboto", "Open Sans", system-ui, sans-serif;
-  --font-heading: "Exo 2", "Roboto", sans-serif;
-  --font-alt: "Open Sans", "Roboto", sans-serif;
-  --font-fascinate: "Fascinate Inline", sans-serif;
-  --font-gothic: "Special Gothic Condensed One", sans-serif;
-  --font-fugaz: "Fugaz One", sans-serif;
+  --font-acme: 'Acme', sans-serif;
+  --font-aladin: 'Aladin', sans-serif;
+  --font-alfa: 'Alfa Slab One', sans-serif;
+  --font-alkatra: 'Alkatra', sans-serif;
 }
 
 * {
