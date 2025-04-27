@@ -254,25 +254,24 @@ onMounted(async () => {
 .filter-container {
   width: 500px;
   font-family: var(--font-acme);
-
 }
 
 .vision-filter-list {
   display: grid;
   grid-auto-flow: column;
-  
 }
 
 .vision-filter-header {
   margin-bottom: 15px;
   letter-spacing: 1px;
+  cursor: default;
 }
 
 .rarity-filter-header {
   margin-top: 20px;
   margin-bottom: 10px;
   letter-spacing: 1px;
-
+  cursor: default;
 }
 
 .vision-filter-item {

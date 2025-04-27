@@ -1,5 +1,5 @@
 .character-page-container {
-  margin: 75px 0 0 0;
+  margin: 50px 0 0 0;
   padding: 0%;
   width: 75vw;
 }
@@ -30,6 +30,7 @@
   font-weight: lighter;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  cursor: default;
 }
 .character-display-container {
   min-height: 100vh;
