@@ -22,7 +22,7 @@
     <!-- Show characters -->
     <div
       v-if="!loading && !error && characters?.length"
-      class="character-display-container"
+      class="character-display-container mb-16"
     >
       <div class="character-grid">
         <router-link
