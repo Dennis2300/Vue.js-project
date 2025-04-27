@@ -9,6 +9,9 @@
       <router-link to="/teams">Team</router-link>
       <router-link to="/about">About</router-link>
     </nav>
+    <div class="right-navbar">
+        <p>Support Me!</p>
+    </div>
   </div>
 </template>
 
