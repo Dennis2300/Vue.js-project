@@ -65,10 +65,6 @@
         and maintaining this resource for the Genshin Impact community. Thank
         you for being a part of this journey—your support means the world to me!
       </p>
-
-      <router-link to="/" class="back-to-home text-highlight link"
-        >Back to Home</router-link
-      >
     </div>
 
     <!--Animation container-->
