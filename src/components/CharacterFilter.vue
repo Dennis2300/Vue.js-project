@@ -123,7 +123,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineEmits, computed, watch } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 import { supabase } from "../supabaseClient.js";
 
 const emits = defineEmits(["filtered-characters", "clear-filter"]);
