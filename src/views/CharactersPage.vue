@@ -20,11 +20,11 @@
     </div>
 
     <!-- Show characters -->
-    <div class="character-display-container">
-      <div
-        v-if="!loading && !error && characters?.length"
-        class="character-grid"
-      >
+    <div
+      v-if="!loading && !error && characters?.length"
+      class="character-display-container"
+    >
+      <div class="character-grid">
         <router-link
           v-for="character in characters"
           :key="character.id"
@@ -76,7 +76,9 @@
         >
       </p>
     </div>
-    <Footer />
+    <div v-if="!loading && !error && characters?.length">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -212,8 +214,8 @@ onMounted(async () => {
   transform: rotate(-45deg);
   width: 100px;
   display: block;
-  background: #E74646;
-  background: linear-gradient(#E74646 0%, #E74646 100%);
+  background: #e74646;
+  background: linear-gradient(#e74646 0%, #e74646 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
   top: 19px;
