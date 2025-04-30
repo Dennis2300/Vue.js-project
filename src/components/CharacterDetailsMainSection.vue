@@ -8,37 +8,37 @@
     />
 
     <!-- Rarity -->
-    <div class="grid-item-rarity">
-      <strong>Rarity</strong> | {{ character.rarity }} Star
+    <div class="grid-item grid-item-rarity">
+      <strong>Rarity |</strong> {{ character.rarity }} Star
     </div>
 
     <!-- Vision Name -->
-    <div class="grid-item-vision-name">
-      <strong>Vision</strong> |
+    <div class="grid-item grid-item-vision-name">
+      <strong>Vision |</strong>
       {{ character.vision.name }}
     </div>
 
     <!-- Birthday -->
-    <div class="grid-item-birthday">
-      <strong>Birthday</strong> |
+    <div class="grid-item grid-item-birthday">
+      <strong>Birthday |</strong>
       {{ character.birthday }}
     </div>
 
     <!-- Constellation -->
-    <div class="grid-item-constellation">
-      <strong>Constellation</strong> |
+    <div class="grid-item grid-item-constellation">
+      <strong>Constellation |</strong>
       {{ character.constellation }}
     </div>
 
     <!-- Favourite Dish -->
-    <div class="grid-item-favourite-dish">
-      <strong>Special Dish</strong> |
+    <div class="grid-item grid-item-favourite-dish">
+      <strong>Special Dish |</strong>
       {{ character.favourite_dish }}
     </div>
 
     <!-- Release Date -->
-    <div class="grid-item-release-date">
-      <strong>Release Date</strong> |
+    <div class="grid-item grid-item-release-date">
+      <strong>Release Date |</strong>
       {{
         new Date(character.release_date).toLocaleDateString("en-US", {
           month: "long",
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Best Artifact Sets -->
-    <div class="grid-item-artifact">
+    <div class="grid-item grid-item-artifact">
       <h3>Best Artifacts</h3>
       <div class="flex space-x-12 text-center mt-4">
         <div>
@@ -67,8 +67,8 @@
       </div>
     </div>
 
-    <!-- Best Weapons -->
-    <div v-if="character.weapons.length" class="grid-item-weapons">
+    <!-- Best Weapons --> <!--TODO: When hover/click show weapon stats-->
+    <div v-if="character.weapons.length" class="grid-item grid-item-weapons">
       <h3>Best Weapons</h3>
       <div class="flex space-x-16 text-center mt-4">
         <div
@@ -102,8 +102,8 @@ const props = defineProps({
 </script>
 
 <style scoped>
-strong {
-  color: var(--quaternary);
+.main-section {
+  font-family: var(--font-acme);
 }
 
 .vision-image {
@@ -135,6 +135,14 @@ strong {
     "dish release"
     "affiliation va";
   gap: 50px;
+}
+
+.grid-item {
+  letter-spacing: 1px;
+}
+
+.grid-item strong {
+  color: grey;
 }
 
 .grid-item-rarity {
