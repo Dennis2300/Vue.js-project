@@ -1,43 +1,44 @@
 <template>
-    <section class="right-section flex flex-col gap-6">
-          <!-- Affiliation -->
-          <div class="grid-item-affiliation mt-2">
-            <h3 class="list-title mb-3">Affiliations</h3>
-            <ul class="styled-list">
-              <li
-                v-for="(affiliation, index) in character.affiliation"
-                :key="index"
-              >
-                {{ affiliation }}
-              </li>
-            </ul>
-          </div>
+  <section class="right-section flex flex-col gap-6">
+    <!-- Affiliation -->
+    <div class="grid-item-affiliation mt-2">
+      <h3 class="list-title divider">Affiliations</h3>
+      <ul class="styled-list">
+        <li v-for="(affiliation, index) in character.affiliation" :key="index">
+          {{ affiliation }}
+        </li>
+      </ul>
+    </div>
 
-          <!-- Voice Actors -->
-          <div class="grid-item-voice-actors">
-            <h3 class="list-title">Voice Actors</h3>
-            <ul class="styled-list">
-              <div v-for="(actor, language) in character.va" :key="language">
-                {{ language }} {{ languageEmojis[language] || "🌐" }}
-                <strong>{{ actor }}</strong>
-              </div>
-            </ul>
-          </div>
+    <!-- Voice Actors -->
+    <div class="grid-item-voice-actors">
+      <h3 class="list-title divider">Voice Actors</h3>
+      <ul>
+        <div
+          class="va-list"
+          v-for="(actor, language) in character.va"
+          :key="language"
+        >
+          {{ languageEmojis[language] || "🌐" }} |
+          {{ actor }}
+        </div>
+      </ul>
+    </div>
 
-          <!-- Regions -->
-          <div class="grid-item-regions" v-if="character.regions.length">
-            <h3>Associated Regions</h3>
-            <div class="regions-list">
-              <div
-                v-for="region in character.regions"
-                :key="region.id"
-                class="region-tag"
-              >
-                {{ region.name }}
-              </div>
-            </div>
-          </div>
-        </section>
+    <!-- Regions -->
+    <div class="grid-item-regions" v-if="character.regions.length">
+      <h4 class="list-title divider">Associated Regions</h4>
+      <div>
+        <div
+          v-for="region in character.regions"
+          :key="region.id"
+          class="region-tag region-list"
+        >
+          <h3 class="region-name">{{ region.name }}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -57,3 +58,32 @@ const languageEmojis = {
   Chinese: "🇨🇳",
 };
 </script>
+
+<style scoped>
+.right-section {
+  font-family: var(--font-acme);
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.right-section > div {
+  min-height: 155px;
+  overflow: auto;
+}
+
+.list-title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background-color: inherit;
+  color: grey;
+}
+
+.region-name {
+  background-color: inherit;
+}
+
+.center {
+  margin: auto 0;
+}
+</style>
