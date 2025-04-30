@@ -22,7 +22,7 @@
 .character-detail-header {
   font-size: 3em;
   text-transform: uppercase;
-  font-family: var(--font-fugaz);
+  font-family: var(--font-acme);
   letter-spacing: 2px;
 }
 
@@ -32,7 +32,11 @@
   border-radius: 100px;
   position: relative;
   overflow: hidden;
-  margin-bottom: 25px;
+}
+
+.rarity-text {
+  color: gold;
+  margin-bottom: 5px;
 }
 
 .rarity-5 .character-detail-avatar {
