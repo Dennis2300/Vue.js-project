@@ -1,42 +1,46 @@
 <template>
-  <section class="right-section flex flex-col gap-6">
+  <section class="right-section">
     <!-- Affiliation -->
-    <div class="grid-item-affiliation mt-2">
-      <h3 class="list-title divider">Affiliations</h3>
-      <ul class="styled-list">
-        <li v-for="(affiliation, index) in character.affiliation" :key="index">
+    <div class="section-item vertical-center-left">
+      <h3 class="divider">Affiliations</h3>
+      <ul class="no-bullets">
+        <li
+          v-for="(affiliation, index) in character.affiliation"
+          :key="index"
+          class="list-item"
+        >
           {{ affiliation }}
         </li>
       </ul>
     </div>
 
     <!-- Voice Actors -->
-    <div class="grid-item-voice-actors">
-      <h3 class="list-title divider">Voice Actors</h3>
-      <ul>
-        <div
-          class="va-list"
+    <div class="section-item">
+      <h3 class="divider">Voice Actors</h3>
+      <ul class="no-bullets">
+        <li
           v-for="(actor, language) in character.va"
           :key="language"
+          class="list-item"
         >
           {{ languageEmojis[language] || "🌐" }} |
           {{ actor }}
-        </div>
+        </li>
       </ul>
     </div>
 
     <!-- Regions -->
-    <div class="grid-item-regions" v-if="character.regions.length">
-      <h4 class="list-title divider">Associated Regions</h4>
-      <div>
-        <div
+    <div class="section-item" v-if="character.regions.length">
+      <h3 class="divider">Associated Regions</h3>
+      <ul class="no-bullets">
+        <li
           v-for="region in character.regions"
           :key="region.id"
-          class="region-tag region-list"
+          class="list-item"
         >
-          <h3 class="region-name">{{ region.name }}</h3>
-        </div>
-      </div>
+          {{ region.name }}
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -64,26 +68,17 @@ const languageEmojis = {
   font-family: var(--font-acme);
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 20px;
 }
 
-.right-section > div {
-  min-height: 155px;
-  overflow: auto;
+.section-item {
+  height: 150px;
 }
 
-.list-title {
-  margin-top: 0px;
-  margin-bottom: 10px;
-  background-color: inherit;
-  color: grey;
+.no-bullets {
+  list-style-type: none;
 }
 
-.region-name {
-  background-color: inherit;
-}
-
-.center {
-  margin: auto 0;
+.list-item {
+  margin-bottom: 5px;
 }
 </style>
