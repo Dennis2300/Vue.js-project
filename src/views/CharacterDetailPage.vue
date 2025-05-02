@@ -124,7 +124,7 @@ async function fetchCharacterDetails(characterId) {
     // Then fetch weapons
     const { data: weaponsData, error: weaponsError } = await supabase
       .from("weapon_character")
-      .select("weapon:weapon_id(id, name, image_url)")
+      .select("weapon:weapon_id(id, name, image_url, rarity)")
       .eq("character_id", characterId);
 
     if (weaponsError) throw weaponsError;

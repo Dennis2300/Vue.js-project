@@ -75,6 +75,7 @@
           v-for="weapon in character.weapons"
           :key="weapon.id"
           class="max-w-[100px]"
+          @click="showWeaponDetails(weapon)"
         >
           <img
             :src="weapon.image_url"
@@ -99,6 +100,12 @@ const props = defineProps({
     required: true,
   },
 });
+
+function showWeaponDetails(weapon) {
+  // Logic to show weapon details
+  console.log("Weapon name:", weapon.name);
+  console.log("Weapon details:", weapon);
+}
 </script>
 
 <style scoped>
