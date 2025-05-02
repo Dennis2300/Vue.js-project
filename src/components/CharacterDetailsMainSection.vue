@@ -67,9 +67,11 @@
       </div>
     </div>
 
-    <!-- Best Weapons --> <!--TODO: When hover/click show weapon stats-->
+    <!-- Best Weapons -->
+    <!--TODO: When hover/click show weapon stats-->
     <div v-if="character.weapons.length" class="grid-item grid-item-weapons">
       <h3>Best Weapons</h3>
+      <!-- Best Weapon list -->
       <div class="flex space-x-16 text-center mt-4">
         <div
           v-for="weapon in character.weapons"
@@ -88,11 +90,39 @@
           </h5>
         </div>
       </div>
+      <!-- Weapon Details Modal -->
+      <div v-if="showPopup" class="weapon-popup">
+        <h3>Weapon Details</h3>
+        <p><strong>Name:</strong> {{ selectedWeapon.name }}</p>
+        <button class="close-button" @click="showPopup = false">Close</button>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { ref } from "vue";
+
+const showPopup = ref(false);
+const selectedWeapon = ref(null);
+
+function showWeaponDetails(weapon) {
+  // Show the popup
+  showPopup.value = true;
+  selectedWeapon.value = weapon;
+
+  // format the weapon object to show details
+  const weaponDetails = JSON.parse(JSON.stringify(weapon));
+
+  // console.log("Name: ", weaponDetails.name);
+  // console.log("Type:", weaponDetails.weapon_type.name);
+  // console.log("Base Attack:", weaponDetails.base_attack);
+  // console.log("Bonus Effect Type:", weaponDetails.bonus_effect.name);
+  // console.log("Bonus Effect Value:", weaponDetails.bonus_effect_value);
+  // console.log("Attribute Name:", weaponDetails.attribute);
+  // console.log("Attribute Value:", weaponDetails.attribute_description);
+}
+
 // Define the prop
 const props = defineProps({
   character: {
@@ -100,12 +130,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-function showWeaponDetails(weapon) {
-  // Logic to show weapon details
-  console.log("Weapon name:", weapon.name);
-  console.log("Weapon details:", weapon);
-}
 </script>
 
 <style scoped>
@@ -182,5 +206,28 @@ function showWeaponDetails(weapon) {
 
 .grid-item-voice-actors {
   grid-area: va;
+}
+
+.weapon-popup {
+  position: absolute;
+  top: 0vh;
+  right: 0vw;
+  width: 500px;
+  height: 500px;
+  border-radius: 25px;
+  padding: 25px;
+  background-color: var(--tertiary);
+  z-index: 99;
+}
+
+.close-button {
+  position: absolute;
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  bottom: 25px;
 }
 </style>

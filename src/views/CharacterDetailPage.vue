@@ -110,7 +110,6 @@ async function fetchCharacterDetails(characterId) {
       .select("*, vision:vision_id(name, image_url)")
       .eq("id", characterId)
       .single();
-
     if (charError) throw charError;
 
     // Then fetch associated regions
@@ -118,15 +117,15 @@ async function fetchCharacterDetails(characterId) {
       .from("region_character")
       .select("region:region_id(id, name)")
       .eq("character_id", characterId);
-
     if (regionsError) throw regionsError;
 
     // Then fetch weapons
     const { data: weaponsData, error: weaponsError } = await supabase
       .from("weapon_character")
-      .select("weapon:weapon_id(id, name, image_url, rarity)")
+      .select(
+        "weapon:weapon_id(*, bonus_effect:bonus_effect_type_id(name), weapon_type:weapon_type_id(name))"
+      )
       .eq("character_id", characterId);
-
     if (weaponsError) throw weaponsError;
 
     // Combine the data
