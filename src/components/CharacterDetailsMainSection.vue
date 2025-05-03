@@ -93,14 +93,27 @@
       <!-- Weapon Details Modal -->
       <div v-if="showPopup" class="weapon-popup">
         <div class="weapon-details">
-          <h3>{{ selectedWeapon.name }}</h3>
+          <h2>{{ selectedWeapon.name }}</h2>
           <p
             class="rarity-text text-white"
             :data-stars="selectedWeapon.rarity"
           ></p>
+          <p>{{ selectedWeapon.weapon_type.name }}</p>
           <p>Base Attack: {{ selectedWeapon.base_attack }}</p>
+          <p>
+            {{
+              formatEffectValue(
+                selectedWeapon.bonus_effect.name,
+                selectedWeapon.bonus_effect_value
+              )
+            }}
+          </p>
+          <p class="divider">{{ selectedWeapon.attribute }}</p>
+          <p class="attribute-description">
+            {{ selectedWeapon.attribute_description }}
+          </p>
+          <button class="close-button" @click="showPopup = false">Close</button>
         </div>
-        <button class="close-button" @click="showPopup = false">Close</button>
       </div>
     </div>
   </section>
@@ -115,18 +128,15 @@ const selectedWeapon = ref(null);
 function showWeaponDetails(weapon) {
   // Show the popup
   showPopup.value = true;
+  // Set the selected weapon
   selectedWeapon.value = weapon;
+}
 
-  // format the weapon object to show details
-  const weaponDetails = JSON.parse(JSON.stringify(weapon));
-
-  // console.log("Name: ", weaponDetails.name);
-  // console.log("Type:", weaponDetails.weapon_type.name);
-  // console.log("Base Attack:", weaponDetails.base_attack);
-  // console.log("Bonus Effect Type:", weaponDetails.bonus_effect.name);
-  // console.log("Bonus Effect Value:", weaponDetails.bonus_effect_value);
-  // console.log("Attribute Name:", weaponDetails.attribute);
-  // console.log("Attribute Value:", weaponDetails.attribute_description);
+function formatEffectValue(name, value) {
+  if (name === "CRIT DMG" || name === "CRIT Rate") {
+    return `${name}: ${value} %`;
+  }
+  return `${name}: ${value}`;
 }
 
 // Define the prop
@@ -228,12 +238,20 @@ const props = defineProps({
   height: 500px;
   border-radius: 25px;
   padding: 25px;
-  background-color: #0B192C;
+  background-color: #0b192c;
   z-index: 99;
 }
 
 .weapon-details {
   color: white;
+}
+
+.attribute-description {
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  letter-spacing: 1px;
+  line-height: 1.5;
 }
 
 .close-button {
