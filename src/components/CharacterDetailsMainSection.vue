@@ -92,8 +92,14 @@
       </div>
       <!-- Weapon Details Modal -->
       <div v-if="showPopup" class="weapon-popup">
-        <h3>Weapon Details</h3>
-        <p><strong>Name:</strong> {{ selectedWeapon.name }}</p>
+        <div class="weapon-details">
+          <h3>{{ selectedWeapon.name }}</h3>
+          <p
+            class="rarity-text text-white"
+            :data-stars="selectedWeapon.rarity"
+          ></p>
+          <p>Base Attack: {{ selectedWeapon.base_attack }}</p>
+        </div>
         <button class="close-button" @click="showPopup = false">Close</button>
       </div>
     </div>
@@ -154,6 +160,12 @@ const props = defineProps({
   background-color: var(--primary);
 }
 
+.weapon-img:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
 .list-title {
   margin-bottom: 10px;
 }
@@ -210,24 +222,30 @@ const props = defineProps({
 
 .weapon-popup {
   position: absolute;
-  top: 0vh;
-  right: 0vw;
+  top: 0;
+  left: 0;
   width: 500px;
   height: 500px;
   border-radius: 25px;
   padding: 25px;
-  background-color: var(--tertiary);
+  background-color: #0B192C;
   z-index: 99;
+}
+
+.weapon-details {
+  color: white;
 }
 
 .close-button {
   position: absolute;
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--quaternary);
+  color: black;
+  font-family: var(--font-acme);
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
   bottom: 25px;
+  right: 25px;
 }
 </style>
