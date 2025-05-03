@@ -252,6 +252,7 @@ const props = defineProps({
   padding-right: 10px;
   letter-spacing: 1px;
   line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .close-button {
