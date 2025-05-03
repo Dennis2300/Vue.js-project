@@ -185,8 +185,7 @@ const props = defineProps({
   grid-template-areas:
     "rarity vision"
     "birthday constellation"
-    "dish release"
-    "affiliation va";
+    "dish release";
   gap: 50px;
 }
 
@@ -220,14 +219,6 @@ const props = defineProps({
 
 .grid-item-release-date {
   grid-area: release;
-}
-
-.grid-item-affiliation {
-  grid-area: affiliation;
-}
-
-.grid-item-voice-actors {
-  grid-area: va;
 }
 
 .weapon-popup {
