@@ -2,17 +2,16 @@
   <div class="weapons-container">
     <LoadingSpinner v-if="loading" />
 
-    <div class="filter-container">
+    <div class="filter-container" v-if="!loading && !error">
       <div class="filter-header">Placeholder for Weapons Filter</div>
     </div>
 
-    <div class="weapons-grid-container">
+    <div class="weapons-grid-container" v-if="!loading && !error">
       <h1 class="weapons-page-header divider">Welcome to the Weapons Page</h1>
-      <div v-if="!loading && !error && weapons?.length">
-        <div class="weapons-grid">
-          <div v-for="weapon in weapons" :key="weapon.id">
-            <h1>{{ weapon.name }}</h1>
-          </div>
+      <div class="weapons-grid">
+        <div v-for="weapon in weapons" :key="weapon.id">
+          <h1>{{ weapon.name }}</h1>
+          <img :src="weapon.image_url" :alt="weapon.name" />
         </div>
       </div>
     </div>
