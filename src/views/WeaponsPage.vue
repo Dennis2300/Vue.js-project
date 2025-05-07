@@ -33,8 +33,8 @@
           <th>Rarity</th>
           <th>Type</th>
           <th>Base Attack</th>
-          <th>Bonus Effect Type</th>
           <th>Bonus Effect</th>
+          <th>Bonus Value</th>
         </tr>
         <tr class="table-data" v-for="(weapons, index) in weapons" :key="index">
           <td>
