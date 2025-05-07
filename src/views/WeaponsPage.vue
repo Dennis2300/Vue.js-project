@@ -126,6 +126,13 @@ onMounted(() => {
 .weapons-table {
   margin: 0 auto;
   width: 1400px;
+  margin-top: 50px;
+  border-collapse: collapse;
+  border: 1px solid var(--tertiary);
+}
+
+.weapons-table tr {
+  border-bottom: 1px solid #ccc;
 }
 
 .weapon-icon {
@@ -138,4 +145,5 @@ onMounted(() => {
   font-size: 1.5em;
   font-family: var(--font-acme);
 }
+
 </style>
