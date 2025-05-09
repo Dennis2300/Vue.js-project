@@ -6,8 +6,8 @@
       <div class="filter-header">Placeholder for Weapons Filter</div>
     </div>
 
+    <h1 class="weapons-page-header divider">Weapon Archive</h1>
     <div class="weapons-table-container" v-if="!loading && !error">
-      <h1 class="weapons-page-header divider">Weapon Archive</h1>
       <table class="weapons-table">
         <colgroup>
           <!-- Icon column -->
@@ -88,6 +88,7 @@ async function getAllWeapons() {
     if (fetchError) throw fetchError;
 
     weapons.value = data;
+    console.log(weapons.value);
   } catch (err) {
     error.value = err.message;
   } finally {
@@ -120,13 +121,15 @@ onMounted(() => {
 }
 
 .weapons-table-container {
-  min-height: 100vh;
+  margin-top: 25px;
+  height: 75vh;
+  overflow-y: scroll;
+  margin-bottom: 25px;
 }
 
 .weapons-table {
   margin: 0 auto;
-  width: 1400px;
-  margin-top: 50px;
+  width: 1500px;
   border-collapse: collapse;
   border: 1px solid var(--tertiary);
 }
@@ -145,5 +148,4 @@ onMounted(() => {
   font-size: 1.5em;
   font-family: var(--font-acme);
 }
-
 </style>
