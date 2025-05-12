@@ -23,7 +23,7 @@
           <!-- Bonus Effect column -->
           <col style="width: 150px" />
           <!-- Bonus Effect Value column -->
-          <col style="width: 150px" />
+          <col style="width: 100px" />
           <!-- View More column -->
           <col style="width: 25px" />
         </colgroup>
@@ -64,7 +64,7 @@
               )
             }}
           </td>
-          <td><button>More...</button></td>
+          <td><button class="more-button">Details</button></td>
         </tr>
       </table>
     </div>
@@ -159,6 +159,7 @@ onMounted(() => {
 .weapons-container {
   margin-top: 75px;
   width: 100vw;
+  cursor: default;
 }
 
 .filter-container {
@@ -218,6 +219,21 @@ onMounted(() => {
   font-size: 1.5em;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
+}
+
+.more-button {
+  background-color: green;
+  border-radius: 5px;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+}
+
+.more-button:hover {
+  background-color: #0b192c;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .rarity-5 {
