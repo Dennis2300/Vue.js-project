@@ -112,7 +112,7 @@
           <p class="attribute-description">
             {{ selectedWeapon.attribute_description }}
           </p>
-          <button class="close-button" @click="showPopup = false">Close</button>
+          <button class="close-button" @click="showPopup = false">X</button>
         </div>
       </div>
     </div>
@@ -231,10 +231,20 @@ const props = defineProps({
   padding: 25px;
   background-color: #0b192c;
   z-index: 99;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .weapon-details {
   color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .attribute-description {
@@ -248,14 +258,15 @@ const props = defineProps({
 
 .close-button {
   position: absolute;
-  background-color: var(--quaternary);
-  color: black;
+  background-color: darkred;
+  color: white;
   font-family: var(--font-acme);
-  padding: 10px 20px;
+  font-size: 16px;
+  padding: 5px 10px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  bottom: 25px;
-  right: 25px;
+  top: 15px;
+  right: 15px;
 }
 </style>

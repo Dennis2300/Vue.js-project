@@ -141,7 +141,7 @@ async function getAllWeapons() {
 
 function formatBonusEffectValue(value, type) {
   // add more types here
-  return ["CRIT DMG", "CRIT Rate", "DEF %", "ATK %", "HP %"].includes(type)
+  return ["CRIT DMG", "CRIT Rate", "DEF %", "ATK %", "HP %", "Energy Recharge"].includes(type)
     ? `${value}%`
     : value;
 }
