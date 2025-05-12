@@ -7,6 +7,7 @@
     </div>
 
     <h1 class="weapons-page-header divider">Weapon Archive</h1>
+    <h3 class="weapons-page-header text-center">All weapons are level 90 & R1</h3>
     <div class="weapons-table-container" v-if="!loading && !error">
       <table class="weapons-table">
         <colgroup>
@@ -181,8 +182,8 @@ onMounted(() => {
 }
 
 .weapons-table-container {
-  margin-top: 25px;
-  height: 77vh;
+  margin-top: 15px;
+  height: 74vh;
   overflow-y: scroll;
   margin-bottom: 25px;
 }
