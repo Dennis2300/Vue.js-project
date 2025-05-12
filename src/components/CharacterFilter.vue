@@ -177,7 +177,7 @@ async function getAllVisions() {
 
   try {
     let { data, error: fetchError } = await supabase
-      .from("vision")
+      .from("visions")
       .select("*, name, image_url");
     if (fetchError) throw fetchError;
 

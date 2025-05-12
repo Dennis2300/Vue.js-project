@@ -147,7 +147,7 @@ async function GetAllCharacters() {
 
   try {
     let { data, error: fetchError } = await supabase
-      .from("character")
+      .from("characters")
       .select("*, vision:vision_id(name, image_url)");
     if (fetchError) throw fetchError;
 

@@ -141,7 +141,7 @@ async function getAllWeapons() {
 
 function formatBonusEffectValue(value, type) {
   // add more types here
-  return ["CRIT DMG", "CRIT Rate"].includes(type) ? `${value} %` : value;
+  return ["CRIT DMG", "CRIT Rate", "DEF %"].includes(type) ? `${value} %` : value;
 }
 
 function sortWeaponsByReleaseDate() {
@@ -167,6 +167,14 @@ onMounted(() => {
   align-items: center;
   margin-bottom: 20px;
   height: 7vh;
+}
+
+.weapons-page-header {
+  font-family: var(--font-alfa);
+  font-weight: lighter;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: default;
 }
 
 .weapons-table-container {
