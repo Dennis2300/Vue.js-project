@@ -37,30 +37,30 @@
           <th>Bonus Value</th>
           <th></th>
         </tr>
-        <tr class="table-data" v-for="(weapons, index) in weapons" :key="index">
+        <tr class="table-data" v-for="(weapon, index) in weapons" :key="index">
           <td>
             <img
               class="weapon-icon"
               :class="{
-                'rarity-5': weapons.rarity === 5,
-                'rarity-4': weapons.rarity === 4,
+                'rarity-5': weapon.rarity === 5,
+                'rarity-4': weapon.rarity === 4,
               }"
-              :src="weapons.image_url"
-              :alt="weapons.image_url"
+              :src="weapon.image_url"
+              :alt="weapon.image_url"
             />
           </td>
-          <td>{{ weapons.name }}</td>
+          <td>{{ weapon.name }}</td>
           <td>
-            <p class="rarity-text text-white" :data-stars="weapons.rarity"></p>
+            <p class="rarity-text text-white" :data-stars="weapon.rarity"></p>
           </td>
-          <td>{{ weapons.weapon_type_id.name }}</td>
-          <td>{{ weapons.base_attack }}</td>
-          <td>{{ weapons.bonus_effect_type_id.name }}</td>
+          <td>{{ weapon.weapon_type_id.name }}</td>
+          <td>{{ weapon.base_attack }}</td>
+          <td>{{ weapon.bonus_effect_type_id.name }}</td>
           <td>
             {{
               formatBonusEffectValue(
-                weapons.bonus_effect_value,
-                weapons.bonus_effect_type_id.name
+                weapon.bonus_effect_value,
+                weapon.bonus_effect_type_id.name
               )
             }}
           </td>
@@ -86,16 +86,52 @@ const error = ref(null);
 
 const weapons = ref([]);
 
+const CACHE_DURATION = 60 * 60 * 1000;
+
+function getCachedData(key) {
+  const cachedData = sessionStorage.getItem(key);
+  if (!cachedData) {
+    return null;
+  }
+
+  const { timestamp, data } = JSON.parse(cachedData);
+  const now = new Date().getTime();
+
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  } else {
+    sessionStorage.removeItem(key);
+    return null;
+  }
+}
+
+function setCachedData(key, data) {
+  const cache = {
+    timestamp: new Date().getTime(),
+    data,
+  };
+  sessionStorage.setItem(key, JSON.stringify(cache));
+}
+
 async function getAllWeapons() {
+  const cacheKey = "weapons";
+
+  const cachedWeapons = getCachedData(cacheKey);
+  if (cachedWeapons) {
+    weapons.value = cachedWeapons;
+    sortWeaponsByReleaseDate();
+    loading.value = false;
+    return;
+  }
+
   try {
     let { data, error: fetchError } = await supabase
-      .from("weapon")
+      .from("weapons")
       .select("*, weapon_type_id(name), bonus_effect_type_id(name)");
-
     if (fetchError) throw fetchError;
-
     weapons.value = data;
-    console.log(weapons.value);
+    setCachedData(cacheKey, data);
+    sortWeaponsByReleaseDate();
   } catch (err) {
     error.value = err.message;
   } finally {
@@ -106,6 +142,12 @@ async function getAllWeapons() {
 function formatBonusEffectValue(value, type) {
   // add more types here
   return ["CRIT DMG", "CRIT Rate"].includes(type) ? `${value} %` : value;
+}
+
+function sortWeaponsByReleaseDate() {
+  weapons.value.sort((a, b) => {
+    return new Date(b.release_date) - new Date(a.release_date);
+  });
 }
 
 onMounted(() => {
