@@ -141,7 +141,7 @@ async function getAllWeapons() {
 
 function formatBonusEffectValue(value, type) {
   // add more types here
-  return ["CRIT DMG", "CRIT Rate", "DEF %"].includes(type) ? `${value} %` : value;
+  return ["CRIT DMG", "CRIT Rate", "DEF %", "ATK %"].includes(type) ? `${value}%` : value;
 }
 
 function sortWeaponsByReleaseDate() {
@@ -179,7 +179,7 @@ onMounted(() => {
 
 .weapons-table-container {
   margin-top: 25px;
-  height: 55vh;
+  height: 77vh;
   overflow-y: scroll;
   margin-bottom: 25px;
 }
