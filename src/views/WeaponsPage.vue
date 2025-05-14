@@ -7,7 +7,9 @@
     </div>
 
     <h1 class="weapons-page-header divider">Weapon Archive</h1>
-    <h3 class="weapons-page-header text-center">All weapons are level 90 & R1</h3>
+    <h3 class="weapons-page-header text-center">
+      All weapons are level 90 & R1
+    </h3>
     <div class="weapons-table-container" v-if="!loading && !error">
       <table class="weapons-table">
         <colgroup>
@@ -28,45 +30,53 @@
           <!-- View More column -->
           <col style="width: 25px" />
         </colgroup>
-        <tr class="table-header">
-          <th class="weapon-icon"></th>
-          <th>Name</th>
-          <th>Rarity</th>
-          <th>Type</th>
-          <th>Base Attack</th>
-          <th>Bonus Effect</th>
-          <th>Bonus Value</th>
-          <th></th>
-        </tr>
-        <tr class="table-data" v-for="(weapon, index) in weapons" :key="index">
-          <td>
-            <img
-              class="weapon-icon"
-              :class="{
-                'rarity-5': weapon.rarity === 5,
-                'rarity-4': weapon.rarity === 4,
-              }"
-              :src="weapon.image_url"
-              :alt="weapon.image_url"
-            />
-          </td>
-          <td>{{ weapon.name }}</td>
-          <td>
-            <p class="rarity-text text-white" :data-stars="weapon.rarity"></p>
-          </td>
-          <td>{{ weapon.weapon_type_id.name }}</td>
-          <td>{{ weapon.base_attack }}</td>
-          <td>{{ weapon.bonus_effect_type_id.name }}</td>
-          <td>
-            {{
-              formatBonusEffectValue(
-                weapon.bonus_effect_value,
-                weapon.bonus_effect_type_id.name
-              )
-            }}
-          </td>
-          <td><button class="more-button">Details</button></td>
-        </tr>
+        <thead>
+          <tr class="table-header">
+            <th class="weapon-icon"></th>
+            <th>Name</th>
+            <th>Rarity</th>
+            <th>Type</th>
+            <th>Base Attack</th>
+            <th>Bonus Effect</th>
+            <th>Bonus Value</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="table-data"
+            v-for="(weapon, index) in weapons"
+            :key="index"
+          >
+            <td>
+              <img
+                class="weapon-icon"
+                :class="{
+                  'rarity-5': weapon.rarity === 5,
+                  'rarity-4': weapon.rarity === 4,
+                }"
+                :src="weapon.image_url"
+                :alt="weapon.image_url"
+              />
+            </td>
+            <td>{{ weapon.name }}</td>
+            <td>
+              <p class="rarity-text text-white" :data-stars="weapon.rarity"></p>
+            </td>
+            <td>{{ weapon.weapon_type_id.name }}</td>
+            <td>{{ weapon.base_attack }}</td>
+            <td>{{ weapon.bonus_effect_type_id.name }}</td>
+            <td>
+              {{
+                formatBonusEffectValue(
+                  weapon.bonus_effect_value,
+                  weapon.bonus_effect_type_id.name
+                )
+              }}
+            </td>
+            <td><button class="more-button">Details</button></td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
@@ -142,7 +152,14 @@ async function getAllWeapons() {
 
 function formatBonusEffectValue(value, type) {
   // add more types here
-  return ["CRIT DMG", "CRIT Rate", "DEF %", "ATK %", "HP %", "Energy Recharge"].includes(type)
+  return [
+    "CRIT DMG",
+    "CRIT Rate",
+    "DEF %",
+    "ATK %",
+    "HP %",
+    "Energy Recharge",
+  ].includes(type)
     ? `${value}%`
     : value;
 }
