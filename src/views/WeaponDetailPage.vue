@@ -19,9 +19,12 @@
         }}
       </p>
       <p>{{ weapon.release_date }}</p>
-      <p>{{ weapon.lore_description }}</p>
       <p>{{ weapon.attribute }}</p>
       <p>{{ weapon.attribute_description }}</p>
+      <div class="lore-text">
+        <h2>Lore</h2>
+        <MarkdownRender :content="weapon.lore_description" />
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +33,7 @@
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { supabase } from "./../supabaseClient.js";
+import MarkdownRender from "@/components/MarkdownRender.vue";
 
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 
@@ -81,6 +85,6 @@ onMounted(async () => {
 }
 
 .weapon-detail {
-  background-color: aqua;
+  background-color: var(--secondary);
 }
 </style>
