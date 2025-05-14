@@ -10,7 +10,7 @@
   max-width: 1000px;
   min-height: 500px;
   padding: 50px;
-  border-radius: 12px;
+  border-radius: 25px;
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +36,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
+  border-radius: 25px;
 }
 
 .note {

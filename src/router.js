@@ -7,6 +7,7 @@ import TestDataPage from "./views/TestDataPage.vue";
 import CharacterDetailPage from "./views/CharacterDetailPage.vue";
 import WeaponsPage from "./views/WeaponsPage.vue";
 import ArtifactsPage from "./views/ArtifactsPage.vue";
+import WeaponDetailPage from "./views/WeaponDetailPage.vue";
 
 const routes = [
   { path: "/", component: HomePage },
@@ -18,8 +19,13 @@ const routes = [
   { path: "/artifacts", component: ArtifactsPage },
   {
     path: "/characters/:id",
-    name: "CharacterDetaiPage",
+    name: "CharacterDetailPage",
     component: CharacterDetailPage,
+  },
+  {
+    path: "/weapons/:id",
+    name: "WeaponDetailPage",
+    component: WeaponDetailPage,
   },
 ];
 

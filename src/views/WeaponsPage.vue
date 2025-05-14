@@ -220,7 +220,7 @@ onMounted(() => {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.75);
 }
 
-.weapons-table tr:nth-child(odd) {
+.weapons-table tr:nth-child(even) {
   background-color: var(--secondary);
 }
 
