@@ -251,15 +251,18 @@ onMounted(() => {
 
 .more-button {
   background-color: green;
+  font-size: 14px;
   border-radius: 5px;
   padding: 5px 10px;
   letter-spacing: 1px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
 
 .more-button:hover {
-  background-color: #0b192c;
+  background-color: darkgreen;
   color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
