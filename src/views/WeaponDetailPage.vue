@@ -4,6 +4,7 @@
 
     <div v-else-if="weapon">
       <h1>{{ weapon.name }}</h1>
+      <router-link to="/weapons">Back to weapons</router-link>
     </div>
   </div>
 </template>

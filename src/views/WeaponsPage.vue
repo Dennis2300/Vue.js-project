@@ -74,7 +74,15 @@
                 )
               }}
             </td>
-            <td><button class="more-button">Details</button></td>
+            <td>
+              <router-link
+                class="more-button"
+                :key="weapons.id"
+                :to="`/weapons/${weapon.id}`"
+              >
+                Details
+              </router-link>
+            </td>
           </tr>
         </tbody>
       </table>
