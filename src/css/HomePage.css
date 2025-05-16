@@ -1,4 +1,10 @@
-.board-container {
-  height: 100vh;
+.home-page-container {
+  margin-top: 75px;
 }
 
+.website-title {
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  font-family: var(--font-bungee);
+}

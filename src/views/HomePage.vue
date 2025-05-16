@@ -1,6 +1,7 @@
 <template>
   <!-- Hero Section -->
   <div class="home-page-container">
+    <h1 class="divider website-title">Teyvat Bulletin</h1>
     <div class="board-container">
       <div class="board board-background">
         <div class="note">

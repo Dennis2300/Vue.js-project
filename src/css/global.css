@@ -1,5 +1,5 @@
 
-@import url(https://fonts.bunny.net/css?family=acme:400|aladin:400|alfa-slab-one:400|alkatra:400);
+@import url(https://fonts.bunny.net/css?family=acme:400|aladin:400|alfa-slab-one:400|alkatra:400|bungee:400);
 
 /*Global Colours*/
 :root {
@@ -14,6 +14,7 @@
   --font-aladin: 'Aladin', sans-serif;
   --font-alfa: 'Alfa Slab One', sans-serif;
   --font-alkatra: 'Alkatra', sans-serif;
+  --font-bungee: 'Bungee', sans-serif;
 }
 
 * {
