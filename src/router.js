@@ -3,7 +3,6 @@ import HomePage from "./views/HomePage.vue";
 import CharactersPage from "./views/CharactersPage.vue";
 import TeamsPage from "./views/TeamsPage.vue";
 import AboutPage from "./views/AboutPage.vue";
-import TestDataPage from "./views/TestDataPage.vue";
 import CharacterDetailPage from "./views/CharacterDetailPage.vue";
 import WeaponsPage from "./views/WeaponsPage.vue";
 import ArtifactsPage from "./views/ArtifactsPage.vue";
@@ -14,7 +13,6 @@ const routes = [
   { path: "/about", component: AboutPage },
   { path: "/characters", component: CharactersPage },
   { path: "/teams", component: TeamsPage },
-  { path: "/test", component: TestDataPage },
   { path: "/weapons", component: WeaponsPage },
   { path: "/artifacts", component: ArtifactsPage },
   {
