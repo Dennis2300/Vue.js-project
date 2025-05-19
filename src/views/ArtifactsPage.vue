@@ -5,16 +5,44 @@
     <div v-if="!loading && !error">
       <div v-for="artifact in artifacts" :key="artifact.id">
         <div class="artifacts-display">
-          <img class="artifact-img" :src="artifact.flower_url" :alt="artifact.name" />
-          <img class="artifact-img" :src="artifact.plume_url" :alt="artifact.name" />
-          <img class="artifact-img" :src="artifact.sands_url" :alt="artifact.name" />
-          <img class="artifact-img" :src="artifact.goblet_url" :alt="artifact.name" />
-          <img class="artifact-img" :src="artifact.circlet_url" :alt="artifact.name" />
+          <div class="artifacts-img-container">
+            <h2 class="divider">{{ artifact.name }}</h2>
+
+            <img
+              class="artifact-img"
+              :src="artifact.flower_url"
+              :alt="artifact.name"
+            />
+            <img
+              class="artifact-img"
+              :src="artifact.plume_url"
+              :alt="artifact.name"
+            />
+            <img
+              class="artifact-img"
+              :src="artifact.sands_url"
+              :alt="artifact.name"
+            />
+            <img
+              class="artifact-img"
+              :src="artifact.goblet_url"
+              :alt="artifact.name"
+            />
+            <img
+              class="artifact-img"
+              :src="artifact.circlet_url"
+              :alt="artifact.name"
+            />
+          </div>
+          <div>
+            <h3>2 Piece Set Bonus</h3>
+            <p>{{ artifact.two_piece_set }}</p>
+          </div>
+          <div>
+            <h3>4 Piece Set Bonus</h3>
+            <p>{{ artifact.four_piece_set }}</p>
+          </div>
         </div>
-        <h2>{{ artifact.name }}</h2>
-        <p>{{ artifact.two_piece_set }}</p>
-        <p>{{ artifact.four_piece_set }}</p>
-        <p>{{ artifact.source }}</p>
       </div>
     </div>
   </div>
@@ -65,11 +93,14 @@ onMounted(() => {
 }
 
 .artifacts-display {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  background-color: var(--secondary);
+  padding: 15px;
+  margin-bottom: 50px;
+  border-radius: 25px;
+  width: 50vw;
+}
+
+.artifact-img-container {
 }
 
 .artifact-img {
