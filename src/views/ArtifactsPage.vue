@@ -115,15 +115,17 @@ onMounted(() => {
 }
 
 .two-piece-set {
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .four-piece-set {
   width: 75%;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .piece-title {
