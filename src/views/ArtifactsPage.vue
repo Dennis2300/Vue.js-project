@@ -98,7 +98,7 @@ onMounted(() => {
 
 .artifact-name {
   font-size: 2em;
-  font-family: var(--font-alfa);
+  font-family: var(--font-acme);
   letter-spacing: 1px;
   font-weight: lighter;
 }
@@ -110,7 +110,7 @@ onMounted(() => {
 }
 
 .artifacts-text-container {
-  font-family: var(--font-acme);
+  font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
 }
 
