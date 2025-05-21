@@ -1,13 +1,11 @@
 <template>
   <div class="artifacts-page-container">
     <LoadingSpinner v-if="loading" />
-    <h1 class="artifact-page-header">Welcome to the Artifacts Page</h1>
     <div v-if="!loading && !error">
       <div v-for="artifact in artifacts" :key="artifact.id">
         <div class="artifacts-display">
-          <div class="artifacts-img-container">
-            <h2 class="divider">{{ artifact.name }}</h2>
-
+          <h2 class="divider artifact-name">{{ artifact.name }}</h2>
+          <div class="artifacts-img-container mb-3">
             <img
               class="artifact-img"
               :src="artifact.flower_url"
@@ -34,13 +32,15 @@
               :alt="artifact.name"
             />
           </div>
-          <div>
-            <h3>2 Piece Set Bonus</h3>
-            <p>{{ artifact.two_piece_set }}</p>
-          </div>
-          <div>
-            <h3>4 Piece Set Bonus</h3>
-            <p>{{ artifact.four_piece_set }}</p>
+          <div class="artifacts-text-container">
+            <div class="two-piece-set">
+              <h3 class="piece-title">2 Piece Set Bonus</h3>
+              <strong class="piece-text">{{ artifact.two_piece_set }}</strong>
+            </div>
+            <div class="four-piece-set">
+              <h3 class="piece-title">4 Piece Set Bonus</h3>
+              <strong class="piece-text">{{ artifact.four_piece_set }}</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -87,21 +87,53 @@ onMounted(() => {
   justify-content: center;
 }
 
-.artifact-page-header {
-  font-size: 2rem;
-  color: white;
-}
 
 .artifacts-display {
   background-color: var(--secondary);
   padding: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   border-radius: 25px;
   width: 50vw;
 }
 
-.artifact-img-container {
+.artifact-name {
+  font-size: 2em;
+  font-family: var(--font-alfa);
+  letter-spacing: 1px;
+  font-weight: lighter;
 }
+
+.artifacts-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artifacts-text-container {
+  font-family: var(--font-acme);
+  letter-spacing: 1px;
+}
+
+.two-piece-set {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.four-piece-set {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.piece-title {
+  font-size: 1.5rem;
+  color: var(--tertiary);
+}
+
+.piece-text {
+  font-size: 1.2rem;
+  }
 
 .artifact-img {
   width: 100px;
