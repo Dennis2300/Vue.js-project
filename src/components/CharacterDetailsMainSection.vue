@@ -155,8 +155,8 @@ const props = defineProps({
 
 .vision-image {
   position: absolute;
-  right: 3%;
-  top: 5%;
+  right: 15px;
+  top: 15px;
   height: 100px;
   width: 100px;
   background-color: var(--primary);
