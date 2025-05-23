@@ -4,7 +4,9 @@
     <div v-if="!loading && !error">
       <div v-for="artifact in artifacts" :key="artifact.id">
         <div class="artifacts-display">
-          <h2 class="divider my-7 artifact-name">{{ artifact.name }}</h2>
+          <h2 class="divider my-7 artifact-name">
+            {{ artifact.name }}
+          </h2>
           <div class="artifacts-img-container mb-3">
             <img
               class="artifact-img"
@@ -94,13 +96,13 @@ onMounted(() => {
 .artifacts-display {
   background-color: var(--secondary);
   padding: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   border-radius: 25px;
   width: 50vw;
 }
 
 .artifact-name {
-  font-size: 3em;
+  font-size: 2.7em;
   font-family: var(--font-acme);
   letter-spacing: 1px;
   font-weight: lighter;
@@ -118,16 +120,16 @@ onMounted(() => {
 }
 
 .two-piece-set {
-  width: 75%;
+  width: 85%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
 .four-piece-set {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -145,4 +147,6 @@ onMounted(() => {
   height: 100px;
   margin: 10px;
 }
+
+
 </style>
