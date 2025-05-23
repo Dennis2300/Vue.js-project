@@ -49,26 +49,26 @@
     </div>
 
     <!-- Best Artifact Sets -->
-    <div class="grid-item grid-item-artifact">
+    <div v-if="character.artifacts.length" class="grid-item grid-item-artifact">
       <h3>Best Artifacts</h3>
-      <div class="flex space-x-12 text-center mt-4">
-        <div>
-          <img src="https://placehold.co/100x100" alt="" />
-          <h5>Placeholder</h5>
-        </div>
-        <div>
-          <img src="https://placehold.co/100x100" alt="" />
-          <h5>Placeholder</h5>
-        </div>
-        <div>
-          <img src="https://placehold.co/100x100" alt="" />
-          <h5>Placeholder</h5>
+      <!-- Best Artifact list -->
+      <div class="flex space-x-16 text-center mt-4">
+        <div
+          v-for="artifact in character.artifacts"
+          :key="artifact.id"
+          class="max-w-[100px]"
+        >
+          <img
+            class="character-artifact-img"
+            :src="artifact.flower_url"
+            :alt="artifact.name"
+          />
+          <h5 class="text-sm truncate">{{ artifact.name }}</h5>
         </div>
       </div>
     </div>
 
     <!-- Best Weapons -->
-    <!--TODO: When hover/click show weapon stats-->
     <div v-if="character.weapons.length" class="grid-item grid-item-weapons">
       <h3>Best Weapons</h3>
       <!-- Best Weapon list -->
@@ -254,6 +254,13 @@ const props = defineProps({
   letter-spacing: 1px;
   line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.character-artifact-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  background-color: var(--primary);
 }
 
 .close-button {

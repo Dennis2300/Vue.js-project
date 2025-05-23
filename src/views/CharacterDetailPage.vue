@@ -128,11 +128,20 @@ async function fetchCharacterDetails(characterId) {
       .eq("character_id", characterId);
     if (weaponsError) throw weaponsError;
 
+    // Then fetch artifacts
+    const { data: artifactsData, error: artifactsError } = await supabase
+      .from("character_artifact")
+      .select("artifact:artifact_id(*)")
+      .eq("character_id", characterId);
+    if (artifactsError) throw artifactsError;
+    console.log("artifactsData", artifactsData);
+
     // Combine the data
     const characterWithRegions = {
       ...characterData, // copy character data to new object
       regions: regionsData.map((item) => item.region), // add regions to new object
       weapons: weaponsData.map((item) => item.weapon), // add weapons to new object
+      artifacts: artifactsData.map((item) => item.artifact), // add artifacts to new object
     };
 
     setCachedData(cacheKey, characterWithRegions);
