@@ -4,7 +4,7 @@
     <div v-if="!loading && !error">
       <div v-for="artifact in artifacts" :key="artifact.id">
         <div class="artifacts-display">
-          <h2 class="divider artifact-name">{{ artifact.name }}</h2>
+          <h2 class="divider my-7 artifact-name">{{ artifact.name }}</h2>
           <div class="artifacts-img-container mb-3">
             <img
               class="artifact-img"
@@ -35,11 +35,14 @@
           <div class="artifacts-text-container">
             <div class="two-piece-set">
               <h3 class="piece-title">2 Piece Set Bonus</h3>
-              <strong class="piece-text">{{ artifact.two_piece_set }}</strong>
+              <p class="piece-text mt-2 mb-3">{{ artifact.two_piece_set }}</p>
             </div>
             <div class="four-piece-set">
               <h3 class="piece-title">4 Piece Set Bonus</h3>
-              <strong class="piece-text">{{ artifact.four_piece_set }}</strong>
+              <MarkdownRender
+                class="piece-text"
+                :content="artifact.four_piece_set"
+              />
             </div>
           </div>
         </div>
@@ -52,6 +55,7 @@
 import { ref, onMounted } from "vue";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import MarkdownRender from "./../components/MarkdownRender.vue";
 
 const loading = ref(true);
 const error = ref(null);
@@ -62,10 +66,10 @@ async function getAllArtifacts() {
   try {
     let { data, error: fetchError } = await supabase
       .from("artifacts")
-      .select("*");
+      .select("*")
+      .order("id", { ascending: true });
     if (fetchError) throw fetchError;
     artifacts.value = data;
-    console.log(artifacts.value);
   } catch (err) {
     error.value = err;
   } finally {
@@ -87,7 +91,6 @@ onMounted(() => {
   justify-content: center;
 }
 
-
 .artifacts-display {
   background-color: var(--secondary);
   padding: 15px;
@@ -97,7 +100,7 @@ onMounted(() => {
 }
 
 .artifact-name {
-  font-size: 2em;
+  font-size: 3em;
   font-family: var(--font-acme);
   letter-spacing: 1px;
   font-weight: lighter;
@@ -122,7 +125,7 @@ onMounted(() => {
 }
 
 .four-piece-set {
-  width: 75%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 10px;
@@ -135,7 +138,7 @@ onMounted(() => {
 
 .piece-text {
   font-size: 1.2rem;
-  }
+}
 
 .artifact-img {
   width: 100px;
