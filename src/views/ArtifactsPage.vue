@@ -32,10 +32,10 @@ async function getAllArtifacts() {
   try {
     let { data, error: fetchError } = await supabase
       .from("artifacts")
-      .select("*")
+      .select("id, name, flower_url")
       .order("id", { ascending: true });
     if (fetchError) throw fetchError;
-    artifacts.value = data;
+    artifacts.value = data;    
   } catch (err) {
     error.value = err;
   } finally {
