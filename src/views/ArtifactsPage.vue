@@ -7,12 +7,21 @@
     <!--Display data when loading is done-->
     <div v-if="!loading && !error" class="artifacts-display-grid">
       <div v-for="artifact in artifacts" :key="artifact.id">
-        <div class="artifact-card">
-          <img class="artifact-img" :src="artifact.flower_url" :alt="artifact.name" />
+        <router-link
+          :to="`/artifacts/${artifact.id}?name=${encodeURIComponent(
+            artifact.name
+          )}`"
+          class="artifact-card"
+        >
+          <img
+            class="artifact-img"
+            :src="artifact.flower_url"
+            :alt="artifact.name"
+          />
           <h2 class="truncate artifact-name">
             {{ artifact.name }}
           </h2>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -35,7 +44,7 @@ async function getAllArtifacts() {
       .select("id, name, flower_url")
       .order("id", { ascending: true });
     if (fetchError) throw fetchError;
-    artifacts.value = data;    
+    artifacts.value = data;
   } catch (err) {
     error.value = err;
   } finally {
