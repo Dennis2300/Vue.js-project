@@ -8,7 +8,7 @@
     <div v-if="!loading && !error" class="artifacts-display-grid">
       <div v-for="artifact in artifacts" :key="artifact.id">
         <div class="artifact-card">
-          <img class="artifact-img" :src="artifact.flower_url" alt="" />
+          <img class="artifact-img" :src="artifact.flower_url" :alt="artifact.name" />
           <h2 class="truncate artifact-name">
             {{ artifact.name }}
           </h2>
