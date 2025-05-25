@@ -77,7 +77,7 @@
           v-for="weapon in character.weapons"
           :key="weapon.id"
           :to="`/weapons/${weapon.id}?name=${encodeURIComponent(weapon.name)}`"
-          class="max-w-[100px]"
+          class="max-w-[100px] weapon-link"
         >
           <img
             :src="weapon.image_url"
@@ -177,16 +177,6 @@ const props = defineProps({
   grid-area: release;
 }
 
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .attribute-description {
   font-size: 18px;
   padding-left: 10px;
@@ -215,5 +205,10 @@ const props = defineProps({
   cursor: pointer;
   top: 15px;
   right: 15px;
+}
+
+.weapon-link {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
