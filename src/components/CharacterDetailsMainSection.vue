@@ -73,11 +73,11 @@
       <h3>Best Weapons</h3>
       <!-- Best Weapon list -->
       <div class="flex space-x-16 text-center mt-4">
-        <div
+        <router-link
           v-for="weapon in character.weapons"
           :key="weapon.id"
+          :to="`/weapons/${weapon.id}?name=${encodeURIComponent(weapon.name)}`"
           class="max-w-[100px]"
-          @click="showWeaponDetails(weapon)"
         >
           <img
             :src="weapon.image_url"
@@ -88,57 +88,13 @@
           <h5 class="text-sm truncate">
             {{ weapon.name }}
           </h5>
-        </div>
-      </div>
-      <!-- Weapon Details Modal -->
-      <div v-if="showPopup" class="weapon-popup">
-        <div class="weapon-details">
-          <h2>{{ selectedWeapon.name }}</h2>
-          <p
-            class="rarity-text text-white"
-            :data-stars="selectedWeapon.rarity"
-          ></p>
-          <p>{{ selectedWeapon.weapon_type.name }}</p>
-          <p>Base Attack: {{ selectedWeapon.base_attack }}</p>
-          <p>
-            {{
-              formatEffectValue(
-                selectedWeapon.bonus_effect.name,
-                selectedWeapon.bonus_effect_value
-              )
-            }}
-          </p>
-          <p class="divider">{{ selectedWeapon.attribute }}</p>
-          <p class="attribute-description">
-            {{ selectedWeapon.attribute_description }}
-          </p>
-          <button class="close-button" @click="showPopup = false">X</button>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-const showPopup = ref(false);
-const selectedWeapon = ref(null);
-
-function showWeaponDetails(weapon) {
-  // Show the popup
-  showPopup.value = true;
-  // Set the selected weapon
-  selectedWeapon.value = weapon;
-}
-
-function formatEffectValue(name, value) {
-  if (name === "CRIT DMG" || name === "CRIT Rate") {
-    return `${name}: ${value} %`;
-  }
-  return `${name}: ${value}`;
-}
-
 // Define the prop
 const props = defineProps({
   character: {
@@ -221,22 +177,6 @@ const props = defineProps({
   grid-area: release;
 }
 
-.weapon-popup {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 500px;
-  height: 500px;
-  border-radius: 25px;
-  padding: 25px;
-  background-color: #0b192c;
-  z-index: 99;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.weapon-details {
-  color: white;
-}
 
 @keyframes fadeIn {
   from {
