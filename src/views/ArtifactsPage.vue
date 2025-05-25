@@ -1,6 +1,6 @@
 <template>
   <div class="artifacts-page-container">
-    <h1 class="divider mb-10">Artifact Page</h1>
+    <h1 class="divider mb-10 artifacts-page-header">Artifacts Archive</h1>
     <!--Loading for when fetching is in progress-->
     <LoadingSpinner v-if="loading" />
 
@@ -56,6 +56,14 @@ onMounted(() => {
   padding: 50px;
 }
 
+.artifacts-page-header {
+  font-family: var(--font-alfa);
+  font-weight: lighter;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: default;
+}
+
 .artifacts-display-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -64,12 +72,14 @@ onMounted(() => {
 
 .artifact-card {
   background-color: var(--secondary);
+  font-family: var(--font-acme);
   padding: 25px;
   width: 350px;
   display: flex;
   justify-items: center;
   align-items: center;
   border-radius: 25px;
+  font-size: 1.25em;
 }
 
 .artifact-name {
