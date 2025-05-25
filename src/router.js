@@ -7,23 +7,29 @@ import CharacterDetailPage from "./views/CharacterDetailPage.vue";
 import WeaponsPage from "./views/WeaponsPage.vue";
 import ArtifactsPage from "./views/ArtifactsPage.vue";
 import WeaponDetailPage from "./views/WeaponDetailPage.vue";
+import ArtifactDetailPage from "./views/ArtifactDetailPage.vue";
 
 const routes = [
   { path: "/", component: HomePage },
   { path: "/about", component: AboutPage },
-  { path: "/characters", component: CharactersPage },
   { path: "/teams", component: TeamsPage },
-  { path: "/weapons", component: WeaponsPage },
-  { path: "/artifacts", component: ArtifactsPage },
+  { path: "/characters", component: CharactersPage },
   {
     path: "/characters/:id",
     name: "CharacterDetailPage",
     component: CharacterDetailPage,
   },
+  { path: "/weapons", component: WeaponsPage },
   {
     path: "/weapons/:id",
     name: "WeaponDetailPage",
     component: WeaponDetailPage,
+  },
+  { path: "/artifacts", component: ArtifactsPage },
+  {
+    path: "/artifacts/:id",
+    name: "ArtifactDetailPage",
+    component: ArtifactDetailPage,
   },
 ];
 
