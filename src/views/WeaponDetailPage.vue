@@ -40,7 +40,7 @@
       </div>
       <div class="lore-text">
         <h2 class="divider header">Lore</h2>
-        <MarkdownRender :content="weapon.lore_description" />
+        <MarkdownRender class="pl-2" :content="weapon.lore_description" />
       </div>
     </div>
   </div>
