@@ -28,7 +28,7 @@
         <router-link
           v-for="character in characters"
           :key="character.id"
-          :to="`/characters/${character.id}`"
+          :to="`/characters/${character.id}?name=${encodeURIComponent(character.name)}`"
           class="character-grid-item"
           :class="{
             'rarity-5': character.rarity === 5,
