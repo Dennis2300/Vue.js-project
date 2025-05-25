@@ -22,7 +22,6 @@
 import { ref, onMounted } from "vue";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
-import MarkdownRender from "./../components/MarkdownRender.vue";
 
 const loading = ref(true);
 const error = ref(null);
