@@ -1,6 +1,6 @@
 <template>
   <div class="divider text-2xl">
-    <h3>Disclaimer!</h3>
+    <h3 class="footer-header">Disclaimer!</h3>
   </div>
   <div class="web-footer-container">
     <footer class="web-footer">
@@ -10,7 +10,9 @@
         Character, images, names, and assets used on this site are the property
         of HoYoverse.
       </p>
-      <div class="web-footer-link">Find more info <a href="/about">here</a></div>
+      <div class="web-footer-link">
+        Find more info <a href="/about">here</a>
+      </div>
     </footer>
   </div>
 </template>
@@ -22,6 +24,11 @@
   align-items: center;
 }
 
+.footer-header {
+  font-family: var(--font-bungee);
+  letter-spacing: 1px;
+}
+
 .web-footer {
   width: 75vw;
   font-size: 1.2em;
@@ -30,16 +37,20 @@
 }
 
 .web-footer-text {
-  margin-top: 5px;
+  font-family: var(--font-archivo);
+  font-size: 16px;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .web-footer-link {
   text-decoration: none;
   color: white;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 25px;
+  font-family: var(--font-archivo);
+  font-size: 16px;
 }
 
 .web-footer-link a {
