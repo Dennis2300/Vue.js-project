@@ -5,6 +5,7 @@
     <div v-else-if="artifact" class="artifact-detail-container">
       <div class="artifact-detail">
         <h1 class="artifact-name divider mb-7">{{ artifact.name }}</h1>
+        <!-- Image Container -->
         <div class="artifact-img-container">
           <img
             :src="artifact.flower_url"
@@ -32,14 +33,19 @@
             class="artifact-img"
           />
         </div>
+
+        <!-- Artifact Attributes -->
         <div class="artifact-attributes-container">
           <div class="artifact-two-piece-set">
-            <h1>2 Piece Bonus:</h1>
+            <h1>2 Piece Bonus</h1>
             <p>{{ artifact.two_piece_set }}</p>
           </div>
           <div class="artifact-four-piece-set">
-            <h1>4 Piece Bonus:</h1>
-            <p>{{ artifact.four_piece_set }}</p>
+            <h1>4 Piece Bonus</h1>
+            <MarkdownRender
+              class="artifact-four-piece-set-text"
+              :content="artifact.four_piece_set"
+            />
           </div>
         </div>
       </div>
@@ -53,6 +59,7 @@ import { useRoute } from "vue-router";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import MarkdownRender from "./../components/MarkdownRender.vue";
 
 const route = useRoute();
 const loading = ref(true);
@@ -120,27 +127,28 @@ onMounted(async () => {
 <style scoped>
 .artifact-detail-page-container {
   padding: 0;
-  margin: 0;
+  margin: 100px 0 100px 0;
 }
 
 .artifact-detail-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100vw;
 }
 
 .artifact-detail {
   background-color: var(--secondary);
-  height: 66%;
-  width: 66%;
+  width: 900px;
   padding: 50px;
   border-radius: 25px;
 }
 
 .artifact-name {
   font-size: 3rem;
+  font-family: var(--font-alfa);
+  font-weight: lighter;
+  letter-spacing: 1px;
 }
 
 .artifact-img-container {
@@ -153,5 +161,31 @@ onMounted(async () => {
   width: 150px;
   height: 150px;
   margin: 10px;
+}
+
+.artifact-attributes-container {
+  margin-top: 20px;
+}
+
+.artifact-two-piece-set h1 {
+  color: var(--tertiary);
+  font-family: var(--font-alfa);
+}
+
+.artifact-two-piece-set p {
+  font-size: 1.5em;
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.artifact-four-piece-set h1 {
+  color: var(--tertiary);
+  margin-top: 15px;
+}
+
+.artifact-four-piece-set-text {
+  font-size: 1.5em;
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>
