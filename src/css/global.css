@@ -1,6 +1,4 @@
-
-@import url(https://fonts.bunny.net/css?family=acme:400|aladin:400|alfa-slab-one:400|alkatra:400|bungee:400);
-
+@import url(https://fonts.bunny.net/css?family=acme:400|alkatra:400|archivo-black:400|bungee:400);
 /*Global Colours*/
 :root {
   /*link to the colours https://colorhunt.co/palette/222831393e46ffd369eeeeee */
@@ -10,11 +8,10 @@
   --quaternary: #eeeeee;
   --filter-color: #2d3748;
   --filter-color-hover: #4a5568;
-  --font-acme: 'Acme', sans-serif;
-  --font-aladin: 'Aladin', sans-serif;
-  --font-alfa: 'Alfa Slab One', sans-serif;
-  --font-alkatra: 'Alkatra', sans-serif;
-  --font-bungee: 'Bungee', sans-serif;
+  --font-acme: "Acme", sans-serif;
+  --font-alkatra: "Alkatra", sans-serif;
+  --font-archivo-black: "Archivo Black", sans-serif;
+  --font-bungee: "Bungee", sans-serif;
 }
 
 * {
