@@ -53,18 +53,21 @@
       <h3>Best Artifacts</h3>
       <!-- Best Artifact list -->
       <div class="flex space-x-16 text-center mt-4">
-        <div
+        <router-link
           v-for="artifact in character.artifacts"
           :key="artifact.id"
-          class="max-w-[100px]"
+          :to="`/artifacts/${artifact.id}?name=${encodeURIComponent(
+            artifact.name
+          )}`"
+          class="max-w-[100px] link"
         >
           <img
-            class="character-artifact-img"
+            class="character-artifact-img hover"
             :src="artifact.flower_url"
             :alt="artifact.name"
           />
           <h5 class="text-sm truncate">{{ artifact.name }}</h5>
-        </div>
+        </router-link>
       </div>
     </div>
 
@@ -77,13 +80,13 @@
           v-for="weapon in character.weapons"
           :key="weapon.id"
           :to="`/weapons/${weapon.id}?name=${encodeURIComponent(weapon.name)}`"
-          class="max-w-[100px] weapon-link"
+          class="max-w-[100px] link"
         >
           <img
             :src="weapon.image_url"
             :alt="weapon.name"
             :title="weapon.name"
-            class="weapon-img hover:whitespace-normal"
+            class="weapon-img hover"
           />
           <h5 class="text-sm truncate">
             {{ weapon.name }}
@@ -207,8 +210,13 @@ const props = defineProps({
   right: 15px;
 }
 
-.weapon-link {
+.link {
   text-decoration: none;
   color: inherit;
+}
+
+.hover:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
 </style>
