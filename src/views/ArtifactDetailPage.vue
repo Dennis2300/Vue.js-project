@@ -54,11 +54,45 @@ import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 
-const artifact = ref(null);
 const route = useRoute();
 const loading = ref(true);
 
+const artifact = ref(null);
+
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
+
+function getCachedData(key) {
+  const cachedData = sessionStorage.getItem(key);
+
+  if (!cachedData) {
+    return null;
+  }
+
+  const { timestamp, data } = JSON.parse(cachedData);
+  const now = new Date().getTime();
+
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  } else {
+    sessionStorage.removeItem(key);
+    return null;
+  }
+}
+
+function setCachedData(key, data) {
+  const cache = {
+    timestamp: new Date().getTime(),
+    data,
+  };
+  sessionStorage.setItem(key, JSON.stringify(cache));
+}
+
 async function fetchArtifactDetails(artifactId) {
+  const cacheKey = `artifact-${artifactId}`;
+  const cachedArtifact = getCachedData(cacheKey);
+
+  if (cachedArtifact) return cachedArtifact;
+
   try {
     const { data: artifactData, error: artifactError } = await supabase
       .from("artifacts")
@@ -67,6 +101,7 @@ async function fetchArtifactDetails(artifactId) {
       .single();
     if (artifactError) throw artifactError;
 
+    setCachedData(cacheKey, artifactData);
     return artifactData;
   } catch (err) {
     console.log("Error fetching artifact:", err);
@@ -119,7 +154,4 @@ onMounted(async () => {
   height: 150px;
   margin: 10px;
 }
-
-
-
 </style>
