@@ -37,14 +37,56 @@ const error = ref(null);
 
 const artifacts = ref([]);
 
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
+
+function getCachedData(key) {
+  const cachedData = sessionStorage.getItem(key);
+
+  if (!cachedData) {
+    return null;
+  }
+
+  const { timestamp, data } = JSON.parse(cachedData);
+  const now = new Date().getTime();
+
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  } else {
+    sessionStorage.removeItem(key);
+    return null;
+  }
+}
+
+function setCachedData(key, data) {
+  const cache = {
+    timestamp: new Date().getTime(),
+    data,
+  };
+  sessionStorage.setItem(key, JSON.stringify(cache));
+}
+
 async function getAllArtifacts() {
+  const cacheKey = "artifacts";
+
+  // Check if cached data exists
+  const cachedArtifacts = getCachedData(cacheKey);
+  if (cachedArtifacts) {
+    artifacts.value = cachedArtifacts;
+    loading.value = false;
+    return;
+  }
+
+  // Fetch data from Supabase
   try {
     let { data, error: fetchError } = await supabase
       .from("artifacts")
       .select("id, name, flower_url")
       .order("id", { ascending: true });
+
     if (fetchError) throw fetchError;
+
     artifacts.value = data;
+    setCachedData(cacheKey, data); // Cache the fetched data
   } catch (err) {
     error.value = err;
   } finally {
@@ -88,6 +130,8 @@ onMounted(() => {
   align-items: center;
   border-radius: 25px;
   font-size: 1.25em;
+  text-decoration: none;
+  color: var(--tertiary);
 }
 
 .artifact-name {

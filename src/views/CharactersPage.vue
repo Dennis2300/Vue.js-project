@@ -28,7 +28,9 @@
         <router-link
           v-for="character in characters"
           :key="character.id"
-          :to="`/characters/${character.id}?name=${encodeURIComponent(character.name)}`"
+          :to="`/characters/${character.id}?name=${encodeURIComponent(
+            character.name
+          )}`"
           class="character-grid-item"
           :class="{
             'rarity-5': character.rarity === 5,
@@ -133,7 +135,6 @@ function setCachedData(key, data) {
 }
 
 // Fetch all characters from the database
-
 async function GetAllCharacters() {
   const cacheKey = "characters";
 
@@ -149,6 +150,7 @@ async function GetAllCharacters() {
     let { data, error: fetchError } = await supabase
       .from("characters")
       .select("*, vision:vision_id(name, image_url)");
+
     if (fetchError) throw fetchError;
 
     characters.value = data;
