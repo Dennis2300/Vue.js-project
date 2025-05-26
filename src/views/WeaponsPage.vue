@@ -7,8 +7,8 @@
     </div>
 
     <h1 class="weapons-page-header divider">Weapon Archive</h1>
-    <h3 class="weapons-page-header text-center">
-      All weapons are level 90 & R1
+    <h3 class="weapons-page-header text-center mb-6">
+      All weapons are level 90 and R1
     </h3>
     <div class="weapons-table-container" v-if="!loading && !error">
       <table class="weapons-table">
@@ -31,7 +31,7 @@
           <col style="width: 25px" />
         </colgroup>
         <thead>
-          <tr class="table-header">
+          <tr class="table-header text-left">
             <th class="weapon-icon"></th>
             <th>Name</th>
             <th>Rarity</th>
@@ -48,9 +48,9 @@
             v-for="(weapon, index) in weapons"
             :key="index"
           >
-            <td>
+            <td class="weapon-icon-container">
               <img
-                class="weapon-icon"
+                class="weapon-icon my-3"
                 :class="{
                   'rarity-5': weapon.rarity === 5,
                   'rarity-4': weapon.rarity === 4,
@@ -59,7 +59,7 @@
                 :alt="weapon.image_url"
               />
             </td>
-            <td>{{ weapon.name }}</td>
+            <td class="text-left">{{ weapon.name }}</td>
             <td>
               <p class="rarity-text text-white" :data-stars="weapon.rarity"></p>
             </td>
@@ -88,7 +88,7 @@
       </table>
     </div>
 
-    <div v-if="!loading && !error" class="mt-7">
+    <div v-if="!loading && !error" class="mt-10">
       <Footer />
     </div>
   </div>
@@ -199,7 +199,7 @@ onMounted(() => {
 }
 
 .weapons-page-header {
-  font-family: var(--font-alfa);
+  font-family: var(--font-archivo);
   font-weight: lighter;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -207,15 +207,16 @@ onMounted(() => {
 }
 
 .weapons-table-container {
-  margin-top: 15px;
+  margin: 0 auto;
   height: 700px;
+  width: 1500px;
   overflow-y: scroll;
-  margin-bottom: 25px;
+  border: 1px solid var(--tertiary);
 }
 
 .weapons-table {
   margin: 0 auto;
-  width: 1500px;
+  width: 100%;
   border-collapse: collapse;
 }
 
@@ -223,6 +224,7 @@ onMounted(() => {
   background-color: #0b192c;
   font-family: var(--font-acme);
   font-size: 1.5em;
+  letter-spacing: 1px;
   position: sticky;
   top: 0%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.75);
@@ -232,21 +234,22 @@ onMounted(() => {
   background-color: var(--secondary);
 }
 
-.weapon-icon {
+.weapon-icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.weapon-icon {
   width: 80px;
   height: 80px;
   border-radius: 20px;
-  margin: 10px;
 }
 
 .table-data {
-  text-align: center;
   font-size: 1.5em;
-  font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
+  font-family: var(--font-acme);
 }
 
 .more-button {
