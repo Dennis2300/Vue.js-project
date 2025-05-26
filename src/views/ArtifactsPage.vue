@@ -132,6 +132,11 @@ onMounted(() => {
   font-size: 1.25em;
   text-decoration: none;
   color: var(--tertiary);
+  transition: all 0.3s ease-in-out, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artifact-card:hover {
+  transform: scale(1.03);
 }
 
 .artifact-name {
