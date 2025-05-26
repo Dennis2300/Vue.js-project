@@ -221,7 +221,9 @@ onMounted(async () => {
   position: absolute;
   top: 19px;
   left: -21px;
-  font-family: var(--font-alkatra);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
