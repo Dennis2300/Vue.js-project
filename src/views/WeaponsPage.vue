@@ -88,7 +88,7 @@
       </table>
     </div>
 
-    <div v-if="!loading && !error">
+    <div v-if="!loading && !error" class="mt-7">
       <Footer />
     </div>
   </div>
@@ -208,14 +208,14 @@ onMounted(() => {
 
 .weapons-table-container {
   margin-top: 15px;
-  height: 74vh;
+  height: 700px;
   overflow-y: scroll;
   margin-bottom: 25px;
 }
 
 .weapons-table {
   margin: 0 auto;
-  width: 100vw;
+  width: 1500px;
   border-collapse: collapse;
 }
 
