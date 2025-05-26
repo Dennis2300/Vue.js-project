@@ -107,9 +107,9 @@ onMounted(() => {
 }
 
 .artifacts-page-header {
-  font-family: var(--font-alfa);
+  font-family: var(--font-archivo);
   font-weight: lighter;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   cursor: default;
 }

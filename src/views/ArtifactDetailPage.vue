@@ -139,16 +139,15 @@ onMounted(async () => {
 
 .artifact-detail {
   background-color: var(--secondary);
-  width: 900px;
+  width: 1200px;
   padding: 50px;
   border-radius: 25px;
 }
 
 .artifact-name {
+  font-family: var(--font-acme);
   font-size: 3rem;
-  font-family: var(--font-alfa);
-  font-weight: lighter;
-  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .artifact-img-container {
@@ -169,23 +168,24 @@ onMounted(async () => {
 
 .artifact-two-piece-set h1 {
   color: var(--tertiary);
-  font-family: var(--font-alfa);
+  font-family: var(--font-bungee);
 }
 
 .artifact-two-piece-set p {
-  font-size: 1.5em;
-  padding-left: 15px;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 1px;
 }
 
 .artifact-four-piece-set h1 {
   color: var(--tertiary);
-  margin-top: 15px;
+  font-family: var(--font-bungee);
+  margin-top: 25px;
 }
 
 .artifact-four-piece-set-text {
-  font-size: 1.5em;
-  padding-left: 15px;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 1px;
 }
 </style>
