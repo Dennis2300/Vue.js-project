@@ -4,22 +4,6 @@
   width: 75vw;
 }
 
-.error-message {
-  text-align: center;
-  margin-top: 5vh;
-  font-size: 2em;
-  line-height: 2em;
-}
-
-.error-message-sticker {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 250px;
-  width: 250px;
-  margin-top: 25px;
-}
-
 .link {
   text-decoration: none;
   color: white;

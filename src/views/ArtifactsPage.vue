@@ -1,11 +1,13 @@
 <template>
-  <div class="artifacts-page-container">
+  <!--Loading for when fetching is in progress-->
+  <LoadingSpinner v-if="loading" />
+
+  <!-- Display artifacts -->
+  <div v-if="!loading && !error" class="artifacts-page-container">
     <h1 class="divider mb-10 artifacts-page-header">Artifacts Archive</h1>
-    <!--Loading for when fetching is in progress-->
-    <LoadingSpinner v-if="loading" />
 
     <!--Display data when loading is done-->
-    <div v-if="!loading && !error" class="artifacts-display-grid">
+    <div class="artifacts-display-grid">
       <div v-for="artifact in artifacts" :key="artifact.id">
         <router-link
           :to="`/artifacts/${artifact.id}?name=${encodeURIComponent(
@@ -25,15 +27,21 @@
       </div>
     </div>
   </div>
+
+  <!-- Display error message -->
+  <div v-if="error">
+    <ErrorComponent />
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import ErrorComponent from "./../components/ErrorComponent.vue"; // Import the error component
 
-const loading = ref(true);
-const error = ref(null);
+const loading = ref(null);
+const error = ref(true);
 
 const artifacts = ref([]);
 
