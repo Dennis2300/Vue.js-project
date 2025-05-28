@@ -12,7 +12,7 @@
     />
 
     <div class="divider text-2xl mt-5">
-      <h2 class="character-page-header">Character Archive</h2>
+      <h2 class="character-page-header text-5xl">Character Archive</h2>
     </div>
 
     <!-- Show characters -->

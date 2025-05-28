@@ -5,8 +5,8 @@
       <div class="filter-header">Placeholder for Weapons Filter</div>
     </div>
 
-    <h1 class="weapons-page-header divider">Weapon Archive</h1>
-    <h3 class="weapons-page-header text-center mb-6">
+    <h1 class="weapons-page-header divider">Weapons Archive</h1>
+    <h3 class="text-center mt-7 mb-7 text-xl">
       All weapons are level 90 and R1
     </h3>
     <div class="weapons-table-container">
@@ -207,6 +207,7 @@ onMounted(() => {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   cursor: default;
+  font-size: 3.5em;
 }
 
 .weapons-table-container {

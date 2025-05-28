@@ -120,6 +120,7 @@ onMounted(() => {
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: default;
+  font-size: 3.5em;
 }
 
 .artifacts-display-grid {
