@@ -1,20 +1,39 @@
 <template>
-  <h1 class="error-header">Failed to fetch data</h1>
-  <p class="error-message">
-    Failed to get data due to a connection issue. <br />
-    Please try again later.
-  </p>
-  <p class="error-message">
-    or check my socials for updates:
-    <a href="https://x.com/SindZhou" target="_blank" class="link">Twitter/X</a>
-  </p>
+  <div class="error-container">
+    <h1 class="error-header">Code 500: Internal Server Error</h1>
+    <p class="error-message mt-5">Check my socials for status updates:</p>
+    <a href="https://x.com/SindZhou" target="_blank" class="link mt-2">Twitter / X</a>
+  </div>
 </template>
 
 <style scoped>
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: var(--font-bungee);
+}
 .error-header {
-  text-align: center;
-  color: red;
-  font-size: 2em;
-  margin-top: 50px;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+.error-message {
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}
+
+.link {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: var(--tertiary);
+  transition: color 0.3s ease-in-out;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: darkgrey;
 }
 </style>
