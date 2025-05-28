@@ -1,29 +1,22 @@
 <template>
-  <div class="character-page-container">
-    <!-- Show loading spinner if loading -->
-    <!-- Has some bugs, need fixing-->
-    <LoadingSpinner v-if="loading" />
+  <!-- Show loading spinner if loading -->
+  <LoadingSpinner v-if="loading" />
 
+  <!-- Show characters -->
+  <div class="character-page-container" v-if="!loading && !error">
     <!-- Filter by Vision -->
     <CharacterFilter
-      v-if="!loading && !error && characters?.length"
       @filtered-characters="displayFilteredCharacters"
       @clear-filter="handleClearFilter"
       class="mt-5"
     />
 
-    <div
-      v-if="!loading && !error && characters?.length"
-      class="divider text-2xl mt-5"
-    >
+    <div class="divider text-2xl mt-5">
       <h2 class="character-page-header">Character Archive</h2>
     </div>
 
     <!-- Show characters -->
-    <div
-      v-if="!loading && !error && characters?.length"
-      class="character-display-container mb-16"
-    >
+    <div class="character-grid-container">
       <div class="character-grid">
         <router-link
           v-for="character in characters"
@@ -39,7 +32,6 @@
         >
           <!-- Vision Icon (Top Right Corner) -->
           <img
-            v-if="character.vision?.image_url"
             :src="character.vision.image_url"
             :alt="character.vision.name"
             class="vision-icon"
@@ -60,27 +52,29 @@
       </div>
     </div>
 
-    <!-- Show error message if there is an error -->
-    <div v-if="error">
-      <p class="error-message">
-        Failed to get characters due to a connection issue. <br />
-        Please try again later.
-      </p>
-      <img
-        class="error-message-sticker"
-        :src="images.tighnari"
-        alt="Tighnari Flop"
-      />
-      <p class="error-message">
-        or check my socials for updates:
-        <a href="https://x.com/SindZhou" target="_blank" class="link"
-          >Twitter/X</a
-        >
-      </p>
-    </div>
-    <div v-if="!loading && !error && characters?.length">
+    <!-- Show Footer-->
+    <div class="mt-16" v-if="!loading && !error && characters?.length">
       <Footer />
     </div>
+  </div>
+
+  <!-- Show error message -->
+  <div v-if="error">
+    <p class="error-message">
+      Failed to get characters due to a connection issue. <br />
+      Please try again later.
+    </p>
+    <img
+      class="error-message-sticker"
+      :src="images.tighnari"
+      alt="Tighnari Flop"
+    />
+    <p class="error-message">
+      or check my socials for updates:
+      <a href="https://x.com/SindZhou" target="_blank" class="link"
+        >Twitter/X</a
+      >
+    </p>
   </div>
 </template>
 
@@ -106,7 +100,7 @@ const characters = ref([]);
 const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
 // cache functions will be made as modules later
-// getCachedData function to retrieve data from sessionStorage
+// function to retrieve data from sessionStorage
 function getCachedData(key) {
   const cachedData = sessionStorage.getItem(key);
 
