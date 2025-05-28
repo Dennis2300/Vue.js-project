@@ -60,21 +60,7 @@
 
   <!-- Show error message -->
   <div v-if="error">
-    <p class="error-message">
-      Failed to get characters due to a connection issue. <br />
-      Please try again later.
-    </p>
-    <img
-      class="error-message-sticker"
-      :src="images.tighnari"
-      alt="Tighnari Flop"
-    />
-    <p class="error-message">
-      or check my socials for updates:
-      <a href="https://x.com/SindZhou" target="_blank" class="link"
-        >Twitter/X</a
-      >
-    </p>
+    <Errorcomponent />
   </div>
 </template>
 
@@ -87,6 +73,7 @@ import "ldrs/trefoil"; // Import the loading spinner component
 import CharacterFilter from "./../components/CharacterFilter.vue";
 // ----------------------------------------------------------
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import Errorcomponent from "./../components/ErrorComponent.vue"; // Import the error component
 import Footer from "@/components/Footer.vue";
 
 // Loading and error states
