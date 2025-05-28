@@ -40,8 +40,8 @@ import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 import ErrorComponent from "./../components/ErrorComponent.vue"; // Import the error component
 
-const loading = ref(null);
-const error = ref(true);
+const loading = ref(true);
+const error = ref(null);
 
 const artifacts = ref([]);
 
