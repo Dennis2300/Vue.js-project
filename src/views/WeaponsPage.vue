@@ -1,8 +1,7 @@
 <template>
-  <div class="weapons-container">
-    <LoadingSpinner v-if="loading" />
-
-    <div class="filter-container" v-if="!loading && !error">
+  <LoadingSpinner v-if="loading" />
+  <div v-if="!loading && !error" class="weapons-container">
+    <div class="filter-container">
       <div class="filter-header">Placeholder for Weapons Filter</div>
     </div>
 
@@ -10,7 +9,7 @@
     <h3 class="weapons-page-header text-center mb-6">
       All weapons are level 90 and R1
     </h3>
-    <div class="weapons-table-container" v-if="!loading && !error">
+    <div class="weapons-table-container">
       <table class="weapons-table">
         <colgroup>
           <!-- Icon column -->
@@ -88,9 +87,12 @@
       </table>
     </div>
 
-    <div v-if="!loading && !error" class="mt-10">
+    <div class="mt-10">
       <Footer />
     </div>
+  </div>
+  <div v-if="error" class="error-message">
+    <ErrorComponent />
   </div>
 </template>
 
@@ -98,6 +100,7 @@
 import { ref, onMounted } from "vue";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import ErrorComponent from "./../components/ErrorComponent.vue"; // Import the error component
 import Footer from "@/components/Footer.vue";
 
 const loading = ref(true);
