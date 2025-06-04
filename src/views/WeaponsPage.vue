@@ -226,8 +226,7 @@ onMounted(() => {
 
 .filter-container {
   width: 1200px;
-  height: 50px;
-  background-color: #9b72d5;
+  height: 75px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -239,7 +238,6 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7149a3;
   gap: 50px;
 }
 
@@ -326,5 +324,18 @@ onMounted(() => {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 5px rgba(155, 114, 213, 0.8),
     0px 0px 15px rgba(155, 114, 213, 0.5);
+}
+
+select {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--secondary);
+  font-size: 1.2em;
+  font-family: var(--font-acme);
+  border: none;
+  padding: 5px;
 }
 </style>
