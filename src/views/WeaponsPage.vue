@@ -8,31 +8,8 @@
     <h1 class="weapons-page-header divider">Weapons Archive</h1>
 
     <!-- Placeholder for Weapons Filter -->
-    <div class="filter-container">
-      <div class="filter-options-container">
-        <!-- Weapons Type Filter -->
-        <div class="weapon-types-container">
-          <select name="weapon-types" id="weapon-types">
-            <option disabled selected>Weapons</option>
-            <option value="sword">Sword</option>
-            <option value="polearm">Polearm</option>
-            <option value="catalyst">Catalyst</option>
-            <option value="bow">Bow</option>
-            <option value="claymore">Claymore</option>
-          </select>
-        </div>
-        <!-- Rarity Filter -->
-        <div class="rarity-container">
-          <select name="rarity" id="rarity">
-            <option disabled selected>Rarity</option>
-            <option value="5">5 Stars</option>
-            <option value="4">4 Stars</option>
-            <option value="3">3 Stars</option>
-            <option value="2">2 Stars</option>
-            <option value="1">1 Star</option>
-          </select>
-        </div>
-      </div>
+    <div>
+      <h1 class="text-center">Filter Weapons</h1>
     </div>
 
     <!-- Weapons Table -->
@@ -133,10 +110,17 @@ import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the l
 import ErrorComponent from "./../components/ErrorComponent.vue"; // Import the error component
 import Footer from "@/components/Footer.vue";
 
+// states for loading and error
 const loading = ref(true);
 const error = ref(null);
 
+// empty array to hold weapons data
 const weapons = ref([]);
+const filteredWeapons = ref([]);
+
+// Reactive variables for filters
+const selectedWeapon = ref("");
+const selectedRarity = ref("");
 
 const CACHE_DURATION = 60 * 60 * 1000;
 
@@ -210,6 +194,8 @@ function sortWeaponsByReleaseDate() {
     return new Date(b.release_date) - new Date(a.release_date);
   });
 }
+
+
 
 onMounted(() => {
   getAllWeapons();
