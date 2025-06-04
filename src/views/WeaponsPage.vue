@@ -116,11 +116,6 @@ const error = ref(null);
 
 // empty array to hold weapons data
 const weapons = ref([]);
-const filteredWeapons = ref([]);
-
-// Reactive variables for filters
-const selectedWeapon = ref("");
-const selectedRarity = ref("");
 
 const CACHE_DURATION = 60 * 60 * 1000;
 
