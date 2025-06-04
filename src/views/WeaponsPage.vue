@@ -1,14 +1,42 @@
 <template>
+  <!-- Loading Spinner -->
   <LoadingSpinner v-if="loading" />
+
+  <!-- Weapons Container -->
   <div v-if="!loading && !error" class="weapons-container">
+    <!-- Weapons Page Header -->
+    <h1 class="weapons-page-header divider">Weapons Archive</h1>
+
+    <!-- Placeholder for Weapons Filter -->
     <div class="filter-container">
-      <div class="filter-header">Placeholder for Weapons Filter</div>
+
+      <div class="filter-options-container">
+        <!-- Weapons Type Filter -->
+        <div class="weapon-types-container">
+          <select name="weapon-types" id="weapon-types">
+            <option disabled selected>Weapons</option>
+            <option value="sword">Sword</option>
+            <option value="polearm">Polearm</option>
+            <option value="catalyst">Catalyst</option>
+            <option value="bow">Bow</option>
+            <option value="claymore">Claymore</option>
+          </select>
+        </div>
+        <!-- Rarity Filter -->
+        <div class="rarity-container">
+          <select name="rarity" id="rarity">
+            <option disabled selected>Rarity</option>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+          </select>
+        </div>
+      </div>
     </div>
 
-    <h1 class="weapons-page-header divider">Weapons Archive</h1>
-    <h3 class="text-center mt-7 mb-7 text-xl">
-      All weapons are level 90 and R1
-    </h3>
+    <!-- Weapons Table -->
     <div class="weapons-table-container">
       <table class="weapons-table">
         <colgroup>
@@ -87,10 +115,13 @@
       </table>
     </div>
 
+    <!-- Footer -->
     <div class="mt-10">
       <Footer />
     </div>
   </div>
+
+  <!-- Error Message -->
   <div v-if="error" class="error-message">
     <ErrorComponent />
   </div>
@@ -194,11 +225,22 @@ onMounted(() => {
 }
 
 .filter-container {
+  width: 1200px;
+  height: 50px;
+  background-color: #9b72d5;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  height: 7vh;
+
+}
+
+.filter-options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7149a3;
+  gap: 50px;
 }
 
 .weapons-page-header {
