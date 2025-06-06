@@ -46,8 +46,21 @@
 </template>
 
 <script setup>
-import "./../css/HomePage.css";
 import "./../css/BulletinBoard.css";
 import images from "./../assets/images.json";
 import Footer from "./../components/Footer.vue";
 </script>
+
+<style scoped>
+.home-page-container {
+  margin-top: 20px;
+  width: 1500px;
+}
+
+.website-title {
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  font-family: var(--font-bungee);
+}
+</style>
