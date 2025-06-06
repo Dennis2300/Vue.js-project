@@ -8,6 +8,13 @@
   </div>
 </template>
 
+
 <script setup>
 import Navbar from "./components/Navbar.vue";
 </script>
+
+<style scoped>
+.content {
+  margin-top: 60px;
+}
+</style>
