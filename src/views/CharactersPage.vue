@@ -68,7 +68,7 @@
 import { ref, onMounted } from "vue"; // Import the Vue composition API
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 // ----------------------------------------------------------
-import "./../css/CharactersPage.css"; // Import the component's CSS
+import "./../css/Ribbon.css"; // Import the CSS for the ribbon effect
 import "ldrs/trefoil"; // Import the loading spinner component
 import CharacterFilter from "./../components/CharacterFilter.vue";
 // ----------------------------------------------------------
@@ -176,59 +176,117 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.ribbon {
-  position: absolute;
-  left: -5px;
-  top: -5px;
-  z-index: 1;
-  overflow: hidden;
-  width: 75px;
-  height: 75px;
-  text-align: left;
-  background-color: transparent;
+.character-page-container {
+  width: 1400px;
 }
 
-.ribbon span {
-  font-size: 15px;
-  color: #fff;
-  text-align: center;
-  line-height: 20px;
-  transform: rotate(-45deg);
-  width: 100px;
-  display: block;
-  background: #e74646;
-  background: linear-gradient(#e74646 0%, #e74646 100%);
-  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 19px;
-  left: -21px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.character-page-header {
+  font-family: var(--font-archivo);
+  font-weight: lighter;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  cursor: default;
+}
+.character-grid-container {
+  min-height: 100vh;
+  margin-top: 30px;
+}
+
+.character-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.character-grid-item {
+  position: relative;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  font-size: 1.5em;
+  width: 250px;
+  height: 250px;
+  margin-top: 10px;
+  padding-top: 30px;
+  border-radius: 25px;
+  background-color: var(--secondary);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.character-grid-item:hover {
+  transform: scale(1.05);
+}
+
+.vision-icon {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  z-index: 99;
+}
+
+.character-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 12.5px;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.rarity-5 .character-avatar {
+  background: linear-gradient(145deg, #e7944a, #b56a2b);
+  box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
+    0px 0px 30px rgba(231, 148, 74, 0.5);
+}
+
+.rarity-4 .character-avatar {
+  background: linear-gradient(145deg, #9b72d5, #7149a3);
+  box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
+    0px 0px 30px rgba(155, 114, 213, 0.5);
+}
+
+.rarity-text::before {
+  content: attr(data-stars);
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.rarity-text[data-stars="5"]::before {
+  content: "★★★★★";
+}
+.rarity-text[data-stars="4"]::before {
+  content: "★★★★";
+}
+
+.character-grid-item h3 {
+  background-color: inherit;
+  color: var(--quaternary);
+  margin-top: 5px;
+  font-family: var(--font-acme);
   letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
-.ribbon span::before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  top: 100%;
-  z-index: -1;
-  border-left: 3px solid #cc0000;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #cc0000;
-}
-
-.ribbon span::after {
-  content: "";
-  position: absolute;
-  right: 0px;
-  top: 100%;
-  z-index: -1;
-  border-left: 3px solid transparent;
-  border-right: 3px solid #cc0000;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #cc0000;
+.character-grid-item p {
+  background-color: inherit;
+  color: gold;
+  border-radius: 25px;
+  margin: 0%;
+  padding: 0%;
+  letter-spacing: 2px;
 }
 </style>
