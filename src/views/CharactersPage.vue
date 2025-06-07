@@ -11,8 +11,9 @@
       class="mt-5"
     />
 
-    <div class="divider text-2xl mt-5">
-      <h2 class="character-page-header text-5xl">Character Archive</h2>
+    <div class=" text-2xl mt-5">
+      <h2 class="character-page-header divider text-5xl">Character Archive</h2>
+      <h6 class="text-center tracking-wider cursor-default">Click to view the build</h6>
     </div>
 
     <!-- Show characters -->
@@ -194,7 +195,6 @@ onMounted(async () => {
 }
 .character-grid-container {
   min-height: 100vh;
-  margin-top: 30px;
 }
 
 .character-grid {
