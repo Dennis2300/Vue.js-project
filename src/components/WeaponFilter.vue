@@ -6,7 +6,7 @@
     </div>
 
     <div v-if="!loading && !error" class="weapon-filter-container">
-      <h4 class="tracking-wider">Filter by weapon type:</h4>
+      <h4 class="weapon-type-filter-header tracking-wider">Filter by weapon type:</h4>
       <div class="weapon-type-container mt-2">
         <div
           v-for="weaponType in weaponTypes"
@@ -58,7 +58,11 @@ onMounted(() => {
 
 <style scoped>
 .filter-container {
-  padding: 20px;
+    padding: 16px 0px 16px 0px;
+}
+
+.weapon-type-filter-header {
+    font-family: var(--font-acme);
 }
 
 .weapon-type-container {
@@ -69,6 +73,7 @@ onMounted(() => {
 
 .weapon-type-item {
   background-color: var(--secondary);
+  font-family: var(--font-acme);
   color: white;
   padding: 8px 16px;
   border: 1px solid white;

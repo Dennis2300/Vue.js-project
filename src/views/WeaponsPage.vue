@@ -157,7 +157,6 @@ onMounted(() => {
 
 .weapons-page-content {
   max-width: 1600px;
-  padding: 20px;
 }
 
 .weapon-grid-container {
