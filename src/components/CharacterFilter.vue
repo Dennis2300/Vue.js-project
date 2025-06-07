@@ -1,9 +1,11 @@
 <template>
   <div class="filter-container">
     <div v-if="loading">Loading visions...</div>
-    <div v-else-if="error" class="error">{{ error }}</div>
+    <div v-else-if="error" class="error">
+      Error loading visions:{{ error.message }}
+    </div>
 
-    <div v-else class="character-filter-container">
+    <div v-if="!loading && !error" class="character-filter-container">
       <h4 class="vision-filter-header">Visions</h4>
       <div class="vision-filter-list">
         <div

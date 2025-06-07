@@ -5,6 +5,13 @@
   <!-- Weapons Container -->
   <div v-if="!loading && !error" class="weapons-page-container">
     <div class="weapons-page-content">
+      <div class="weapon-filter-container">
+        <!-- Filter by Weapon Type or Bonus Effect -->
+        <WeaponFilter
+          @filtered-weapons="displayFilteredWeapons"
+          @clear-filter="handleClearFilter"
+        />
+      </div>
       <h1 class="weapon-page-header divider text-5xl">Weapons Archive</h1>
       <div class="weapon-grid-container mt-10">
         <router-link
@@ -25,7 +32,7 @@
           />
           <!-- weapon name -->
           <div class="divider"></div>
-          <h2 class="weapon-name text-white">{{ weapon.name }}</h2>
+          <h2 class="weapon-name text-white truncate">{{ weapon.name }}</h2>
           <!-- Weapon Tags -->
           <div class="weapon-tags-container mt-5">
             <p class="weapon-type-tag">
@@ -51,6 +58,7 @@ import { ref, onMounted } from "vue";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 import ErrorComponent from "./../components/ErrorComponent.vue"; // Import the error component
+import WeaponFilter from "./../components/WeaponFilter.vue"; // Import the weapon filter component
 
 // states for loading and error
 const loading = ref(true);
@@ -120,6 +128,15 @@ function sortWeaponsByReleaseDate() {
   });
 }
 
+function displayFilteredWeapons(filtered) {
+  weapons.value = filtered;
+  sortWeaponsByReleaseDate();
+}
+
+function handleClearFilter() {
+  weapons.value = [...weapons.value];
+  sortWeaponsByReleaseDate();
+}
 onMounted(() => {
   getAllWeapons();
 });
@@ -128,6 +145,10 @@ onMounted(() => {
 <style scoped>
 .weapons-page-container {
   min-height: 100vh;
+}
+
+.weapon-filter-container {
+  height: 100px;
 }
 
 .weapon-page-header {
@@ -141,7 +162,7 @@ onMounted(() => {
 
 .weapon-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
 }
 
