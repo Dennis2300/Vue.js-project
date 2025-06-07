@@ -221,7 +221,7 @@ onMounted(async () => {
 }
 
 .character-grid-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
 }
 
 .vision-icon {
