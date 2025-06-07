@@ -7,14 +7,15 @@
     <div class="weapons-page-content">
       <h1 class="weapon-page-header divider text-5xl">Weapons Archive</h1>
       <div class="weapon-grid-container mt-10">
-        <div
+        <router-link
           v-for="weapon in weapons"
-          :key="weapon.id"
           class="weapon-grid-item"
           :class="{
             'rarity-5': weapon.rarity === 5,
             'rarity-4': weapon.rarity === 4,
           }"
+          :key="weapon.id"
+          :to="`/weapons/${weapon.id}?name=${encodeURIComponent(weapon.name)}`"
         >
           <!-- Weapon image -->
           <img
@@ -24,7 +25,7 @@
           />
           <!-- weapon name -->
           <div class="divider"></div>
-          <h2 class="weapon-name">{{ weapon.name }}</h2>
+          <h2 class="weapon-name text-white">{{ weapon.name }}</h2>
           <!-- Weapon Tags -->
           <div class="weapon-tags-container mt-5">
             <p class="weapon-type-tag">
@@ -34,7 +35,7 @@
               {{ weapon.bonus_effect_type_id.name }}
             </p>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -141,7 +142,7 @@ onMounted(() => {
 .weapon-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 25px;
+  gap: 50px;
 }
 
 .weapon-grid-item {
@@ -150,18 +151,24 @@ onMounted(() => {
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease;
-  height: 375px;
+  height: 325px;
+  text-decoration: none;
+}
+
+.weapon-grid-item:hover {
+  transform: translateY(-10px);
 }
 
 .weapon-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 25px;
 }
 
 .weapon-name {
   font-family: var(--font-acme);
   letter-spacing: 1px;
+  text-decoration: none;
 }
 
 .weapon-tags-container {
