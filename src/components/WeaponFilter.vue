@@ -6,12 +6,14 @@
     </div>
 
     <div v-if="!loading && !error" class="weapon-filter-container">
-      <h4 class="weapon-type-filter-header tracking-wider">Filter by weapon type:</h4>
+      <h4 class="weapon-type-filter-header tracking-wider">
+        Filter by weapon type:
+      </h4>
       <div class="weapon-type-container mt-2">
         <div
           v-for="weaponType in weaponTypes"
           :key="weaponType.id"
-          class="weapon-type-item "
+          class="weapon-type-item"
           @click="clickLog"
         >
           {{ weaponType.name }}
@@ -58,11 +60,11 @@ onMounted(() => {
 
 <style scoped>
 .filter-container {
-    padding: 16px 0px 16px 0px;
+  padding: 16px 0px 16px 0px;
 }
 
 .weapon-type-filter-header {
-    font-family: var(--font-acme);
+  font-family: var(--font-acme);
 }
 
 .weapon-type-container {
@@ -72,17 +74,16 @@ onMounted(() => {
 }
 
 .weapon-type-item {
-  background-color: var(--secondary);
+  background-color: var(--filter-color);
   font-family: var(--font-acme);
   color: white;
   padding: 8px 16px;
-  border: 1px solid white;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .weapon-type-item:hover {
-    background-color: grey;
+  background-color: var(--filter-color-hover);
 }
 </style>
