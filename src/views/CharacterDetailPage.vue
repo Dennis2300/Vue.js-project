@@ -134,7 +134,6 @@ async function fetchCharacterDetails(characterId) {
       .select("artifact:artifact_id(*)")
       .eq("character_id", characterId);
     if (artifactsError) throw artifactsError;
-    console.log("artifactsData", artifactsData);
 
     // Combine the data
     const characterWithRegions = {

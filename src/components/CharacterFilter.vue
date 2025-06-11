@@ -202,34 +202,29 @@ function selectRarity(stars) {
   selectedRarity.value = selectedRarity.value === stars ? null : stars;
 }
 
-// Creates a reactive computed property
-const filteredCharacters = computed(
-  // Computed is a Vue Composition API function that creates reactive derived data
-  // Vue automatically tracks which reactive values are used inside and re-runs the function when they change
-  // Arrow function for filtering characters
-  () => {
-    // Get the cached characters from sessionStorage
-    const cachedCharacters = sessionStorage.getItem("characters");
-    if (!cachedCharacters) return []; // Return empty array if no characters are cached
+const filteredCharacters = computed(() => {
+  const cachedCharacters = sessionStorage.getItem("characters");
+  if (!cachedCharacters) return [];
 
-    try {
-      // Parse the cached characters
-      const { data: characters } = JSON.parse(cachedCharacters);
+  try {
+    const { data: characters } = JSON.parse(cachedCharacters);
 
-      // Filter characters based on selected vision and rarity
-      return characters.filter((char) => {
-        const visionMatch =
-          !selectedVisionId.value || char.vision === selectedVisionId.value;
-        const rarityMatch =
-          !selectedRarity.value || char.rarity === selectedRarity.value;
-        return visionMatch && rarityMatch;
-      });
-    } catch (err) {
-      console.error("Error filtering characters:", err);
-      return []; // Return empty array in case of error
-    }
+    return characters.filter((char) => {
+      // Vision filter (compare vision object's ID)
+      const visionMatch =
+        !selectedVisionId.value || char.vision?.id === selectedVisionId.value;
+
+      // Rarity filter
+      const rarityMatch =
+        !selectedRarity.value || char.rarity === selectedRarity.value;
+
+      return visionMatch && rarityMatch;
+    });
+  } catch (err) {
+    console.error("Error filtering characters:", err);
+    return [];
   }
-);
+});
 
 // Function to clear filter
 function clearSelection() {

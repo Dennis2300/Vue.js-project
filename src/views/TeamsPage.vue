@@ -42,7 +42,6 @@ async function getAllTeams() {
 
     if (fetchError) throw fetchError;
     teams.value = data;
-    console.log("Teams data:", teams.value);
   } catch (fetchError) {
     error.value = fetchError.message;
   } finally {
