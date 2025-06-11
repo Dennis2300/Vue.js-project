@@ -109,7 +109,6 @@ onMounted(() => {
 
 <style scoped>
 .artifacts-page-container {
-  margin-top: 25px;
   width: 100vw;
   padding: 50px;
 }
