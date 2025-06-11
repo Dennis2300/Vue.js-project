@@ -107,7 +107,7 @@ async function fetchCharacterDetails(characterId) {
     // First fetch character details
     const { data: characterData, error: charError } = await supabase
       .from("characters")
-      .select("*, vision:vision_id(name, image_url)")
+      .select("*, vision:vision(name, image_url)")
       .eq("id", characterId)
       .single();
     if (charError) throw charError;

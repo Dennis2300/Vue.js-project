@@ -219,7 +219,7 @@ const filteredCharacters = computed(
       // Filter characters based on selected vision and rarity
       return characters.filter((char) => {
         const visionMatch =
-          !selectedVisionId.value || char.vision_id === selectedVisionId.value;
+          !selectedVisionId.value || char.vision === selectedVisionId.value;
         const rarityMatch =
           !selectedRarity.value || char.rarity === selectedRarity.value;
         return visionMatch && rarityMatch;
