@@ -194,6 +194,7 @@ onMounted(() => {
 .weapon-tags-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -203,10 +204,11 @@ onMounted(() => {
 .weapon-bonus-effect-tag {
   background-color: var(--primary);
   color: var(--tertiary);
+  font-family: var(--font-acme);
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 0.9rem;
-  font-family: var(--font-acme);
+  letter-spacing: 1px;
 }
 
 .rarity-5 .weapon-image {

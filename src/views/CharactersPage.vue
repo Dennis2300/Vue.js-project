@@ -181,10 +181,6 @@ function handleClearFilter() {
 onMounted(async () => {
   await GetAllCharacters();
   isNewCharacter();
-  console.log(
-    "Characters loaded:",
-    JSON.parse(JSON.stringify(characters.value))
-  );
 });
 </script>
 
@@ -306,16 +302,18 @@ onMounted(async () => {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   font-size: 13px;
-  gap: 15px;
+  gap: 10px;
 }
 
 .character-tag {
   background-color: var(--primary);
+  font-family: var(--font-acme);
   color: var(--tertiary);
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 0.9rem;
-  font-family: var(--font-acme);
+  letter-spacing: 1px;
 }
 </style>
