@@ -206,6 +206,7 @@ onMounted(() => {
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 0.9rem;
+  font-family: var(--font-acme);
 }
 
 .rarity-5 .weapon-image {

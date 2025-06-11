@@ -11,9 +11,11 @@
       class="mt-5"
     />
 
-    <div class=" text-2xl mt-5">
+    <div class="text-2xl mt-5">
       <h2 class="character-page-header divider text-5xl">Character Archive</h2>
-      <h6 class="text-center tracking-wider cursor-default">Click to view the build</h6>
+      <h6 class="text-center tracking-wider cursor-default">
+        Click to view the build
+      </h6>
     </div>
 
     <!-- Show characters -->
@@ -49,6 +51,10 @@
 
           <h3>{{ character.name }}</h3>
           <p class="rarity-text text-white" :data-stars="character.rarity"></p>
+          <div class="character-tags-container mt-2">
+            <strong class="character-tag">{{ character.team_role.name }}</strong>
+            <strong class="character-tag">{{ character.substat.name }}</strong>
+          </div>
         </router-link>
       </div>
     </div>
@@ -131,7 +137,9 @@ async function GetAllCharacters() {
   try {
     let { data, error: fetchError } = await supabase
       .from("characters")
-      .select("*, vision:vision(name, image_url)");
+      .select(
+        "*, vision:vision(name, image_url), team_role:team_role(name), substat:substat(name), weapon_type:weapon_type(name)"
+      );
 
     if (fetchError) throw fetchError;
 
@@ -173,6 +181,10 @@ function handleClearFilter() {
 onMounted(async () => {
   await GetAllCharacters();
   isNewCharacter();
+  console.log(
+    "Characters loaded:",
+    JSON.parse(JSON.stringify(characters.value))
+  );
 });
 </script>
 
@@ -210,11 +222,11 @@ onMounted(async () => {
   display: block;
   text-decoration: none;
   font-size: 1.5em;
-  width: 250px;
-  height: 250px;
+  width: 275px;
+  height: 300px;
   margin-top: 10px;
   padding-top: 30px;
-  border-radius: 25px;
+  border-radius: 15px;
   background-color: var(--secondary);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
@@ -288,5 +300,22 @@ onMounted(async () => {
   margin: 0%;
   padding: 0%;
   letter-spacing: 2px;
+}
+
+.character-tags-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 13px;
+  gap: 15px;
+}
+
+.character-tag {
+  background-color: var(--primary);
+  color: var(--tertiary);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: var(--font-acme);
 }
 </style>
