@@ -10,7 +10,7 @@
       @clear-filter="handleClearFilter"
       class="mt-5"
     />
-
+    
     <div class="text-2xl mt-5">
       <h2 class="character-page-header divider text-5xl">Character Archive</h2>
       <h6 class="text-center tracking-wider cursor-default">
@@ -52,7 +52,9 @@
           <h3>{{ character.name }}</h3>
           <p class="rarity-text text-white" :data-stars="character.rarity"></p>
           <div class="character-tags-container mt-2">
-            <strong class="character-tag">{{ character.team_role.name }}</strong>
+            <strong class="character-tag">{{
+              character.team_role.name
+            }}</strong>
             <strong class="character-tag">{{ character.substat.name }}</strong>
           </div>
         </router-link>
