@@ -5,12 +5,14 @@
   <!-- Show characters -->
   <div class="character-page-container" v-if="!loading && !error">
     <!-- Filter by Vision -->
-    <CharacterFilter
-      @filtered-characters="displayFilteredCharacters"
-      @clear-filter="handleClearFilter"
-      class="mt-5"
-    />
-    
+    <div class="character-filter-container">
+      <CharacterFilter
+        @filtered-characters="displayFilteredCharacters"
+        @clear-filter="handleClearFilter"
+        class="mt-5"
+      />
+    </div>
+
     <div class="text-2xl mt-5">
       <h2 class="character-page-header divider text-5xl">Character Archive</h2>
       <h6 class="text-center tracking-wider cursor-default">
@@ -62,7 +64,7 @@
     </div>
 
     <!-- Show Footer-->
-    <div class="mt-16" v-if="!loading && !error && characters?.length">
+    <div class="mt-16">
       <Footer />
     </div>
   </div>
@@ -194,6 +196,11 @@ onMounted(async () => {
 .link {
   text-decoration: none;
   color: white;
+}
+
+.character-filter-container {
+  height: 180px;
+  padding: 0px 20px 20px 20px;
 }
 
 .character-page-header {
