@@ -200,7 +200,7 @@ onMounted(async () => {
 
 .character-filter-container {
   height: 180px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 25px 0px 25px;
 }
 
 .character-page-header {
