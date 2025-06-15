@@ -12,6 +12,13 @@
         'rarity-4': character.rarity === 4,
       }"
     >
+      <!-- Background Image -->
+      <img
+        class="background-img"
+        :src="character.splash_art"
+        alt="Character Art"
+      />
+
       <!-- character detail image container -->
       <div class="character-detail-image-container">
         <!-- character avatar -->
@@ -35,7 +42,7 @@
             <!-- character voice actors -->
             <h1 class="divider">Voice Actors</h1>
             <div v-for="(name, lang) in character.va" :key="lang">
-              <p class="character-va">{{ lang }} - {{ name }}</p>
+              <p class="character-list-view">{{ lang }} - {{ name }}</p>
             </div>
 
             <!-- character affiliation -->
@@ -44,7 +51,7 @@
               v-for="affiliation in character.affiliation"
               :key="affiliation"
             >
-              <p class="character-va">{{ affiliation }}</p>
+              <p class="character-list-view">{{ affiliation }}</p>
             </div>
           </div>
         </div>
@@ -178,9 +185,21 @@ onMounted(async () => {
 
 <style scoped>
 .character-detail-container {
+  position: relative;
   background-color: var(--secondary);
   width: 1500px;
-  min-height: 100vh;
+  min-height: 1500px;
+  border-radius: 25px;
+  z-index: 1;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.05;
+  z-index: -1;
 }
 
 .character-detail-image-container {
@@ -189,7 +208,6 @@ onMounted(async () => {
 }
 
 .character-avatar-container {
-  background-color: blueviolet;
   width: 700px;
   height: 500px;
   display: flex;
@@ -245,25 +263,30 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: darkblue;
   width: 700px;
   height: 500px;
 }
 
 .character-overview {
-  background-color: #b56a2b;
-  padding: 10px 25px 10px 25px;
+  background-color: var(--primary);
+  padding: 10px 25px 25px 25px;
   width: 500px;
   border-radius: 15px;
 }
 
-.character-va {
-  font-family: var(--font-acme);
-  font-size: 1.2rem;
+.character-list-view {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
   margin: 5px 0;
 }
 
 .character-info-container {
   background-color: #b56a2b;
+}
+
+.divider {
+  font-family: var(--font-acme);
+  letter-spacing: 1px;
 }
 </style>
