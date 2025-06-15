@@ -62,6 +62,7 @@
       <div class="character-info-container">
         <h1 class="divider">Overview</h1>
         <div class="character-info character-info-grid">
+          <!-- Character Info Grid -->
           <div class="character-info-grid-item">
             <p class="character-info-text">
               <span style="color: gray">Rarity</span>
@@ -79,6 +80,7 @@
             </p>
           </div>
 
+          <!-- Character Info Grid -->
           <div class="character-info-grid-item">
             <p class="character-info-text">
               <span style="color: gray">Favourite Dish</span>
@@ -86,7 +88,7 @@
             </p>
             <p class="character-info-text">
               <span style="color: gray">Release Date</span>
-              <span>{{ character.release_date }}</span>
+              <span>{{ formatDate(character.release_date) }}</span>
             </p>
             <p class="character-info-text">
               <span style="color: gray">Weapon Type</span>
@@ -222,6 +224,11 @@ async function fetchCharacterDetails(characterId) {
     console.error("Error fetching character:", err);
     return null;
   }
+}
+
+function formatDate(dateString) {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Date(dateString).toLocaleDateString("en-US", options);
 }
 
 onMounted(async () => {
