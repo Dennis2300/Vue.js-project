@@ -36,6 +36,7 @@
             <p class="character-tags">{{ character.weapon_type.name }}</p>
           </div>
         </div>
+
         <!-- character overview -->
         <div class="character-overview-container">
           <div class="character-overview">
@@ -56,17 +57,40 @@
           </div>
         </div>
       </div>
+
       <!-- character detail container  -->
       <div class="character-info-container">
-        <h1>{{ character.name }}</h1>
-        <p>{{ character.rarity }}</p>
-        <p>{{ character.birthday }}</p>
-        <p>{{ character.constellation }}</p>
-        <p>{{ character.affiliation }}</p>
-        <p>{{ character.favourite_dish }}</p>
-        <p>{{ character.release_date }}</p>
-        <p>{{ character.va }}</p>
-        <p>{{ character.wiki_url }}</p>
+        <h1 class="divider">Overview</h1>
+        <div class="character-info">
+          <p>{{ character.rarity }}</p>
+          <p>{{ character.birthday }}</p>
+          <p>{{ character.constellation }}</p>
+          <p>{{ character.favourite_dish }}</p>
+          <p>{{ character.release_date }}</p>
+          <a :href="character.wiki_url" target="_blank">Wiki</a>
+        </div>
+      </div>
+
+      <!-- character best artifact and weapon -->
+      <div class="character-artifact-weapon-container">
+        <h1 class="divider">Artifact and Weapon</h1>
+        <div class="character-artifact-weapon">
+          <div class="character-artifact">
+            <h2>Artifacts</h2>
+          </div>
+          <div class="character-weapon">
+            <h2>Weapons</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Placeholder for character build infographic -->
+      <div class="character-build-container">
+        <h1 class="divider">Character Level up materials</h1>
+        <img
+          src="https://placehold.co/1000x700?text=Character+build+here"
+          alt=""
+        />
       </div>
     </div>
 
@@ -184,6 +208,11 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.divider {
+  font-family: var(--font-acme);
+  letter-spacing: 1px;
+}
+
 .character-detail-container {
   position: relative;
   background-color: var(--secondary);
@@ -283,10 +312,42 @@ onMounted(async () => {
 
 .character-info-container {
   background-color: #b56a2b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
 }
 
-.divider {
-  font-family: var(--font-acme);
-  letter-spacing: 1px;
+.character-info {
+  background-color: #7149a3;
+  width: 80%;
+  height: 200px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.character-artifact-weapon-container {
+  background-color: #9b72d5;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-artifact-weapon {
+  background-color: yellowgreen;
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 300px;
+  border-radius: 15px;
+}
+
+.character-build-container {
+  background-color: #b56a2b;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
