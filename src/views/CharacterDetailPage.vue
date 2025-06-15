@@ -61,13 +61,38 @@
       <!-- character detail container  -->
       <div class="character-info-container">
         <h1 class="divider">Overview</h1>
-        <div class="character-info">
-          <p>{{ character.rarity }}</p>
-          <p>{{ character.birthday }}</p>
-          <p>{{ character.constellation }}</p>
-          <p>{{ character.favourite_dish }}</p>
-          <p>{{ character.release_date }}</p>
-          <a :href="character.wiki_url" target="_blank">Wiki</a>
+        <div class="character-info character-info-grid">
+          <div class="character-info-grid-item">
+            <p class="character-info-text">
+              <span style="color: gray">Rarity</span>
+              <span style="color: gold">{{
+                "★".repeat(character.rarity)
+              }}</span>
+            </p>
+            <p class="character-info-text">
+              <span style="color: gray">Birthday</span>
+              <span>{{ character.birthday }}</span>
+            </p>
+            <p class="character-info-text">
+              <span style="color: gray">Constellation</span>
+              <span>{{ character.constellation }}</span>
+            </p>
+          </div>
+
+          <div class="character-info-grid-item">
+            <p class="character-info-text">
+              <span style="color: gray">Favourite Dish</span>
+              <span>{{ character.favourite_dish }}</span>
+            </p>
+            <p class="character-info-text">
+              <span style="color: gray">Release Date</span>
+              <span>{{ character.release_date }}</span>
+            </p>
+            <p class="character-info-text">
+              <span style="color: gray">Weapon Type</span>
+              <span>{{ character.weapon_type.name }}</span>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -311,7 +336,6 @@ onMounted(async () => {
 }
 
 .character-info-container {
-  background-color: #b56a2b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -319,11 +343,31 @@ onMounted(async () => {
 }
 
 .character-info {
-  background-color: #7149a3;
+  background-color: var(--primary);
+  font-family: var(--font-acme);
   width: 80%;
   height: 200px;
   border-radius: 15px;
   padding: 15px;
+  font-size: 2em;
+}
+
+.character-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+}
+
+.character-info-grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.character-info-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .character-artifact-weapon-container {
