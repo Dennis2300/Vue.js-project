@@ -102,14 +102,21 @@
       <div class="character-artifact-container">
         <h1 class="divider">Best Artifact for {{ character.name }}</h1>
         <div class="character-bis-list-container">
-          <div
+          <router-link
+            :to="`/artifacts/${artifact.id}?name=${encodeURIComponent(
+              artifact.name
+            )}`"
             class="character-bis-item"
             v-for="artifact in character.artifacts"
             :key="artifact.id"
           >
-            <img class="character-bis-image" :src="artifact.flower_url" alt="" />
+            <img
+              class="character-bis-image"
+              :src="artifact.flower_url"
+              alt=""
+            />
             <p class="character-bis-name">{{ artifact.name }}</p>
-          </div>
+          </router-link>
         </div>
       </div>
 
@@ -117,14 +124,17 @@
       <div class="character-weapon-container">
         <h1 class="divider">Best Weapon for {{ character.name }}</h1>
         <div class="character-bis-list-container">
-          <div
+          <router-link
+            :to="`/weapons/${weapon.id}?name=${encodeURIComponent(
+              weapon.name
+            )}`"
             class="character-bis-item"
             v-for="weapon in character.weapons"
             :key="weapon.id"
           >
             <img class="character-bis-image" :src="weapon.image_url" alt="" />
             <p class="character-bis-name">{{ weapon.name }}</p>
-          </div>
+          </router-link>
         </div>
       </div>
 
@@ -418,6 +428,14 @@ onMounted(async () => {
   width: 400px;
   height: 200px;
   border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-bis-item:hover {
+  box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
+    0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
 .character-bis-image {

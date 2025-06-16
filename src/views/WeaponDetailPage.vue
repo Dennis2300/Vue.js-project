@@ -98,7 +98,7 @@ onMounted(async () => {
 
 <style scoped>
 .weapon-detail-container {
-  margin: 100px 0 0 0;
+  margin: 25px 0px 0px 0px;
 }
 
 .weapon-detail {
