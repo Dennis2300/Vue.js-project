@@ -49,12 +49,17 @@
           <div class="character-overview">
             <!-- character voice actors -->
             <h1 class="divider">Voice Actors</h1>
-            <div v-for="(name, lang) in character.va" :key="lang">
-              <p class="character-list-view">{{ lang }} - {{ name }}</p>
+            <div class="character-va-container">
+              <div v-for="(name, lang) in character.va" :key="lang">
+                <p class="character-list-view">
+                  {{ flagEmoji(lang) }} &rarr;
+                  <span v-html="formatName(name)"></span>
+                </p>
+              </div>
             </div>
 
             <!-- character affiliation -->
-            <h1 class="divider mt-10">Affiliation</h1>
+            <h1 class="divider mt-5">Affiliation</h1>
             <div
               v-for="affiliation in character.affiliation"
               :key="affiliation"
@@ -272,6 +277,20 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString("en-US", options);
 }
 
+function flagEmoji(lang) {
+  const flagMap = {
+    chinese: "🇨🇳",
+    english: "🇺🇸",
+    japanese: "🇯🇵",
+    korean: "🇰🇷",
+  };
+  return flagMap[lang.toLowerCase()] || "🏳️"; // Default to white flag if language not found
+}
+
+function formatName(name) {
+  return name.includes("&") ? name.replace(/\s*&\s*/g, "<br>& ") : name;
+}
+
 onMounted(async () => {
   const characterId = route.params.id;
   loading.value = true;
@@ -330,7 +349,6 @@ onMounted(async () => {
   width: 200px;
   height: 200px;
   border-radius: 15px;
-  padding: 10px 10px 0px 10px;
 }
 
 .character-vision-img {
@@ -391,15 +409,20 @@ onMounted(async () => {
 .character-overview {
   background-color: var(--primary);
   padding: 10px 25px 25px 25px;
-  width: 500px;
+  width: 66%;
   border-radius: 15px;
+}
+
+.character-va-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .character-list-view {
   font-family: var(--font-acme);
   font-size: 18px;
   letter-spacing: 1px;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .character-info-container {
