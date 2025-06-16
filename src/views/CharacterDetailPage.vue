@@ -98,23 +98,38 @@
         </div>
       </div>
 
-      <!-- character best artifact and weapon -->
+      <!-- character best artifact -->
       <div class="character-artifact-container">
         <h1 class="divider">Best Artifact for {{ character.name }}</h1>
-        <div class="artifact-list-container">
+        <div class="character-bis-list-container">
           <div
-            class="artifact-item"
+            class="character-bis-item"
             v-for="artifact in character.artifacts"
             :key="artifact.id"
           >
-            <img class="artifact-image" :src="artifact.flower_url" alt="" />
-            <p class="artifact-name">{{ artifact.name }}</p>
+            <img class="character-bis-image" :src="artifact.flower_url" alt="" />
+            <p class="character-bis-name">{{ artifact.name }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- character best weapon -->
+      <div class="character-weapon-container">
+        <h1 class="divider">Best Weapon for {{ character.name }}</h1>
+        <div class="character-bis-list-container">
+          <div
+            class="character-bis-item"
+            v-for="weapon in character.weapons"
+            :key="weapon.id"
+          >
+            <img class="character-bis-image" :src="weapon.image_url" alt="" />
+            <p class="character-bis-name">{{ weapon.name }}</p>
           </div>
         </div>
       </div>
 
       <!-- Placeholder for character build infographic -->
-      <div class="character-build-container">
+      <div class="character-mats-container">
         <h1 class="divider">Character Level up materials</h1>
         <img
           src="https://placehold.co/1000x700?text=Character+build+here"
@@ -384,17 +399,17 @@ onMounted(async () => {
 }
 
 .character-artifact-container {
-  height: 400px;
+  height: 300px;
   margin-top: 75px;
 }
 
-.artifact-list-container {
+.character-bis-list-container {
   display: flex;
   justify-content: space-around;
   margin-top: 25px;
 }
 
-.artifact-item {
+.character-bis-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -405,13 +420,13 @@ onMounted(async () => {
   border-radius: 15px;
 }
 
-.artifact-image {
+.character-bis-image {
   width: 100px;
   height: 100px;
   border-radius: 25px;
 }
 
-.artifact-name {
+.character-bis-name {
   font-size: 1.5em;
   margin-top: 10px;
   text-align: center;
@@ -419,7 +434,11 @@ onMounted(async () => {
   font-family: var(--font-acme);
 }
 
-.character-build-container {
+.character-weapon-container {
+  height: 300px;
+}
+
+.character-mats-container {
   background-color: #b56a2b;
   min-height: 800px;
   display: flex;
