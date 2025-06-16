@@ -47,7 +47,7 @@
             </div>
 
             <!-- character affiliation -->
-            <h1 class="divider">Affiliation</h1>
+            <h1 class="divider mt-10">Affiliation</h1>
             <div
               v-for="affiliation in character.affiliation"
               :key="affiliation"
@@ -280,7 +280,8 @@ onMounted(async () => {
   border-radius: 25px;
   margin-top: 50px;
   z-index: 1;
-  padding: 0px 75px 0px 75px;
+  padding: 0px 75px 50px 75px;
+  margin-bottom: 75px;
 }
 
 .background-img {
@@ -434,8 +435,8 @@ onMounted(async () => {
 }
 
 .character-bis-item:hover {
-  box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
-    0px 0px 30px rgba(231, 148, 74, 0.5);
+  box-shadow: 0px 0px 15px var(--tertiary),
+    0px 0px 30px var(--tertiary);
 }
 
 .character-bis-image {
