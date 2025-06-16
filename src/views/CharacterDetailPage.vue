@@ -101,6 +101,16 @@
       <!-- character best artifact and weapon -->
       <div class="character-artifact-container">
         <h1 class="divider">Best Artifact for {{ character.name }}</h1>
+        <div class="artifact-list-container">
+          <div
+            class="artifact-item"
+            v-for="artifact in character.artifacts"
+            :key="artifact.id"
+          >
+            <img class="artifact-image" :src="artifact.flower_url" alt="" />
+            <p class="artifact-name">{{ artifact.name }}</p>
+          </div>
+        </div>
       </div>
 
       <!-- Placeholder for character build infographic -->
@@ -374,8 +384,39 @@ onMounted(async () => {
 }
 
 .character-artifact-container {
-  height: 500px;
-  margin-top: 50px;
+  height: 400px;
+  margin-top: 75px;
+}
+
+.artifact-list-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.artifact-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  width: 400px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.artifact-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+}
+
+.artifact-name {
+  font-size: 1.5em;
+  margin-top: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-family: var(--font-acme);
 }
 
 .character-build-container {
