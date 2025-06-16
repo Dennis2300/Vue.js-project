@@ -251,6 +251,7 @@ onMounted(async () => {
   width: 1500px;
   min-height: 1500px;
   border-radius: 25px;
+  margin-top: 50px;
   z-index: 1;
 }
 
