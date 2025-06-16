@@ -159,9 +159,9 @@
 
       <!-- Placeholder for character build infographic -->
       <div class="character-mats-container">
-        <h1 class="divider">Character Level up materials</h1>
+        <h1 class="divider">{{ character.name }} Level up materials</h1>
         <img
-          src="https://placehold.co/1000x700?text=Character+build+here"
+          src="https://placehold.co/1000x700?text=Character+materials+infographic"
           alt=""
         />
       </div>
