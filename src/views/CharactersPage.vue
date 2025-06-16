@@ -244,7 +244,7 @@ onMounted(async () => {
 .vision-icon {
   position: absolute;
   top: 15px;
-  right: 30px;
+  right: 50px;
   width: 30px;
   height: 30px;
   border-radius: 50%;

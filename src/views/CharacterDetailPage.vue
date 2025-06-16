@@ -23,11 +23,18 @@
       <div class="character-detail-image-container">
         <!-- character avatar -->
         <div class="character-avatar-container">
-          <img
-            class="character-avatar"
-            :src="character.image_url"
-            :alt="character.name"
-          />
+          <div class="character-avatar-wrapper">
+            <img
+              class="character-avatar-img"
+              :src="character.image_url"
+              :alt="character.name"
+            />
+            <img
+              class="character-vision-img"
+              :src="character.vision.image_url"
+              alt=""
+            />
+          </div>
           <h1 class="character-name mt-3">{{ character.name }}</h1>
           <div class="character-tags-container mt-2">
             <p class="character-tags">{{ character.vision.name }}</p>
@@ -70,10 +77,13 @@
                 "★".repeat(character.rarity)
               }}</span>
             </p>
+            <div class="divider m-0"></div>
             <p class="character-info-text">
               <span style="color: gray">Birthday</span>
               <span>{{ character.birthday }}</span>
             </p>
+            <div class="divider m-0"></div>
+
             <p class="character-info-text">
               <span style="color: gray">Constellation</span>
               <span>{{ character.constellation }}</span>
@@ -86,10 +96,14 @@
               <span style="color: gray">Favourite Dish</span>
               <span>{{ character.favourite_dish }}</span>
             </p>
+            <div class="divider m-0"></div>
+
             <p class="character-info-text">
               <span style="color: gray">Release Date</span>
               <span>{{ formatDate(character.release_date) }}</span>
             </p>
+            <div class="divider m-0"></div>
+
             <p class="character-info-text">
               <span style="color: gray">Weapon</span>
               <span>{{ character.weapon_type.name }}</span>
@@ -299,6 +313,7 @@ onMounted(async () => {
 }
 
 .character-avatar-container {
+  position: relative;
   width: 700px;
   height: 500px;
   display: flex;
@@ -307,11 +322,26 @@ onMounted(async () => {
   align-items: center;
 }
 
-.character-avatar {
+.character-avatar-wrapper {
+  position: relative;
+}
+
+.character-avatar-img {
   width: 200px;
   height: 200px;
   border-radius: 15px;
   padding: 10px 10px 0px 10px;
+}
+
+.character-vision-img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background-color: var(--primary);
+  border-radius: 100%;
+  padding: 5px;
 }
 
 .character-name {
@@ -338,13 +368,13 @@ onMounted(async () => {
   letter-spacing: 1px;
 }
 
-.rarity-5 .character-avatar {
+.rarity-5 .character-avatar-img {
   background: linear-gradient(145deg, #e7944a, #b56a2b);
   box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
     0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
-.rarity-4 .character-avatar {
+.rarity-4 .character-avatar-img {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
     0px 0px 30px rgba(155, 114, 213, 0.5);
@@ -366,7 +396,7 @@ onMounted(async () => {
 }
 
 .character-list-view {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-acme);
   font-size: 18px;
   letter-spacing: 1px;
   margin: 5px 0;
@@ -382,7 +412,7 @@ onMounted(async () => {
 .character-info {
   background-color: var(--primary);
   font-family: var(--font-acme);
-  width: 80%;
+  width: 90%;
   height: 200px;
   border-radius: 15px;
   padding: 15px;
@@ -394,7 +424,7 @@ onMounted(async () => {
 .character-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 150px;
+  gap: 75px;
 }
 
 .character-info-grid-item {
@@ -435,8 +465,7 @@ onMounted(async () => {
 }
 
 .character-bis-item:hover {
-  box-shadow: 0px 0px 15px var(--tertiary),
-    0px 0px 30px var(--tertiary);
+  box-shadow: 0px 0px 15px var(--tertiary), 0px 0px 30px var(--tertiary);
 }
 
 .character-bis-image {
