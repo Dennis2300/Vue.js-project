@@ -91,7 +91,7 @@
               <span>{{ formatDate(character.release_date) }}</span>
             </p>
             <p class="character-info-text">
-              <span style="color: gray">Weapon Type</span>
+              <span style="color: gray">Weapon</span>
               <span>{{ character.weapon_type.name }}</span>
             </p>
           </div>
@@ -99,16 +99,8 @@
       </div>
 
       <!-- character best artifact and weapon -->
-      <div class="character-artifact-weapon-container">
-        <h1 class="divider">Artifact and Weapon</h1>
-        <div class="character-artifact-weapon">
-          <div class="character-artifact">
-            <h2>Artifacts</h2>
-          </div>
-          <div class="character-weapon">
-            <h2>Weapons</h2>
-          </div>
-        </div>
+      <div class="character-artifact-container">
+        <h1 class="divider">Best Artifact for {{ character.name }}</h1>
       </div>
 
       <!-- Placeholder for character build infographic -->
@@ -248,11 +240,12 @@ onMounted(async () => {
 .character-detail-container {
   position: relative;
   background-color: var(--secondary);
-  width: 1500px;
+  width: 1325px;
   min-height: 1500px;
   border-radius: 25px;
   margin-top: 50px;
   z-index: 1;
+  padding: 0px 75px 0px 75px;
 }
 
 .background-img {
@@ -286,7 +279,7 @@ onMounted(async () => {
 }
 
 .character-name {
-  font-family: var(--font-fugaz);
+  font-family: var(--font-acme);
   font-size: 3rem;
   margin-top: 10px;
   text-transform: capitalize;
@@ -358,6 +351,8 @@ onMounted(async () => {
   border-radius: 15px;
   padding: 15px;
   font-size: 2em;
+  margin-top: 10px;
+  padding: 25px 45px 25px 45px;
 }
 
 .character-info-grid {
@@ -378,21 +373,9 @@ onMounted(async () => {
   justify-content: space-between;
 }
 
-.character-artifact-weapon-container {
-  background-color: #9b72d5;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.character-artifact-weapon {
-  background-color: yellowgreen;
-  display: flex;
-  justify-content: space-evenly;
-  width: 80%;
-  height: 300px;
-  border-radius: 15px;
+.character-artifact-container {
+  height: 500px;
+  margin-top: 50px;
 }
 
 .character-build-container {
