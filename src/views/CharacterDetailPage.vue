@@ -152,7 +152,7 @@
             :key="weapon.id"
           >
             <img class="character-bis-image" :src="weapon.image_url" alt="" />
-            <p class="character-bis-name">{{ weapon.name }}</p>
+            <p class="character-bis-name">{{weapon.rank}}. {{ weapon.name }}</p>
           </router-link>
         </div>
       </div>
@@ -244,9 +244,11 @@ async function fetchCharacterDetails(characterId) {
     const { data: weaponsData, error: weaponsError } = await supabase
       .from("weapon_character")
       .select(
-        "weapon:weapon_id(*, bonus_effect:bonus_effect_type_id(name), weapon_type:weapon_type_id(name))"
+        "rank, weapon:weapon_id(*, bonus_effect:bonus_effect_type_id(name), weapon_type:weapon_type_id(name))"
       )
       .eq("character_id", characterId);
+    console.log("weaponsData", weaponsData);
+
     if (weaponsError) throw weaponsError;
 
     // Then fetch artifacts
@@ -258,10 +260,13 @@ async function fetchCharacterDetails(characterId) {
 
     // Combine the data
     const characterWithRegions = {
-      ...characterData, // copy character data to new object
-      regions: regionsData.map((item) => item.region), // add regions to new object
-      weapons: weaponsData.map((item) => item.weapon), // add weapons to new object
-      artifacts: artifactsData.map((item) => item.artifact), // add artifacts to new object
+      ...characterData,
+      regions: regionsData.map((item) => item.region),
+      weapons: weaponsData.map((item) => ({
+        ...item.weapon,
+        rank: item.rank,
+      })),
+      artifacts: artifactsData.map((item) => item.artifact),
     };
 
     setCachedData(cacheKey, characterWithRegions);
