@@ -152,7 +152,9 @@
             :key="weapon.id"
           >
             <img class="character-bis-image" :src="weapon.image_url" alt="" />
-            <p class="character-bis-name">{{weapon.rank}}. {{ weapon.name }}</p>
+            <p class="character-bis-name">
+              {{ weapon.rank }}. {{ weapon.name }}
+            </p>
           </router-link>
         </div>
       </div>
