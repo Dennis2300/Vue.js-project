@@ -153,12 +153,16 @@
             class="character-bis-item"
             v-for="weapon in character.weapons"
             :key="weapon.id"
+            :class="{
+              'rarity-5': weapon.rarity === 5,
+              'rarity-4': weapon.rarity === 4,
+            }"
           >
             <img class="character-bis-image" :src="weapon.image_url" alt="" />
             <p class="character-bis-name">
               {{ weapon.name }}
             </p>
-            <span class="character-weapon-rank">{{ weapon.rank }}.</span>
+            <span class="character-weapon-rank">{{ weapon.rank }}</span>
           </router-link>
           <div v-if="!character.weapons.length">
             <p class="not-found">No weapons found for this character.</p>
@@ -402,13 +406,13 @@ onMounted(async () => {
   letter-spacing: 1px;
 }
 
-.rarity-5 .character-avatar-img {
+.rarity-5 .character-avatar-img, .rarity-5 .character-bis-image {
   background: linear-gradient(145deg, #e7944a, #b56a2b);
   box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
     0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
-.rarity-4 .character-avatar-img {
+.rarity-4 .character-avatar-img, .rarity-4 .character-bis-image {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
     0px 0px 30px rgba(155, 114, 213, 0.5);
