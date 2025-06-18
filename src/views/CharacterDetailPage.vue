@@ -249,7 +249,9 @@ async function fetchCharacterDetails(characterId) {
       .select(
         "rank, weapon:weapon_id(*, bonus_effect:bonus_effect_type_id(name), weapon_type:weapon_type_id(name))"
       )
-      .eq("character_id", characterId);
+      .eq("character_id", characterId)
+      .order("rank", { ascending: true });
+
     console.log("weaponsData", weaponsData);
 
     if (weaponsError) throw weaponsError;
