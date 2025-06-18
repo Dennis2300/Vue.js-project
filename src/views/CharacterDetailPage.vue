@@ -136,6 +136,9 @@
             />
             <p class="character-bis-name">{{ artifact.name }}</p>
           </router-link>
+          <div v-if="!character.artifacts.length">
+            <p class="not-found">No artifacts found for this character.</p>
+          </div>
         </div>
       </div>
 
@@ -157,6 +160,9 @@
             </p>
             <span class="character-weapon-rank">{{ weapon.rank }}.</span>
           </router-link>
+          <div v-if="!character.weapons.length">
+            <p class="not-found">No weapons found for this character.</p>
+          </div>
         </div>
       </div>
 
@@ -525,6 +531,15 @@ onMounted(async () => {
   font-family: var(--font-acme);
   font-size: 18px;
   border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+.not-found {
+  font-size: 32px;
+  font-family: var(--font-acme);
+  text-align: center;
+  margin-top: 50px;
+  text-decoration: underline;
   letter-spacing: 1px;
 }
 
