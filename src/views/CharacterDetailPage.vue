@@ -153,8 +153,9 @@
           >
             <img class="character-bis-image" :src="weapon.image_url" alt="" />
             <p class="character-bis-name">
-              {{ weapon.rank }}. {{ weapon.name }}
+              {{ weapon.name }}
             </p>
+            <span class="character-weapon-rank">{{ weapon.rank }}.</span>
           </router-link>
         </div>
       </div>
@@ -481,6 +482,7 @@ onMounted(async () => {
 }
 
 .character-bis-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -510,6 +512,18 @@ onMounted(async () => {
   text-align: center;
   letter-spacing: 1px;
   font-family: var(--font-acme);
+}
+
+.character-weapon-rank {
+  position: absolute;
+  background-color: var(--secondary);
+  top: 15px;
+  left: 15px;
+  padding: 5px 10px;
+  font-family: var(--font-acme);
+  font-size: 18px;
+  border-radius: 10px;
+  letter-spacing: 1px;
 }
 
 .character-weapon-container {
