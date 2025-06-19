@@ -327,7 +327,6 @@ onMounted(async () => {
   loading.value = true;
   character.value = await fetchCharacterDetails(characterId);
   loading.value = false;
-  console.log("Character details:", character.value);
 });
 </script>
 
