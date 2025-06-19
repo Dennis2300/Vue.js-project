@@ -47,6 +47,7 @@
         <!-- character overview -->
         <div class="character-overview-container">
           <div class="character-overview">
+            
             <!-- character voice actors -->
             <h1 class="divider">Voice Actors</h1>
             <div class="character-va-container">
@@ -251,6 +252,7 @@ async function fetchCharacterDetails(characterId) {
       .from("region_character")
       .select("region:region_id(id, name)")
       .eq("character_id", characterId);
+
     if (regionsError) throw regionsError;
 
     // Then fetch weapons
@@ -261,8 +263,6 @@ async function fetchCharacterDetails(characterId) {
       )
       .eq("character_id", characterId)
       .order("rank", { ascending: true });
-
-    console.log("weaponsData", weaponsData);
 
     if (weaponsError) throw weaponsError;
 
@@ -316,6 +316,7 @@ onMounted(async () => {
   loading.value = true;
   character.value = await fetchCharacterDetails(characterId);
   loading.value = false;
+  console.log("Character details:", character.value);
 });
 </script>
 
@@ -406,13 +407,15 @@ onMounted(async () => {
   letter-spacing: 1px;
 }
 
-.rarity-5 .character-avatar-img, .rarity-5 .character-bis-image {
+.rarity-5 .character-avatar-img,
+.rarity-5 .character-bis-image {
   background: linear-gradient(145deg, #e7944a, #b56a2b);
   box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
     0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
-.rarity-4 .character-avatar-img, .rarity-4 .character-bis-image {
+.rarity-4 .character-avatar-img,
+.rarity-4 .character-bis-image {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
     0px 0px 30px rgba(155, 114, 213, 0.5);
