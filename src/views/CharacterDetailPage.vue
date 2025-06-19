@@ -84,7 +84,7 @@
             </p>
             <div class="divider m-0"></div>
             <p class="character-info-text">
-              <span style="color: gray">Birthday</span>
+                <span style="color: gray">Birthday (mm/dd)</span>
               <span>{{ character.birthday }}</span>
             </p>
             <div class="divider m-0"></div>
@@ -135,6 +135,7 @@
               alt=""
             />
             <p class="character-bis-name">{{ artifact.name }}</p>
+            <span class="character-weapon-rank">{{ artifact.rank }}</span>
           </router-link>
           <div v-if="!character.artifacts.length">
             <p class="not-found">No artifacts found for this character.</p>
@@ -173,10 +174,13 @@
       <!-- Placeholder for character build infographic -->
       <div class="character-mats-container">
         <h1 class="divider">{{ character.name }} Level up materials</h1>
-        <img
-          src="https://placehold.co/1000x700?text=Character+materials+infographic"
-          alt=""
-        />
+        <div >
+          <img
+            class="character-mats-infographic"
+            :src="`https://placehold.co/1000x700/222831/white?text=Character+mats+not+available+yet+for+${character.name}`"
+            alt=""
+          />
+        </div>
       </div>
     </div>
 
@@ -237,6 +241,7 @@ async function fetchBaseCharacterDetails(characterId) {
     )
     .eq("id", characterId)
     .single();
+
   if (error) throw error;
   return data;
 }
@@ -247,6 +252,7 @@ async function fetchCharacterRegions(characterId) {
     .from("region_character")
     .select("region:region_id(id, name)")
     .eq("character_id", characterId);
+
   if (error) throw error;
   return data.map((item) => item.region);
 }
@@ -260,6 +266,7 @@ async function fetchCharacterWeapons(characterId) {
     )
     .eq("character_id", characterId)
     .order("rank", { ascending: true });
+
   if (error) throw error;
   return data.map((item) => ({ ...item.weapon, rank: item.rank }));
 }
@@ -268,10 +275,13 @@ async function fetchCharacterWeapons(characterId) {
 async function fetchCharacterArtifacts(characterId) {
   const { data, error } = await supabase
     .from("character_artifact")
-    .select("artifact:artifact_id(*)")
-    .eq("character_id", characterId);
+    .select("rank, artifact:artifact_id(*)")
+    .eq("character_id", characterId)
+    .order("rank", { ascending: true });
+
   if (error) throw error;
-  return data.map((item) => item.artifact);
+  console.log("Fetched artifacts:", data);
+  return data.map((item) => ({ ...item.artifact, rank: item.rank }));
 }
 
 // Main function to fetch character details
@@ -285,14 +295,14 @@ async function fetchCharacterDetails(characterId) {
       fetchBaseCharacterDetails(characterId),
       fetchCharacterRegions(characterId),
       fetchCharacterWeapons(characterId),
-      fetchCharacterArtifacts(characterId)
+      fetchCharacterArtifacts(characterId),
     ]);
 
     const result = {
       ...characterData,
       regions,
       weapons,
-      artifacts
+      artifacts,
     };
 
     setCachedData(cacheKey, result);
@@ -565,10 +575,14 @@ onMounted(async () => {
 }
 
 .character-mats-container {
-  background-color: #b56a2b;
   min-height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.character-mats-infographic {
+  border-radius: 15px;
+  margin-top: 25px;
 }
 </style>
