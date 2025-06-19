@@ -47,14 +47,13 @@
         <!-- character overview -->
         <div class="character-overview-container">
           <div class="character-overview">
-            
             <!-- character voice actors -->
             <h1 class="divider">Voice Actors</h1>
             <div class="character-va-container">
               <div v-for="(name, lang) in character.va" :key="lang">
                 <p class="character-list-view">
                   {{ flagEmoji(lang) }} &rarr;
-                  <span v-html="formatName(name)"></span>
+                  <span v-html="formatVoiceActorName(name)"></span>
                 </p>
               </div>
             </div>
@@ -73,7 +72,7 @@
 
       <!-- character detail container  -->
       <div class="character-info-container">
-        <h1 class="divider">Overview</h1>
+        <h1 class="divider">Character Information</h1>
         <div class="character-info character-info-grid">
           <!-- Character Info Grid -->
           <div class="character-info-grid-item">
@@ -229,63 +228,75 @@ function setCachedData(key, data) {
   sessionStorage.setItem(key, JSON.stringify(cache));
 }
 
-// Function to fetch character details from the database
+// Fetch base character details
+async function fetchBaseCharacterDetails(characterId) {
+  const { data, error } = await supabase
+    .from("characters")
+    .select(
+      "*, vision:vision(name, image_url), team_role:team_role(name), substat:substat(name), weapon_type:weapon_type(name)"
+    )
+    .eq("id", characterId)
+    .single();
+  if (error) throw error;
+  return data;
+}
+
+// Fetch character regions
+async function fetchCharacterRegions(characterId) {
+  const { data, error } = await supabase
+    .from("region_character")
+    .select("region:region_id(id, name)")
+    .eq("character_id", characterId);
+  if (error) throw error;
+  return data.map((item) => item.region);
+}
+
+// Fetch character weapons
+async function fetchCharacterWeapons(characterId) {
+  const { data, error } = await supabase
+    .from("weapon_character")
+    .select(
+      "rank, weapon:weapon_id(*, bonus_effect:bonus_effect_type_id(name), weapon_type:weapon_type_id(name))"
+    )
+    .eq("character_id", characterId)
+    .order("rank", { ascending: true });
+  if (error) throw error;
+  return data.map((item) => ({ ...item.weapon, rank: item.rank }));
+}
+
+// Fetch character artifacts
+async function fetchCharacterArtifacts(characterId) {
+  const { data, error } = await supabase
+    .from("character_artifact")
+    .select("artifact:artifact_id(*)")
+    .eq("character_id", characterId);
+  if (error) throw error;
+  return data.map((item) => item.artifact);
+}
+
+// Main function to fetch character details
 async function fetchCharacterDetails(characterId) {
   const cacheKey = `character-${characterId}`;
   const cachedCharacter = getCachedData(cacheKey);
-
   if (cachedCharacter) return cachedCharacter;
 
   try {
-    // First fetch character details
-    const { data: characterData, error: charError } = await supabase
-      .from("characters")
-      .select(
-        "*, vision:vision(name, image_url), team_role:team_role(name), substat:substat(name), weapon_type:weapon_type(name)"
-      )
-      .eq("id", characterId)
-      .single();
-    if (charError) throw charError;
+    const [characterData, regions, weapons, artifacts] = await Promise.all([
+      fetchBaseCharacterDetails(characterId),
+      fetchCharacterRegions(characterId),
+      fetchCharacterWeapons(characterId),
+      fetchCharacterArtifacts(characterId)
+    ]);
 
-    // Then fetch associated regions
-    const { data: regionsData, error: regionsError } = await supabase
-      .from("region_character")
-      .select("region:region_id(id, name)")
-      .eq("character_id", characterId);
-
-    if (regionsError) throw regionsError;
-
-    // Then fetch weapons
-    const { data: weaponsData, error: weaponsError } = await supabase
-      .from("weapon_character")
-      .select(
-        "rank, weapon:weapon_id(*, bonus_effect:bonus_effect_type_id(name), weapon_type:weapon_type_id(name))"
-      )
-      .eq("character_id", characterId)
-      .order("rank", { ascending: true });
-
-    if (weaponsError) throw weaponsError;
-
-    // Then fetch artifacts
-    const { data: artifactsData, error: artifactsError } = await supabase
-      .from("character_artifact")
-      .select("artifact:artifact_id(*)")
-      .eq("character_id", characterId);
-    if (artifactsError) throw artifactsError;
-
-    // Combine the data
-    const characterWithRegions = {
+    const result = {
       ...characterData,
-      regions: regionsData.map((item) => item.region),
-      weapons: weaponsData.map((item) => ({
-        ...item.weapon,
-        rank: item.rank,
-      })),
-      artifacts: artifactsData.map((item) => item.artifact),
+      regions,
+      weapons,
+      artifacts
     };
 
-    setCachedData(cacheKey, characterWithRegions);
-    return characterWithRegions;
+    setCachedData(cacheKey, result);
+    return result;
   } catch (err) {
     console.error("Error fetching character:", err);
     return null;
@@ -307,7 +318,7 @@ function flagEmoji(lang) {
   return flagMap[lang.toLowerCase()] || "🏳️"; // Default to white flag if language not found
 }
 
-function formatName(name) {
+function formatVoiceActorName(name) {
   return name.includes("&") ? name.replace(/\s*&\s*/g, "<br>& ") : name;
 }
 
