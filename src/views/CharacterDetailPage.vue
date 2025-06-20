@@ -75,7 +75,7 @@
         <h1 class="divider">Character Information</h1>
         <div class="character-info character-info-grid">
           <!-- Character Info Grid -->
-          <div class="character-info-grid-item">
+          <div class="character-info-grid-item left">
             <p class="character-info-text">
               <span style="color: gray">Rarity</span>
               <span style="color: gold">{{
@@ -84,7 +84,7 @@
             </p>
             <div class="divider m-0"></div>
             <p class="character-info-text">
-                <span style="color: gray">Birthday (mm/dd)</span>
+              <span style="color: gray">Birthday (mm/dd)</span>
               <span>{{ character.birthday }}</span>
             </p>
             <div class="divider m-0"></div>
@@ -96,22 +96,20 @@
           </div>
 
           <!-- Character Info Grid -->
-          <div class="character-info-grid-item">
+          <div class="character-info-grid-item right">
             <p class="character-info-text">
-              <span style="color: gray">Favourite Dish</span>
-              <span>{{ character.favourite_dish }}</span>
+              <span style="color: gray">Weapon</span>
+              <span>{{ character.weapon_type.name }}</span>
             </p>
             <div class="divider m-0"></div>
-
             <p class="character-info-text">
               <span style="color: gray">Release Date</span>
               <span>{{ formatDate(character.release_date) }}</span>
             </p>
             <div class="divider m-0"></div>
-
             <p class="character-info-text">
-              <span style="color: gray">Weapon</span>
-              <span>{{ character.weapon_type.name }}</span>
+              <span style="color: gray">Favourite Dish</span>
+              <span>{{ character.favourite_dish }}</span>
             </p>
           </div>
         </div>
@@ -174,7 +172,7 @@
       <!-- Placeholder for character build infographic -->
       <div class="character-mats-container">
         <h1 class="divider">{{ character.name }} Level up materials</h1>
-        <div >
+        <div>
           <img
             class="character-mats-infographic"
             :src="`https://placehold.co/1000x700/222831/white?text=Character+mats+not+available+yet+for+${character.name}`"
@@ -325,7 +323,7 @@ function flagEmoji(lang) {
     japanese: "🇯🇵",
     korean: "🇰🇷",
   };
-  return flagMap[lang.toLowerCase()] || "🏳️"; // Default to white flag if language not found
+  return flagMap[lang.toLowerCase()] || "Additional"; // Default to white flag if language not found
 }
 
 function formatVoiceActorName(name) {
@@ -473,6 +471,7 @@ onMounted(async () => {
   flex-direction: column;
   align-items: center;
   height: 300px;
+  letter-spacing: 1px;
 }
 
 .character-info {
@@ -489,9 +488,17 @@ onMounted(async () => {
 
 .character-info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 75px;
+  grid-template-areas: "left right right";
+  gap: 80px;
 }
+
+.left {
+  grid-area: left;
+}
+.right {
+  grid-area: right;
+}
+
 
 .character-info-grid-item {
   display: flex;
