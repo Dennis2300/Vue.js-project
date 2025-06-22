@@ -180,6 +180,22 @@
           />
         </div>
       </div>
+
+      <!-- Source -->
+      <div class="character-source-container">
+        <h3 class="divider">Sources</h3>
+        <div class="character-source">
+          <a class="source-link" :href="character.wiki_url" target="_blank"
+            >Character Info</a
+          >
+          <a
+            class="source-link"
+            href="https://game8.co/games/Genshin-Impact"
+            target="_blank"
+            >Build Info</a
+          >
+        </div>
+      </div>
     </div>
 
     <!-- Error Message-->
@@ -499,7 +515,6 @@ onMounted(async () => {
   grid-area: right;
 }
 
-
 .character-info-grid-item {
   display: flex;
   flex-direction: column;
@@ -591,5 +606,42 @@ onMounted(async () => {
 .character-mats-infographic {
   border-radius: 15px;
   margin-top: 25px;
+}
+
+.character-source-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 125px;
+}
+
+.character-source {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 100%;
+}
+
+.source-link {
+  background-color: var(--primary);
+  font-family: var(--font-acme);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  height: 60px;
+  width: 200px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.character-source a:hover {
+  background-color: var(--tertiary);
+  color: black;
 }
 </style>
