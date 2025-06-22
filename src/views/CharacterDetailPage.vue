@@ -139,6 +139,17 @@
             <p class="not-found">No artifacts found for this character.</p>
           </div>
         </div>
+        <div class="artifact-build-note-container">
+          <div class="artifact-build-note">
+            <MarkdownRender
+              v-if="character.artifact_build_note.length"
+              :content="character.artifact_build_note ?? ''"
+            />
+            <p v-else>
+              No artifact build note available for this character yet.
+            </p>
+          </div>
+        </div>
       </div>
 
       <!-- character best weapon -->
@@ -214,6 +225,7 @@ import { supabase } from "./../supabaseClient.js";
 // Import the loading spinner component
 import "ldrs/trefoil";
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
+import MarkdownRender from "./../components/MarkdownRender.vue";
 
 const route = useRoute();
 const character = ref(null);
@@ -401,6 +413,9 @@ onMounted(async () => {
 }
 
 .character-avatar-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 200px;
   height: 200px;
   border-radius: 15px;
@@ -528,7 +543,7 @@ onMounted(async () => {
 }
 
 .character-artifact-container {
-  height: 300px;
+  height: auto;
   margin-top: 75px;
 }
 
@@ -569,6 +584,20 @@ onMounted(async () => {
   text-align: center;
   letter-spacing: 1px;
   font-family: var(--font-acme);
+}
+
+.artifact-build-note-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  height: 500px;
+}
+
+.artifact-build-note {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-size: 18px;
 }
 
 .character-weapon-rank {
