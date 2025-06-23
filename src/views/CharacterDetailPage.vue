@@ -139,15 +139,36 @@
             <p class="not-found">No artifacts found for this character.</p>
           </div>
         </div>
+
         <div class="artifact-build-note-container">
           <div class="artifact-build-note">
-            <MarkdownRender
-              v-if="character.artifact_build_note.length"
-              :content="character.artifact_build_note ?? ''"
-            />
-            <p v-else>
-              No artifact build note available for this character yet.
-            </p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sands</th>
+                    <th>Goblet</th>
+                    <th>Circlet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="build in character.build" :key="build.id">
+                    <td>{{ build.sands_main_stat }}</td>
+                    <td>{{ build.goblet_main_stat }}</td>
+                    <td>{{ build.circlet_main_stat }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="artifact-build-note-text"
+              v-if="character.artifact_build_note"
+            >
+              <MarkdownRender :content="character.artifact_build_note" />
+            </div>
+            <div v-if="!character.artifact_build_note">
+              <p>No build not for {{ character.name }} yet</p>
+            </div>
           </div>
         </div>
       </div>
@@ -310,6 +331,16 @@ async function fetchCharacterArtifacts(characterId) {
   return data.map((item) => ({ ...item.artifact, rank: item.rank }));
 }
 
+async function fetchCharacterBuild(characterId) {
+  const { data, error } = await supabase
+    .from("characterBuild")
+    .select("*")
+    .eq("character_id", characterId);
+
+  if (error) throw error;
+  return data;
+}
+
 // Main function to fetch character details
 async function fetchCharacterDetails(characterId) {
   const cacheKey = `character-${characterId}`;
@@ -317,18 +348,21 @@ async function fetchCharacterDetails(characterId) {
   if (cachedCharacter) return cachedCharacter;
 
   try {
-    const [characterData, regions, weapons, artifacts] = await Promise.all([
-      fetchBaseCharacterDetails(characterId),
-      fetchCharacterRegions(characterId),
-      fetchCharacterWeapons(characterId),
-      fetchCharacterArtifacts(characterId),
-    ]);
+    const [characterData, regions, weapons, artifacts, build] =
+      await Promise.all([
+        fetchBaseCharacterDetails(characterId),
+        fetchCharacterRegions(characterId),
+        fetchCharacterWeapons(characterId),
+        fetchCharacterArtifacts(characterId),
+        fetchCharacterBuild(characterId),
+      ]);
 
     const result = {
       ...characterData,
       regions,
       weapons,
       artifacts,
+      build,
     };
 
     setCachedData(cacheKey, result);
@@ -587,17 +621,24 @@ onMounted(async () => {
 }
 
 .artifact-build-note-container {
+  background-color: #7149a3;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 0px 50px;
-  height: 500px;
+  min-height: 200px;
+  padding: 10px 50px;
 }
 
 .artifact-build-note {
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
-  font-size: 18px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: #b56a2b;
+}
+
+.artifact-build-note-text {
+  font-family: var(--font-acme);
+  color: white;
+  padding: 20px;
 }
 
 .character-weapon-rank {
