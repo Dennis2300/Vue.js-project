@@ -141,9 +141,10 @@
         </div>
 
         <div class="artifact-build-note-container">
-          <div class="artifact-build-note">
-            <div>
-              <table>
+          <div v-if="character.artifact_build_note">
+            <!-- Artifact Main Stat Table -->
+            <div class="artifact-main-stats-container">
+              <table class="artifact-main-stats-table">
                 <thead>
                   <tr>
                     <th>Sands</th>
@@ -160,15 +161,14 @@
                 </tbody>
               </table>
             </div>
-            <div
-              class="artifact-build-note-text"
-              v-if="character.artifact_build_note"
-            >
+            <!-- Artifact Build Note -->
+            <div class="artifact-build-note-text">
               <MarkdownRender :content="character.artifact_build_note" />
             </div>
-            <div v-if="!character.artifact_build_note">
-              <p>No build not for {{ character.name }} yet</p>
-            </div>
+            <!-- No Build Note -->
+          </div>
+          <div v-if="!character.artifact_build_note">
+            <p>No build not for {{ character.name }} yet</p>
           </div>
         </div>
       </div>
@@ -621,24 +621,38 @@ onMounted(async () => {
 }
 
 .artifact-build-note-container {
-  background-color: #7149a3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 200px;
-  padding: 10px 50px;
+  font-family: var(--font-acme);
+  padding: 20px 50px;
 }
 
-.artifact-build-note {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  background-color: #b56a2b;
+.artifact-main-stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artifact-main-stats-table {
+  border-collapse: collapse;
+  letter-spacing: 1px;
+}
+
+.artifact-main-stats-table th {
+  background-color: var(--primary);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px 100px;
+}
+
+.artifact-main-stats-table td {
+  background: rgba(45, 50, 55, 0.6);
+  text-align: center;
+  padding: 15px 100px;
+  font-size: 18px;
 }
 
 .artifact-build-note-text {
-  font-family: var(--font-acme);
-  color: white;
-  padding: 20px;
+  margin-top: 20px;
+  letter-spacing: 1px;
 }
 
 .character-weapon-rank {
