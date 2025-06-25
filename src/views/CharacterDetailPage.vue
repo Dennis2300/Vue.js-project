@@ -152,9 +152,25 @@
           </div>
           <div class="character-artifact-stats">
             <div v-for="build in character.build" :key="build.id">
-              <p>Sands: {{ build.sands_main_stat }}</p>
-              <p>Goblet: {{ build.goblet_main_stat }}</p>
-              <p>Circlet: {{ build.circlet_main_stat }}</p>
+            <div
+              class="character-artifact-text"
+              v-for="build in character.build"
+              :key="build.id"
+            >
+              <div class="divider text-3xl mb-3 sands">Sands</div>
+              <h2>{{ build.sands_main_stat }}</h2>
+              <div class="divider text-3xl mt-8 mb-3 goblet">Goblet</div>
+              <h2>{{ build.goblet_main_stat }}</h2>
+              <div class="divider text-3xl mt-8 mb-3 circlet">Circlet</div>
+              <h2>{{ build.circlet_main_stat }}</h2>
+              <div class="divider text-xl mt-8 substat">Substat priority</div>
+              <div
+                class="text-left"
+                v-for="substat in build.substat_priority"
+                :key="build.id"
+              >
+                <p class="text-lg">- {{ substat }}</p>
+              </div>
             </div>
             <p
               class="no-build-yet text-3xl"
@@ -631,6 +647,13 @@ onMounted(async () => {
   width: 745px;
 }
 
+.sands,
+.goblet,
+.circlet,
+.substat {
+  color: var(--tertiary);
+}
+
 .character-artifact-stats {
   background-color: var(--primary);
   font-family: var(--font-roboto);
@@ -639,6 +662,10 @@ onMounted(async () => {
   grid-area: stats;
   padding: 25px;
   width: 445px;
+}
+
+.character-artifact-text {
+  text-align: center;
 }
 
 .no-build-yet {
