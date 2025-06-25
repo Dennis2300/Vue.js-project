@@ -151,7 +151,6 @@
             </p>
           </div>
           <div class="character-artifact-stats">
-            <div v-for="build in character.build" :key="build.id">
             <div
               class="character-artifact-text"
               v-for="build in character.build"
