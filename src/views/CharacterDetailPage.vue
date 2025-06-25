@@ -140,35 +140,28 @@
           </div>
         </div>
 
-        <div class="artifact-build-note-container">
-          <div v-if="character.artifact_build_note">
-            <!-- Artifact Main Stat Table -->
-            <div class="artifact-main-stats-container">
-              <table class="artifact-main-stats-table">
-                <thead>
-                  <tr>
-                    <th>Sands</th>
-                    <th>Goblet</th>
-                    <th>Circlet</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="build in character.build" :key="build.id">
-                    <td>{{ build.sands_main_stat }}</td>
-                    <td>{{ build.goblet_main_stat }}</td>
-                    <td>{{ build.circlet_main_stat }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- Artifact Build Note -->
-            <div class="artifact-build-note-text">
-              <MarkdownRender :content="character.artifact_build_note" />
-            </div>
-            <!-- No Build Note -->
+        <div class="character-build-container my-5">
+          <div class="character-build-text">
+            <MarkdownRender :content="character.artifact_build_note" />
+            <p
+              class="no-build-yet text-3xl"
+              v-if="!character.artifact_build_note.length"
+            >
+              Not available yet
+            </p>
           </div>
-          <div v-if="!character.artifact_build_note">
-            <p>No build not for {{ character.name }} yet</p>
+          <div class="character-artifact-stats">
+            <div v-for="build in character.build" :key="build.id">
+              <p>Sands: {{ build.sands_main_stat }}</p>
+              <p>Goblet: {{ build.goblet_main_stat }}</p>
+              <p>Circlet: {{ build.circlet_main_stat }}</p>
+            </div>
+            <p
+              class="no-build-yet text-3xl"
+              v-if="!character.artifact_build_note.length"
+            >
+              Not available yet
+            </p>
           </div>
         </div>
       </div>
@@ -620,39 +613,39 @@ onMounted(async () => {
   font-family: var(--font-acme);
 }
 
-.artifact-build-note-container {
-  font-family: var(--font-acme);
-  padding: 20px 50px;
+.character-build-container {
+  display: grid;
+  grid-template-areas: "text text stats";
+  gap: 25px;
+  padding: 10px;
+  min-height: 375px;
 }
 
-.artifact-main-stats-container {
+.character-build-text {
+  background-color: var(--primary);
+  font-family: var(--font-roboto);
+  letter-spacing: 1px;
+  border-radius: 15px;
+  grid-area: text;
+  padding: 25px;
+  width: 745px;
+}
+
+.character-artifact-stats {
+  background-color: var(--primary);
+  font-family: var(--font-roboto);
+  letter-spacing: 1px;
+  border-radius: 15px;
+  grid-area: stats;
+  padding: 25px;
+  width: 445px;
+}
+
+.no-build-yet {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.artifact-main-stats-table {
-  border-collapse: collapse;
-  letter-spacing: 1px;
-}
-
-.artifact-main-stats-table th {
-  background-color: var(--primary);
-  text-transform: uppercase;
-  text-align: center;
-  padding: 5px 100px;
-}
-
-.artifact-main-stats-table td {
-  background: rgba(45, 50, 55, 0.6);
-  text-align: center;
-  padding: 15px 100px;
-  font-size: 18px;
-}
-
-.artifact-build-note-text {
-  margin-top: 20px;
-  letter-spacing: 1px;
+  height: 100%;
 }
 
 .character-weapon-rank {

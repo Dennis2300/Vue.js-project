@@ -1,6 +1,5 @@
 @import url(https://fonts.bunny.net/css?family=acme:400|alkatra:400|archivo-black:400|bungee:400);
-@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
-/*Global Colours*/
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"); /*Global Colours*/
 :root {
   /*link to the colours https://colorhunt.co/palette/222831393e46ffd369eeeeee */
   --primary: #222831;
@@ -14,6 +13,7 @@
   --font-archivo: "Archivo Black", sans-serif;
   --font-bungee: "Bungee", sans-serif;
   --font-fugaz: "Fugaz One", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
 * {
