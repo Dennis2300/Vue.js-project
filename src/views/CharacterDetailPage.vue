@@ -230,13 +230,7 @@
         <h3 class="divider">Sources</h3>
         <div class="character-source">
           <a class="source-link" :href="character.wiki_url" target="_blank"
-            >Character Info</a
-          >
-          <a
-            class="source-link"
-            href="https://game8.co/games/Genshin-Impact"
-            target="_blank"
-            >Build Info</a
+            >Hoyo wiki</a
           >
         </div>
       </div>
