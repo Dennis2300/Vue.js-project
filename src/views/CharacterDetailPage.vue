@@ -136,7 +136,7 @@
             <span class="character-weapon-rank">{{ artifact.rank }}</span>
           </router-link>
           <div v-if="!character.artifacts.length">
-            <p class="not-found">No artifacts found for this character.</p>
+            <p class="not-found mb-6">No artifacts found for this character.</p>
           </div>
         </div>
 
