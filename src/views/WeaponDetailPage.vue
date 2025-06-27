@@ -39,7 +39,7 @@
         <MarkdownRender class="pl-3 mt-2 mb-10" :content="weapon.attribute_description" />
       </div>
       <div class="lore-text">
-        <h2 class="divider header">Lore</h2>
+        <h2 class="divider header">Description</h2>
         <MarkdownRender class="pl-2" :content="weapon.lore_description" />
       </div>
     </div>
@@ -98,7 +98,7 @@ onMounted(async () => {
 
 <style scoped>
 .weapon-detail-container {
-  margin: 25px 0px 0px 0px;
+  margin: 25px 0px 75px 0px;
 }
 
 .weapon-detail {
