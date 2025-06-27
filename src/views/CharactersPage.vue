@@ -168,7 +168,7 @@ function isNewCharacter(character) {
 
 function displayFilteredCharacters(filtered) {
   characters.value = filtered;
-  //sortCharactersByReleaseDate();
+  sortCharactersByReleaseDate();
 }
 
 function handleClearFilter() {
