@@ -13,6 +13,12 @@
       <div class="web-footer-link">
         Find more info <a href="/about">here</a>
       </div>
+      <div class="tech-stack">
+        <p>
+          Built with <span class="vue"><a href="https://vuejs.org/" target="_blank">Vue.js</a></span> and
+          <span class="supabase"><a href="https://supabase.com/" target="_blank">Supabase</a></span>
+        </p>
+      </div>
     </footer>
   </div>
 </template>
@@ -55,7 +61,6 @@
 
 .web-footer-link a {
   color: #ffd700;
-  text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
 }
@@ -63,5 +68,35 @@
 .web-footer-link a:hover {
   color: #ff4500;
   text-decoration: underline;
+}
+
+.tech-stack {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tech-stack p {
+  color: #666;
+  font-size: 14px;
+}
+
+.tech-stack .vue {
+  color: #42b883;
+  font-weight: bold;
+}
+
+.vue a, .supabase a {
+  color: #42b883;
+  text-decoration: none;
+}
+
+.vue a:hover, .supabase a:hover {
+  text-decoration: underline;
+}
+
+.tech-stack .supabase {
+  color: #3ecf8e;
+  font-weight: bold;
 }
 </style>
