@@ -145,6 +145,7 @@ onMounted(() => {
 <style scoped>
 .weapons-page-container {
   min-height: 100vh;
+  margin-bottom: 75px;
 }
 
 .weapon-filter-container {

@@ -62,11 +62,6 @@
         </router-link>
       </div>
     </div>
-
-    <!-- Show Footer-->
-    <div class="mt-16">
-      <Footer />
-    </div>
   </div>
 
   <!-- Show error message -->
@@ -85,7 +80,6 @@ import CharacterFilter from "./../components/CharacterFilter.vue";
 // ----------------------------------------------------------
 import LoadingSpinner from "./../components/LoadingSpinner.vue"; // Import the loading spinner component
 import Errorcomponent from "./../components/ErrorComponent.vue"; // Import the error component
-import Footer from "@/components/Footer.vue";
 
 // Loading and error states
 const loading = ref(true);
@@ -192,6 +186,7 @@ onMounted(async () => {
 <style scoped>
 .character-page-container {
   width: 1400px;
+  margin-bottom: 75px;
 }
 
 .link {

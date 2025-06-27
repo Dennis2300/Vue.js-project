@@ -37,18 +37,12 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer Section -->
-    <div class="footer-container">
-      <Footer />
-    </div>
   </div>
 </template>
 
 <script setup>
 import "./../css/BulletinBoard.css";
 import images from "./../assets/images.json";
-import Footer from "./../components/Footer.vue";
 </script>
 
 <style scoped>
