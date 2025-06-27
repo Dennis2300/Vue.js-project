@@ -56,6 +56,7 @@ onMounted(() => {
 
 <style scoped>
 .teams-page-container {
+  min-height: 90vh;
   margin-top: 75px;
 }
 
