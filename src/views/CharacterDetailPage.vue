@@ -66,6 +66,14 @@
             >
               <p class="character-list-view">{{ affiliation }}</p>
             </div>
+
+            <!-- character regions -->
+            <h1 class="divider mt-5">Regions</h1>
+            <div v-for="region in character.regions" :key="region.id">
+              <p class="character-list-view">
+                {{ region.name }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -582,7 +590,7 @@ onMounted(async () => {
 
 .character-artifact-container {
   height: auto;
-  margin-top: 75px;
+  margin-top: 50px;
 }
 
 .character-bis-list-container {
@@ -713,6 +721,7 @@ onMounted(async () => {
 }
 
 .character-weapon-container {
+  margin-top: 50px;
   height: 300px;
 }
 
