@@ -14,7 +14,7 @@
           :class="{ selected: selectedWeaponTypeId === weaponType.id }"
           @click="selectWeaponType(weaponType.id)"
         >
-          {{ weaponType.name }}
+          <strong class="weapon-filter-name">{{ weaponType.name }}</strong>
         </div>
       </div>
     </div>
@@ -100,6 +100,13 @@ onMounted(() => {
   font-family: var(--font-acme);
 }
 
+.weapon-filter-name {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 .weapon-type-container {
   display: flex;
   gap: 16px;
@@ -114,9 +121,36 @@ onMounted(() => {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
+  position: relative;
+  border: 2px solid transparent;
 }
 
 .weapon-type-item:hover {
   background-color: var(--filter-color-hover);
+}
+
+.weapon-type-item.active {
+  background-color: var(--filter-color-active);
+  font-weight: bold;
+  box-shadow: 0 0 0 2px white, 0 0 10px 0 var(--filter-color-active);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.weapon-type-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--filter-color-active);
+}
+
+.weapon-type-item.selected {
+  outline: 1px solid gold;
 }
 </style>
