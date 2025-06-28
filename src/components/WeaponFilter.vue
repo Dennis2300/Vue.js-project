@@ -6,9 +6,6 @@
     </div>
 
     <div v-if="!loading && !error" class="weapon-filter-container">
-      <h4 class="weapon-type-filter-header tracking-wider">
-        Filter by weapon type:
-      </h4>
       <div class="weapon-type-container mt-2">
         <div
           v-for="weaponType in weaponTypes"

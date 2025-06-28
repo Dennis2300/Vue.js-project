@@ -3,46 +3,53 @@
   <LoadingSpinner v-if="loading" />
 
   <!-- Weapons Container -->
-  <div v-if="!loading && !error" class="weapons-page-container">
-    <div class="weapons-page-content">
+  <div v-if="!loading && !error">
+    <div class="weapons-page-container">
+      <!-- Weapon filter-->
       <div class="weapon-filter-container">
-        <!-- Filter by Weapon Type or Bonus Effect -->
         <WeaponFilter
           @filtered-weapons="displayFilteredWeapons"
           @clear-filter="handleClearFilter"
         />
       </div>
-      <h1 class="weapon-page-header divider text-5xl">Weapons Archive</h1>
-      <div class="weapon-grid-container mt-10">
-        <router-link
-          v-for="weapon in weapons"
-          class="weapon-grid-item"
-          :class="{
-            'rarity-5': weapon.rarity === 5,
-            'rarity-4': weapon.rarity === 4,
-          }"
-          :key="weapon.id"
-          :to="`/weapons/${weapon.id}?name=${encodeURIComponent(weapon.name)}`"
-        >
-          <!-- Weapon image -->
-          <img
-            :src="weapon.image_url"
-            :alt="weapon.name"
-            class="weapon-image mt-5"
-          />
-          <!-- weapon name -->
-          <div class="divider"></div>
-          <h2 class="weapon-name text-white truncate">{{ weapon.name }}</h2>
-          <!-- Weapon Tags -->
-          <div class="weapon-tags-container mt-5">
-            <p class="weapon-type-tag">
-              {{ weapon.weapon_type_id.name }}
-            </p>
-            <p class="weapon-bonus-effect-tag">
-              {{ weapon.bonus_effect_type_id.name }}
-            </p>
-          </div>
-        </router-link>
+
+      <h1 class="weapon-page-header divider text-5xl my-9">Weapons Archive</h1>
+
+      <!-- Weapon display -->
+      <div class="weapon-display-container">
+        <div class="weapon-grid">
+          <router-link
+            v-for="weapon in weapons"
+            class="weapon-grid-card"
+            :class="{
+              'rarity-5': weapon.rarity === 5,
+              'rarity-4': weapon.rarity === 4,
+            }"
+            :key="weapon.id"
+            :to="`/weapons/${weapon.id}?name=${encodeURIComponent(
+              weapon.name
+            )}`"
+          >
+            <!-- Weapon image -->
+            <img
+              :src="weapon.image_url"
+              :alt="weapon.name"
+              class="weapon-grid-image"
+            />
+            <!-- weapon name -->
+            <div class="divider px-10 mt-9"></div>
+            <h2 class="weapon-card-title">{{ weapon.name }}</h2>
+            <!-- Weapon Tags -->
+            <div class="weapon-card-tags-container">
+              <p class="weapon-tags">
+                {{ weapon.weapon_type_id.name }}
+              </p>
+              <p class="weapon-tags">
+                {{ weapon.bonus_effect_type_id.name }}
+              </p>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -147,81 +154,115 @@ onMounted(() => {
 
 <style scoped>
 .weapons-page-container {
-  min-height: 100vh;
-  margin-bottom: 75px;
+  width: 1250px;
+  min-height: 75vh;
+  margin: 25px 0px 75px 0px;
 }
 
 .weapon-filter-container {
-  height: 100px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .weapon-page-header {
   font-family: var(--font-archivo);
+  text-transform: uppercase;
 }
 
-.weapons-page-content {
-  max-width: 1600px;
+.weapon-display-container {
+  min-height: 600px;
 }
 
-.weapon-grid-container {
+.weapon-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 50px;
-}
-
-.weapon-grid-item {
-  background-color: var(--secondary);
-  border-radius: 15px;
   padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease;
-  height: 325px;
+}
+
+.weapon-grid-card {
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 25px 0;
+  border-radius: 25px;
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.weapon-grid-item:hover {
-  transform: translateY(-10px);
+.weapon-grid-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: var(--filter-color-hover); /* Add a slightly darker/lighter variant in your variables */
 }
 
-.weapon-image {
+/* Optional: Add a subtle shine effect on hover */
+.weapon-grid-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transition: left 0.7s ease-in-out;
+}
+
+.weapon-grid-card:hover::after {
+  left: 100%;
+}
+
+
+.weapon-grid-image {
   width: 150px;
   height: 150px;
   border-radius: 25px;
 }
 
-.weapon-name {
-  font-family: var(--font-acme);
+.weapon-card-title {
+  font-size: 1.5em;
+  color: white;
   letter-spacing: 1px;
-  text-decoration: none;
 }
 
-.weapon-tags-container {
+.weapon-card-tags-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  gap: 25px;
+  margin-top: 15px;
 }
 
-.weapon-type-tag,
-.weapon-bonus-effect-tag {
+.weapon-tags {
   background-color: var(--primary);
-  color: var(--tertiary);
   font-family: var(--font-acme);
+  color: var(--tertiary);
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 0.9rem;
   letter-spacing: 1px;
 }
 
-.rarity-5 .weapon-image {
+.rarity-5 .weapon-grid-image {
   background: linear-gradient(145deg, #e7944a, #b56a2b);
   box-shadow: 0px 0px 15px rgba(231, 148, 74, 0.8),
     0px 0px 30px rgba(231, 148, 74, 0.5);
 }
 
-.rarity-4 .weapon-image {
+.rarity-4 .weapon-grid-image {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 15px rgba(155, 114, 213, 0.8),
     0px 0px 30px rgba(155, 114, 213, 0.5);
