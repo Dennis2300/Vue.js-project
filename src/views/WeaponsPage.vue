@@ -200,7 +200,7 @@ onMounted(() => {
 .weapon-grid-card:hover {
   transform: scale(1.02);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: var(--filter-color-hover); /* Add a slightly darker/lighter variant in your variables */
+  background-color: var(--filter-color); /* Add a slightly darker/lighter variant in your variables */
 }
 
 /* Optional: Add a subtle shine effect on hover */
