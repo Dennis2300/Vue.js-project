@@ -109,9 +109,12 @@ async function getAllWeapons() {
     let { data, error: fetchError } = await supabase
       .from("weapons")
       .select(
-        "id, name, rarity, image_url, weapon_type_id(name), bonus_effect_type_id(name)"
+        "id, name, rarity, image_url, weapon_type_id(id, name), bonus_effect_type_id(name)"
       );
     if (fetchError) throw fetchError;
+
+    console.log("Fetched weapons:", data);
+
     weapons.value = data;
     setCachedData(cacheKey, data);
     sortWeaponsByReleaseDate();

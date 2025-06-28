@@ -14,7 +14,8 @@
           v-for="weaponType in weaponTypes"
           :key="weaponType.id"
           class="weapon-type-item"
-          @click="clickLog"
+          :class="{ selected: selectedWeaponTypeId === weaponType.id }"
+          @click="selectWeaponType(weaponType.id)"
         >
           {{ weaponType.name }}
         </div>
@@ -24,13 +25,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 import { supabase } from "./../supabaseClient.js"; // Import the Supabase client
 
 const loading = ref(true);
 const error = ref(null);
 
 const weaponTypes = ref([]);
+const selectedWeaponTypeId = ref(null);
+
+const emits = defineEmits(["filtered-weapons", "clear-filter"]);
 
 // Get all weapon types from the database
 async function getAllWeaponTypes() {
@@ -41,6 +45,8 @@ async function getAllWeaponTypes() {
 
     if (fetchError) throw fetchError;
 
+    console.log("Weapon types data:", data);
+
     weaponTypes.value = data;
   } catch (err) {
     error.value = err.message;
@@ -49,9 +55,39 @@ async function getAllWeaponTypes() {
   }
 }
 
-function clickLog() {
-  console.log("Weapon type clicked");
+function selectWeaponType(weaponTypeId) {
+  selectedWeaponTypeId.value =
+    selectedWeaponTypeId.value === weaponTypeId ? null : weaponTypeId;
+
+  console.log(`Selected weapon type ID: ${selectedWeaponTypeId.value}`);
 }
+
+const filteredWeapons = computed(() => {
+  const cachedWeapons = sessionStorage.getItem("weapons");
+  if (!cachedWeapons) return [];
+
+  try {
+    const { data: weapons } = JSON.parse(cachedWeapons);
+
+    return weapons.filter((weapon) => {
+      const weaponTypeMatch =
+        !selectedWeaponTypeId.value ||
+        weapon.weapon_type_id?.id === selectedWeaponTypeId.value;
+      return weaponTypeMatch;
+    });
+  } catch (err) {
+    console.error("Error parsing cached weapons:", err);
+    return [];
+  }
+});
+
+watch(
+  filteredWeapons,
+  (newWeapons) => {
+    emits("filtered-weapons", newWeapons);
+  },
+  { immediate: true }
+);
 
 onMounted(() => {
   getAllWeaponTypes();

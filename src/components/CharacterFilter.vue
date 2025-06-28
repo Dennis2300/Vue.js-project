@@ -114,7 +114,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup> 
 import { ref, onMounted, computed, watch } from "vue";
 import { supabase } from "../supabaseClient.js";
 
