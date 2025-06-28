@@ -136,7 +136,7 @@ async function GetAllCharacters() {
     let { data, error: fetchError } = await supabase
       .from("characters")
       .select(
-      "*, vision:vision(id, name, image_url), team_role:team_role(name), substat:substat(name), weapon_type:weapon_type(name)"
+        "*, vision:vision(id, name, image_url), team_role:team_role(name), substat:substat(name), weapon_type:weapon_type(name)"
       )
       .order("id", { ascending: true });
 
@@ -232,12 +232,16 @@ onMounted(async () => {
   padding-top: 30px;
   border-radius: 15px;
   background-color: var(--secondary);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
 }
 
 .character-grid-item:hover {
-  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--tertiary);
+  background-color: var(--filter-color);
 }
 
 .vision-icon {
