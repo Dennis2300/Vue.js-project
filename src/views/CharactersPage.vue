@@ -159,6 +159,7 @@ function sortCharactersByReleaseDate() {
   });
 }
 
+// Check if a character is new
 function isNewCharacter(character) {
   if (character && typeof character.new_character !== "undefined") {
     return Boolean(character.new_character);
@@ -166,11 +167,13 @@ function isNewCharacter(character) {
   return false;
 }
 
+// If there is a filter applied, display the filtered characters
 function displayFilteredCharacters(filtered) {
   characters.value = filtered;
   sortCharactersByReleaseDate();
 }
 
+// Clear the filter and reset characters to the original list
 function handleClearFilter() {
   characters.value = [...characters.value];
   sortCharactersByReleaseDate();
