@@ -33,7 +33,7 @@
             class="artifact-img"
           />
         </div>
-
+        
         <!-- Artifact Attributes -->
         <div class="artifact-attributes-container">
           <div class="artifact-two-piece-set">
@@ -147,7 +147,7 @@ onMounted(async () => {
 .artifact-name {
   font-family: var(--font-acme);
   font-size: 3rem;
-  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .artifact-img-container {

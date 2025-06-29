@@ -47,17 +47,28 @@
             :alt="character.name"
           />
 
+          <!-- Ribbons for New character -->
+
           <div v-if="isNewCharacter(character)" class="ribbon ribbon-top-right">
             <span>New</span>
+          </div>
+          <!-- Ribbons for New character -->
+          <div
+            v-if="isUpcomingCharacter(character)"
+            class="ribbon ribbon-top-right"
+          >
+            <span class="upcoming">Upcoming</span>
           </div>
 
           <h3>{{ character.name }}</h3>
           <p class="rarity-text text-white" :data-stars="character.rarity"></p>
           <div class="character-tags-container mt-2">
             <strong class="character-tag">{{
-              character.team_role.name
+              character.team_role?.name || "UPCOMING"
             }}</strong>
-            <strong class="character-tag">{{ character.substat.name }}</strong>
+            <strong v-if="character.substat?.name" class="character-tag">{{
+              character.substat?.name || ""
+            }}</strong>
           </div>
         </router-link>
       </div>
@@ -154,7 +165,13 @@ async function GetAllCharacters() {
 
 // Sort characters by release date
 function sortCharactersByReleaseDate() {
-  characters.value.sort((a, b) => {
+  characters.value = [...characters.value].sort((a, b) => {
+    // Upcoming characters first
+    if (a.is_upcoming !== b.is_upcoming) {
+      return b.is_upcoming - a.is_upcoming;
+    }
+
+    // Then sort by release date (newest first)
     return new Date(b.release_date) - new Date(a.release_date);
   });
 }
@@ -163,6 +180,13 @@ function sortCharactersByReleaseDate() {
 function isNewCharacter(character) {
   if (character && typeof character.new_character !== "undefined") {
     return Boolean(character.new_character);
+  }
+  return false;
+}
+
+function isUpcomingCharacter(character) {
+  if (character && typeof character.is_upcoming !== "undefined") {
+    return Boolean(character.is_upcoming);
   }
   return false;
 }
@@ -327,5 +351,9 @@ onMounted(async () => {
   border-radius: 5px;
   font-size: 0.9rem;
   letter-spacing: 1px;
+}
+
+.upcoming {
+  font-size: 10px;
 }
 </style>
