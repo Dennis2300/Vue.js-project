@@ -38,8 +38,12 @@
           <h1 class="character-name mt-3">{{ character.name }}</h1>
           <div class="character-tags-container mt-2">
             <p class="character-tags">{{ character.vision.name }}</p>
-            <p class="character-tags">{{ character.team_role.name }}</p>
-            <p class="character-tags">{{ character.substat.name }}</p>
+            <p class="character-tags" v-if="character.team_role?.name">
+              {{ character.team_role?.name || "" }}
+            </p>
+            <p class="character-tags" v-if="character.substat?.name">
+              {{ character.substat?.name || "" }}
+            </p>
             <p class="character-tags">{{ character.weapon_type.name }}</p>
           </div>
         </div>
@@ -49,7 +53,7 @@
           <div class="character-overview">
             <!-- character voice actors -->
             <h1 class="divider">Voice Actors</h1>
-            <div class="character-va-container">
+            <div class="character-va-container" v-if="character.va">
               <div v-for="(name, lang) in character.va" :key="lang">
                 <p class="character-list-view">
                   {{ flagEmoji(lang) }} &rarr;
@@ -58,13 +62,24 @@
               </div>
             </div>
 
+            <div v-else>
+              <p class="text-center my-9">No voice actors announced yet.</p>
+            </div>
+
             <!-- character affiliation -->
             <h1 class="divider mt-5">Affiliation</h1>
             <div
+              v-if="character.affiliation"
               v-for="affiliation in character.affiliation"
               :key="affiliation"
             >
-              <p class="character-list-view">{{ affiliation }}</p>
+              <p class="character-list-view">
+                {{ affiliation ? affiliation : "" }}
+              </p>
+            </div>
+
+            <div v-else>
+              <p class="text-center my-9">No affiliation yet.</p>
             </div>
 
             <!-- character regions -->
@@ -73,6 +88,9 @@
               <p class="character-list-view">
                 {{ region.name }}
               </p>
+            </div>
+            <div v-if="!character.regions.length">
+              <p class="text-center my-9">No regions yet.</p>
             </div>
           </div>
         </div>
