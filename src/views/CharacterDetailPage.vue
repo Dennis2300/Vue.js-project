@@ -14,10 +14,12 @@
     >
       <!-- Background Image -->
       <img
+        v-if="character.splash_art"
         class="background-img"
         :src="character.splash_art"
         alt="Character Art"
       />
+      <div v-else></div> <!-- Fallback if no splash art is available -->
 
       <!-- character detail image container -->
       <div class="character-detail-image-container">
@@ -406,6 +408,7 @@ async function fetchCharacterDetails(characterId) {
 }
 
 function formatDate(dateString) {
+  if (!dateString) return "Upcoming";
   const options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString("en-US", options);
 }
