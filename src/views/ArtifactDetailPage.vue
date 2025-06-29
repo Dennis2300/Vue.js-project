@@ -127,7 +127,7 @@ onMounted(async () => {
 <style scoped>
 .artifact-detail-page-container {
   padding: 0;
-  margin: 100px 0 100px 0;
+  margin: 50px 0px 100px 0px;
 }
 
 .artifact-detail-container {
@@ -175,6 +175,7 @@ onMounted(async () => {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5em;
   letter-spacing: 1px;
+  margin: 5px 0px 35px 0px;
 }
 
 .artifact-four-piece-set h1 {
