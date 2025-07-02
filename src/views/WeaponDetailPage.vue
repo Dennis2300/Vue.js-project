@@ -17,7 +17,7 @@
         </div>
         <div class="weapon-info">
           <h1 class="weapon-name">{{ weapon.name }}</h1>
-          <p class="rarity-text text-white" :data-stars="weapon.rarity"></p>
+          <p class="rarity-text" :data-stars="weapon.rarity"></p>
           <strong>{{ weapon.weapon_type_id.name }}</strong>
           <p class="weapon-sub-stats">
             <strong>Base Attack:</strong> {{ weapon.base_attack }}
@@ -36,7 +36,10 @@
       <h1 class="divider header">Attribute</h1>
       <div class="weapon-attribute-text">
         <h1>{{ weapon.attribute }}</h1>
-        <MarkdownRender class="pl-3 mt-2 mb-10" :content="weapon.attribute_description" />
+        <MarkdownRender
+          class="pl-3 mt-2 mb-10"
+          :content="weapon.attribute_description"
+        />
       </div>
       <div class="lore-text">
         <h2 class="divider header">Description</h2>
@@ -141,6 +144,22 @@ onMounted(async () => {
   background: linear-gradient(145deg, #9b72d5, #7149a3);
   box-shadow: 0px 0px 5px rgba(155, 114, 213, 0.8),
     0px 0px 15px rgba(155, 114, 213, 0.5);
+}
+
+.rarity-text::before {
+  content: attr(data-stars);
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.rarity-text[data-stars="5"]::before {
+  content: "★★★★★";
+  color: gold;
+}
+.rarity-text[data-stars="4"]::before {
+  content: "★★★★";
+  color: gold;
 }
 
 .weapon-sub-stats {

@@ -39,10 +39,7 @@ async function getAllWeaponTypes() {
     let { data, error: fetchError } = await supabase
       .from("weaponTypes")
       .select("*");
-
     if (fetchError) throw fetchError;
-
-    console.log("Weapon types data:", data);
 
     weaponTypes.value = data;
   } catch (err) {

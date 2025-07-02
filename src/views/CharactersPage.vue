@@ -14,7 +14,9 @@
     </div>
 
     <div class="text-2xl mt-5">
-      <h2 class="character-page-header divider text-5xl my-9">Character Archive</h2>
+      <h2 class="character-page-header divider text-5xl my-9">
+        Character Archive
+      </h2>
     </div>
 
     <!-- Show characters -->
@@ -58,7 +60,7 @@
           </div>
 
           <h3>{{ character.name }}</h3>
-          <p class="rarity-text text-white" :data-stars="character.rarity"></p>
+          <p class="rarity-text" :data-stars="character.rarity"></p>
           <div class="character-tags-container mt-2">
             <strong class="character-tag">{{
               character.team_role?.name || "UPCOMING"
